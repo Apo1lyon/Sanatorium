@@ -72,14 +72,14 @@ namespace Sanatorium.Forms
             try
             {
                 sqlConnection.connection.Open();
-                string addQuery = $"insert into Diagnosis (DiagnosisID, DiseaseID, Complications, Diagnosis, Date) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}','{dateTimePicker1.Text}')";
+                string addQuery = $"insert into {tablePrimary} (DiagnosisID, DiseaseID, Complications, Diagnosis, Date) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}','{dateTimePicker1.Text}')";
 
                 command = new SqlCommand(addQuery, sqlConnection.connection);
                 command.ExecuteNonQuery();
 
                 bindingSourcePrimary = new BindingSource();
 
-                bindingSourcePrimary.DataSource = sqlConnection.GetData("Select * From Diagnosis", new DataTable("Diagnosis"));
+                bindingSourcePrimary.DataSource = sqlConnection.GetData($"Select * From {tablePrimary}", new DataTable($"{tablePrimary}"));
 
                 sqlConnection.ClearTextBox(panelSetValue.Controls);
 
@@ -88,7 +88,7 @@ namespace Sanatorium.Forms
             catch (Exception)
             {
                 sqlConnection.connection.Close();
-                MessageBox.Show("Данные не могут повторятся", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Данных не существует или они повторяются", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
