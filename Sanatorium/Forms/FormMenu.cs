@@ -111,7 +111,7 @@ namespace Sanatorium
         
         private void btnServices_Click(object sender, EventArgs e) => OpenChildForm(new Forms.FormListServices(), sender);//Вызов формы при нажатии кнопки
 
-        private void btnReporting_Click(object sender, EventArgs e) => OpenChildForm(new Forms.FormListPatient(), sender);
+        private void btnReporting_Click(object sender, EventArgs e) => OpenChildForm(new Forms.FormListReporting(), sender);
 
         private void btnCloseChildForm_Click(object sender, EventArgs e)
         {
