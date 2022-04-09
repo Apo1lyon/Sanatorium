@@ -102,6 +102,12 @@
       <DependentUpon>FormOperation.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\SqlConnection.cs" />
+    <Compile Include="Forms\FormSpecialty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSpecialty.Designer.cs">
+      <DependentUpon>FormSpecialty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Class\ThemeColor.cs" />
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormOperation.resx">
       <DependentUpon>FormOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSpecialty.resx">
+      <DependentUpon>FormSpecialty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
