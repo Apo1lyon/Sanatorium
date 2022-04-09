@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sanatorium.Forms
 {
-    public partial class FormList : Form
+    public partial class FormListPatient : Form
     {
-        public FormList()
+        public FormListPatient()
         {
             InitializeComponent();
         }
@@ -41,7 +41,8 @@ namespace Sanatorium.Forms
             childForm.Show();
         }//Открытие дочерней формы
 
-        private void FormDataGrid_Click(object sender, EventArgs e) => OpenChildForm(new FormDiagnosis(), sender);
+        private void FormDiagnosis_Click(object sender, EventArgs e) => OpenChildForm(new FormDiagnosis(), sender);
+        private void FormDisease_Click(object sender, EventArgs e) => OpenChildForm(new FormDisease(), sender);
 
         private void Operation_Click(object sender, EventArgs e) => OpenChildForm(new FormOperation(), sender);
     }

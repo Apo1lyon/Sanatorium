@@ -34,7 +34,7 @@ namespace Sanatorium.Forms
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormList(), sender);
+        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPatient(), sender);
 
         private void OpenChildForm(Form childForm, object btnSender)
         {

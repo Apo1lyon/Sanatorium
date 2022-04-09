@@ -1,7 +1,7 @@
 ﻿
 namespace Sanatorium.Forms
 {
-    partial class FormList
+    partial class FormListPatient
     {
         /// <summary>
         /// Required designer variable.
@@ -183,7 +183,6 @@ namespace Sanatorium.Forms
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Таблица3";
-            this.label4.Click += new System.EventHandler(this.FormDataGrid_Click);
             // 
             // label3
             // 
@@ -194,7 +193,7 @@ namespace Sanatorium.Forms
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Таблица2";
-            this.label3.Click += new System.EventHandler(this.FormDataGrid_Click);
+            this.label3.Click += new System.EventHandler(this.FormDisease_Click);
             // 
             // label2
             // 
@@ -205,7 +204,7 @@ namespace Sanatorium.Forms
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Таблица1";
-            this.label2.Click += new System.EventHandler(this.FormDataGrid_Click);
+            this.label2.Click += new System.EventHandler(this.FormDiagnosis_Click);
             // 
             // FormList
             // 

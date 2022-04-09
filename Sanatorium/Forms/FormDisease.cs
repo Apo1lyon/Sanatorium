@@ -11,15 +11,15 @@ using System.Windows.Forms;
 
 namespace Sanatorium.Forms
 {
-    public partial class FormDiagnosis : Form
+    public partial class FormDisease : Form
     {
         SqlConnection sqlConnection = new SqlConnection();
         SqlCommand command;
         BindingSource bindingSourcePrimary;
-        string tablePrimary = "Diagnosis";
-        string tableSecondary = "Disease";
+        string tablePrimary = "Disease";
+        string tableSecondary;
 
-        public FormDiagnosis()
+        public FormDisease()
         {
             InitializeComponent();
             lblTextTitleForm.Text = this.Text;
@@ -73,7 +73,7 @@ namespace Sanatorium.Forms
             try
             {
                 sqlConnection.connection.Open();
-                string addQuery = $"insert into {tablePrimary} (DiagnosisID, DiseaseID, Complications, Diagnosis, Date) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}','{dateTimePicker1.Text}')";
+                string addQuery = $"insert into {tablePrimary} (DiseaseID, NameDisease, TypeOfDisease, Reason, Symptoms) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}','{textBox5.Text}')";
 
                 command = new SqlCommand(addQuery, sqlConnection.connection);
                 command.ExecuteNonQuery();
@@ -97,16 +97,5 @@ namespace Sanatorium.Forms
         private void dgvDataBase_CellValueChanged(object sender, DataGridViewCellEventArgs e) => sqlConnection.ValueChanged(dgvDataBase, tablePrimary);
         
         private void dgvDataBase_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e) => sqlConnection.DeletingRow(dgvDataBase, tablePrimary);
-        
-        private void dgvDataBase_CellClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableSecondary);
-
-        private void dgvSelectDataBase_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.BroadcastID(dgvDataBase, dgvSelectDataBase, tableSecondary);
-
-        private void btnDate_Click(object sender, EventArgs e)
-        {
-            BindingSource bindingSourcePrimary = new BindingSource();
-            bindingSourcePrimary.DataSource = sqlConnection.GetData($"SELECT * FROM {tablePrimary} WHERE Date >= '{dtpStartDate.Value}' and Date <= '{dtpEndDate.Value}'", new DataTable($"{tablePrimary}"));
-            dgvDataBase.DataSource = bindingSourcePrimary;
-        }
     }
 }

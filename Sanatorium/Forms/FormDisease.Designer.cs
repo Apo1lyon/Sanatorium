@@ -1,7 +1,7 @@
 ﻿
 namespace Sanatorium.Forms
 {
-    partial class FormDiagnosis
+    partial class FormDisease
     {
         /// <summary>
         /// Required designer variable.
@@ -33,17 +33,10 @@ namespace Sanatorium.Forms
             this.btnBack = new System.Windows.Forms.Button();
             this.lblTextTitleForm = new System.Windows.Forms.Label();
             this.panelDataGrid = new System.Windows.Forms.Panel();
-            this.dgvSelectDataBase = new System.Windows.Forms.DataGridView();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnDate = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDataBase = new System.Windows.Forms.DataGridView();
             this.panelSetValue = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -53,13 +46,13 @@ namespace Sanatorium.Forms
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.panelTitleBar.SuspendLayout();
             this.panelDataGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSelectDataBase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataBase)).BeginInit();
             this.panelSetValue.SuspendLayout();
             this.panelDesktop.SuspendLayout();
@@ -109,12 +102,6 @@ namespace Sanatorium.Forms
             this.panelDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelDataGrid.BackColor = System.Drawing.Color.White;
-            this.panelDataGrid.Controls.Add(this.dgvSelectDataBase);
-            this.panelDataGrid.Controls.Add(this.dtpEndDate);
-            this.panelDataGrid.Controls.Add(this.label9);
-            this.panelDataGrid.Controls.Add(this.dtpStartDate);
-            this.panelDataGrid.Controls.Add(this.label8);
-            this.panelDataGrid.Controls.Add(this.btnDate);
             this.panelDataGrid.Controls.Add(this.btnUpdate);
             this.panelDataGrid.Controls.Add(this.label2);
             this.panelDataGrid.Controls.Add(this.dgvDataBase);
@@ -122,73 +109,6 @@ namespace Sanatorium.Forms
             this.panelDataGrid.Name = "panelDataGrid";
             this.panelDataGrid.Size = new System.Drawing.Size(674, 435);
             this.panelDataGrid.TabIndex = 1;
-            // 
-            // dgvSelectDataBase
-            // 
-            this.dgvSelectDataBase.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvSelectDataBase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSelectDataBase.Location = new System.Drawing.Point(12, 260);
-            this.dgvSelectDataBase.Name = "dgvSelectDataBase";
-            this.dgvSelectDataBase.Size = new System.Drawing.Size(651, 119);
-            this.dgvSelectDataBase.TabIndex = 13;
-            this.dgvSelectDataBase.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSelectDataBase_CellDoubleClick);
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpEndDate.CustomFormat = "dd MMM, yyyy";
-            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDate.Location = new System.Drawing.Point(402, 399);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(85, 20);
-            this.dtpEndDate.TabIndex = 18;
-            this.dtpEndDate.Value = new System.DateTime(2022, 4, 9, 0, 0, 0, 0);
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(374, 402);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(22, 13);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "До";
-            // 
-            // dtpStartDate
-            // 
-            this.dtpStartDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpStartDate.CustomFormat = "dd MMM, yyyy";
-            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(281, 399);
-            this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(87, 20);
-            this.dtpStartDate.TabIndex = 16;
-            this.dtpStartDate.Value = new System.DateTime(2022, 4, 9, 0, 0, 0, 0);
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(255, 402);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(20, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "От";
-            // 
-            // btnDate
-            // 
-            this.btnDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDate.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnDate.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnDate.Location = new System.Drawing.Point(136, 394);
-            this.btnDate.Name = "btnDate";
-            this.btnDate.Size = new System.Drawing.Size(113, 25);
-            this.btnDate.TabIndex = 14;
-            this.btnDate.Text = "По дате";
-            this.btnDate.UseVisualStyleBackColor = true;
-            this.btnDate.Click += new System.EventHandler(this.btnDate_Click);
             // 
             // btnUpdate
             // 
@@ -222,9 +142,8 @@ namespace Sanatorium.Forms
             this.dgvDataBase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDataBase.Location = new System.Drawing.Point(12, 46);
             this.dgvDataBase.Name = "dgvDataBase";
-            this.dgvDataBase.Size = new System.Drawing.Size(651, 208);
+            this.dgvDataBase.Size = new System.Drawing.Size(651, 333);
             this.dgvDataBase.TabIndex = 0;
-            this.dgvDataBase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataBase_CellClick);
             this.dgvDataBase.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataBase_CellValueChanged);
             this.dgvDataBase.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvDataBase_UserDeletingRow);
             // 
@@ -234,7 +153,8 @@ namespace Sanatorium.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSetValue.BackColor = System.Drawing.Color.White;
-            this.panelSetValue.Controls.Add(this.dateTimePicker1);
+            this.panelSetValue.Controls.Add(this.textBox5);
+            this.panelSetValue.Controls.Add(this.label4);
             this.panelSetValue.Controls.Add(this.label1);
             this.panelSetValue.Controls.Add(this.btnDelete);
             this.panelSetValue.Controls.Add(this.btnAdd);
@@ -244,7 +164,6 @@ namespace Sanatorium.Forms
             this.panelSetValue.Controls.Add(this.textBox3);
             this.panelSetValue.Controls.Add(this.label5);
             this.panelSetValue.Controls.Add(this.textBox2);
-            this.panelSetValue.Controls.Add(this.label4);
             this.panelSetValue.Controls.Add(this.textBox1);
             this.panelSetValue.Controls.Add(this.label3);
             this.panelSetValue.Location = new System.Drawing.Point(691, 45);
@@ -254,25 +173,15 @@ namespace Sanatorium.Forms
             this.panelSetValue.Size = new System.Drawing.Size(245, 435);
             this.panelSetValue.TabIndex = 2;
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(128, 226);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(105, 20);
-            this.dateTimePicker1.TabIndex = 15;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Montserrat", 10F);
             this.label1.Location = new System.Drawing.Point(18, 226);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 20);
+            this.label1.Size = new System.Drawing.Size(87, 20);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Дата";
+            this.label1.Text = "Симптомы";
             // 
             // btnDelete
             // 
@@ -308,11 +217,11 @@ namespace Sanatorium.Forms
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label7.Location = new System.Drawing.Point(17, 193);
+            this.label7.Location = new System.Drawing.Point(18, 160);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 20);
+            this.label7.Size = new System.Drawing.Size(36, 20);
             this.label7.TabIndex = 10;
-            this.label7.Text = "Диагноз";
+            this.label7.Text = "Тип";
             // 
             // textBox4
             // 
@@ -328,11 +237,11 @@ namespace Sanatorium.Forms
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label6.Location = new System.Drawing.Point(18, 160);
+            this.label6.Location = new System.Drawing.Point(18, 127);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 20);
+            this.label6.Size = new System.Drawing.Size(81, 20);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Осложнения";
+            this.label6.Text = "Название";
             // 
             // textBox3
             // 
@@ -348,7 +257,7 @@ namespace Sanatorium.Forms
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label5.Location = new System.Drawing.Point(18, 127);
+            this.label5.Location = new System.Drawing.Point(18, 94);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 20);
             this.label5.TabIndex = 6;
@@ -363,16 +272,6 @@ namespace Sanatorium.Forms
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(105, 22);
             this.textBox2.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label4.Location = new System.Drawing.Point(18, 94);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 20);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "ID Диагноз";
             // 
             // textBox1
             // 
@@ -405,20 +304,39 @@ namespace Sanatorium.Forms
             this.panelDesktop.Size = new System.Drawing.Size(948, 492);
             this.panelDesktop.TabIndex = 3;
             // 
-            // FormDiagnosis
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.label4.Location = new System.Drawing.Point(18, 193);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 20);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Причина";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox5.Location = new System.Drawing.Point(128, 226);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(105, 22);
+            this.textBox5.TabIndex = 17;
+            // 
+            // FormDisease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 492);
             this.Controls.Add(this.panelDesktop);
-            this.Name = "FormDiagnosis";
+            this.Name = "FormDisease";
             this.Text = "База данных диагнозов";
             this.Load += new System.EventHandler(this.FormDataGrid_Load);
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             this.panelDataGrid.ResumeLayout(false);
             this.panelDataGrid.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSelectDataBase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataBase)).EndInit();
             this.panelSetValue.ResumeLayout(false);
             this.panelSetValue.PerformLayout();
@@ -441,7 +359,6 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnUpdate;
@@ -449,13 +366,8 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.DateTimePicker dtpEndDate;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dtpStartDate;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnDate;
-        private System.Windows.Forms.DataGridView dgvSelectDataBase;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label4;
     }
 }
