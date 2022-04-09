@@ -190,9 +190,10 @@ namespace Sanatorium.Forms
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Location = new System.Drawing.Point(25, 96);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.Size = new System.Drawing.Size(106, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Таблица2";
+            this.label3.Text = "Таблица кабинетов";
+            this.label3.Click += new System.EventHandler(this.FormDoctorOffice_Click);
             // 
             // label2
             // 

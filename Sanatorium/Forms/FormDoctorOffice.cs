@@ -11,21 +11,21 @@ using System.Windows.Forms;
 
 namespace Sanatorium.Forms
 {
-    public partial class FormMedication : Form
+    public partial class FormDoctorOffice : Form
     {
         SqlConnection sqlConnection = new SqlConnection();
         SqlCommand command;
         BindingSource bindingSourcePrimary;
-        string tablePrimary = "Medication";
+        string tablePrimary = "DoctorOffice";
         string tableSecondary;
 
-        public FormMedication()
+        public FormDoctorOffice()
         {
             InitializeComponent();
             lblTextTitleForm.Text = this.Text;
         }
         
-        private void FormMedication_Load(object sender, EventArgs e)
+        private void FormDoctorOffice_Load(object sender, EventArgs e)
         {
             LoadTheme();
             FillDate();
@@ -50,7 +50,7 @@ namespace Sanatorium.Forms
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPatient(), sender);
+        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPersonnel(), sender);
         
         private void OpenChildForm(System.Windows.Forms.Form childForm, object btnSender)
         {
@@ -73,7 +73,7 @@ namespace Sanatorium.Forms
             try
             {
                 sqlConnection.connection.Open();
-                string addQuery = $"insert into {tablePrimary} (MedicationID, NameMedication, TypeOfMedication) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}')";
+                string addQuery = $"insert into {tablePrimary} (DoctorOfficeID, NameDoctorOffice, Location) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}')";
 
                 command = new SqlCommand(addQuery, sqlConnection.connection);
                 command.ExecuteNonQuery();

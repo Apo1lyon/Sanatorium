@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Sanatorium.Forms
 {
-    public partial class FormSpecialty : System.Windows.Forms.Form
+    public partial class FormSpecialty : Form
     {
         SqlConnection sqlConnection = new SqlConnection();
         SqlCommand command;
