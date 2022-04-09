@@ -1,7 +1,7 @@
 ﻿
 namespace Sanatorium.Forms
 {
-    partial class FormListPatient
+    partial class FormListPersonnel
     {
         /// <summary>
         /// Required designer variable.
@@ -193,7 +193,6 @@ namespace Sanatorium.Forms
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Таблица2";
-            this.label3.Click += new System.EventHandler(this.FormDiagnosis_Click);
             // 
             // label2
             // 
@@ -204,17 +203,16 @@ namespace Sanatorium.Forms
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Таблица1";
-            this.label2.Click += new System.EventHandler(this.FormDisease_Click);
             // 
-            // FormListPatient
+            // FormListPersonnel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 492);
             this.Controls.Add(this.panelDesktop);
-            this.Name = "FormListPatient";
-            this.Text = "Пациенты";
-            this.Load += new System.EventHandler(this.FormListPatient_Load);
+            this.Name = "FormListPersonnel";
+            this.Text = "Персонал";
+            this.Load += new System.EventHandler(this.FormClient_Load);
             this.panelDesktop.ResumeLayout(false);
             this.panelDesktop.PerformLayout();
             this.ResumeLayout(false);

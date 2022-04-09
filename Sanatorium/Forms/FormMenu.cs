@@ -105,9 +105,9 @@ namespace Sanatorium
         }//Открытие дочерней формы
 
         //Дочерние формы
-        private void btnPersonnel_Click(object sender, EventArgs e) => OpenChildForm(new Forms.FormListPatient(), sender);//Вызов формы при нажатии кнопки
+        private void btnPersonnel_Click(object sender, EventArgs e) => OpenChildForm(new Forms.FormListPersonnel(), sender);//Вызов формы при нажатии кнопки
 
-        private void btnClient_Click(object sender, EventArgs e) => OpenChildForm(new Forms.FormListPatient(), sender);//Вызов формы при нажатии кнопки
+        private void btnPatient_Click(object sender, EventArgs e) => OpenChildForm(new Forms.FormListPatient(), sender);//Вызов формы при нажатии кнопки
         
         private void btnServices_Click(object sender, EventArgs e) => OpenChildForm(new Forms.FormListPatient(), sender);//Вызов формы при нажатии кнопки
 

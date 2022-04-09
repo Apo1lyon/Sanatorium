@@ -168,7 +168,7 @@ namespace Sanatorium
             this.btnClient.Text = "  Пациенты";
             this.btnClient.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClient.UseVisualStyleBackColor = true;
-            this.btnClient.Click += new System.EventHandler(this.btnClient_Click);
+            this.btnClient.Click += new System.EventHandler(this.btnPatient_Click);
             // 
             // btnPersonnel
             // 

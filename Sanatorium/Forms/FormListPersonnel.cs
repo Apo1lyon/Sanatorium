@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Sanatorium.Forms
 {
-    public partial class FormListPatient : Form
+    public partial class FormListPersonnel : Form
     {
-        public FormListPatient()
+        public FormListPersonnel()
         {
             InitializeComponent();
         }
 
-        private void FormListPatient_Load(object sender, EventArgs e)
+        private void FormClient_Load(object sender, EventArgs e)
         {
             LoadTheme();
         }
@@ -41,8 +41,8 @@ namespace Sanatorium.Forms
             childForm.Show();
         }//Открытие дочерней формы
 
-        private void FormDiagnosis_Click(object sender, EventArgs e) => OpenChildForm(new FormDiagnosis(), sender);
-        private void FormDisease_Click(object sender, EventArgs e) => OpenChildForm(new FormDisease(), sender);
+       // private void FormDiagnosis_Click(object sender, EventArgs e) => OpenChildForm(new FormDiagnosis(), sender);
+       // private void FormDisease_Click(object sender, EventArgs e) => OpenChildForm(new FormDisease(), sender);
 
         private void Operation_Click(object sender, EventArgs e) => OpenChildForm(new FormOperation(), sender);
     }

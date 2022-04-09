@@ -53,6 +53,12 @@
     <Compile Include="Forms\FormDisease.Designer.cs">
       <DependentUpon>FormDisease.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormListPersonnel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormListPersonnel.Designer.cs">
+      <DependentUpon>FormListPersonnel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     <Compile Include="Class\ThemeColor.cs" />
     <EmbeddedResource Include="Forms\FormDisease.resx">
       <DependentUpon>FormDisease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormListPersonnel.resx">
+      <DependentUpon>FormListPersonnel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
