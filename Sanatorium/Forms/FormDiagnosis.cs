@@ -33,9 +33,9 @@ namespace Sanatorium.Forms
 
         private void FillDate()
         {
-            BindingSource bindingSourceDisiase = new BindingSource();
-            bindingSourceDisiase.DataSource = sqlConnection.GetData($"SELECT * FROM {tablePrimary}", new DataTable($"{tablePrimary}"));
-            dgvDataBase.DataSource = bindingSourceDisiase;
+            BindingSource bindingSourcePrimary = new BindingSource();
+            bindingSourcePrimary.DataSource = sqlConnection.GetData($"SELECT * FROM {tablePrimary}", new DataTable($"{tablePrimary}"));
+            dgvDataBase.DataSource = bindingSourcePrimary;
         }
 
         private void LoadTheme()
@@ -76,9 +76,8 @@ namespace Sanatorium.Forms
 
                 command = new SqlCommand(addQuery, sqlConnection.connection);
                 command.ExecuteNonQuery();
-
+                
                 bindingSourcePrimary = new BindingSource();
-
                 bindingSourcePrimary.DataSource = sqlConnection.GetData($"Select * From {tablePrimary}", new DataTable($"{tablePrimary}"));
 
                 sqlConnection.ClearTextBox(panelSetValue.Controls);
@@ -102,5 +101,11 @@ namespace Sanatorium.Forms
 
         private void dgvSelectDataBase_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.BroadcastID(dgvDataBase, dgvSelectDataBase, tableSecondary);
 
+        private void btnDate_Click(object sender, EventArgs e)
+        {
+            BindingSource bindingSourcePrimary = new BindingSource();
+            bindingSourcePrimary.DataSource = sqlConnection.GetData($"SELECT * FROM {tablePrimary} WHERE Date >= '{dtpStartDate.Value}' and Date <= '{dtpEndDate.Value}'", new DataTable($"{tablePrimary}"));
+            dgvDataBase.DataSource = bindingSourcePrimary;
+        }
     }
 }
