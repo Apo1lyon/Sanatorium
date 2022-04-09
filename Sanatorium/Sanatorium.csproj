@@ -71,6 +71,12 @@
     <Compile Include="Forms\FormListServices.Designer.cs">
       <DependentUpon>FormListServices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormMedication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMedication.Designer.cs">
+      <DependentUpon>FormMedication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormListServices.resx">
       <DependentUpon>FormListServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMedication.resx">
+      <DependentUpon>FormMedication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
