@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Sanatorium.Forms
 {
-    public partial class FormListPersonnel : Form
+    public partial class FormListServices : System.Windows.Forms.Form
     {
-        public FormListPersonnel()
+        public FormListServices()
         {
             InitializeComponent();
         }
 
-        private void FormClient_Load(object sender, EventArgs e)
+        private void FormListServices_Load(object sender, EventArgs e)
         {
             LoadTheme();
         }
@@ -30,7 +30,7 @@ namespace Sanatorium.Forms
             }
         }
         
-        private void OpenChildForm(Form childForm, object btnSender)
+        private void OpenChildForm(System.Windows.Forms.Form childForm, object btnSender)
         {
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;

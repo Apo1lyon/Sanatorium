@@ -1,7 +1,7 @@
 ﻿
 namespace Sanatorium.Forms
 {
-    partial class FormListPatient
+    partial class FormListServices
     {
         /// <summary>
         /// Required designer variable.
@@ -50,7 +50,7 @@ namespace Sanatorium.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label1.Location = new System.Drawing.Point(24, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 20);
@@ -84,7 +84,7 @@ namespace Sanatorium.Forms
             // 
             this.label13.AutoSize = true;
             this.label13.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label13.Location = new System.Drawing.Point(363, 28);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 20);
@@ -125,7 +125,7 @@ namespace Sanatorium.Forms
             // 
             this.label9.AutoSize = true;
             this.label9.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label9.Location = new System.Drawing.Point(24, 370);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 20);
@@ -167,7 +167,7 @@ namespace Sanatorium.Forms
             // 
             this.label5.AutoSize = true;
             this.label5.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label5.Location = new System.Drawing.Point(24, 200);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 20);
@@ -190,10 +190,9 @@ namespace Sanatorium.Forms
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Location = new System.Drawing.Point(25, 96);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 13);
+            this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Таблица диагнозов";
-            this.label3.Click += new System.EventHandler(this.FormDiagnosis_Click);
+            this.label3.Text = "Таблица2";
             // 
             // label2
             // 
@@ -201,20 +200,19 @@ namespace Sanatorium.Forms
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Location = new System.Drawing.Point(25, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 13);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Таблица болезней";
-            this.label2.Click += new System.EventHandler(this.FormDisease_Click);
+            this.label2.Text = "Таблица1";
             // 
-            // FormListPatient
+            // FormListServices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 492);
             this.Controls.Add(this.panelDesktop);
-            this.Name = "FormListPatient";
-            this.Text = "Пациенты";
-            this.Load += new System.EventHandler(this.FormListPatient_Load);
+            this.Name = "FormListServices";
+            this.Text = "Услуги";
+            this.Load += new System.EventHandler(this.FormListServices_Load);
             this.panelDesktop.ResumeLayout(false);
             this.panelDesktop.PerformLayout();
             this.ResumeLayout(false);
