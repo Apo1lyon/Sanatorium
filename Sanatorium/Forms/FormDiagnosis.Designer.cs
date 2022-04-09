@@ -141,7 +141,7 @@ namespace Sanatorium.Forms
             this.dtpEndDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpEndDate.CustomFormat = "dd MMM, yyyy";
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDate.Location = new System.Drawing.Point(578, 399);
+            this.dtpEndDate.Location = new System.Drawing.Point(564, 399);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(85, 20);
             this.dtpEndDate.TabIndex = 18;
@@ -153,9 +153,9 @@ namespace Sanatorium.Forms
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(536, 402);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.Size = new System.Drawing.Size(22, 13);
             this.label9.TabIndex = 17;
-            this.label9.Text = "label9";
+            this.label9.Text = "До";
             // 
             // dtpStartDate
             // 
@@ -172,11 +172,11 @@ namespace Sanatorium.Forms
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(402, 402);
+            this.label8.Location = new System.Drawing.Point(417, 402);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.Size = new System.Drawing.Size(20, 13);
             this.label8.TabIndex = 15;
-            this.label8.Text = "label8";
+            this.label8.Text = "От";
             // 
             // btnDate
             // 

@@ -29,6 +29,7 @@ namespace Sanatorium.Forms
         {
             LoadTheme();
             FillDate();
+            textBox1.Text = (string)dgvDataBase.Rows[dgvDataBase.Rows.Count - 2].Cells[1].Value;
         }
 
         private void FillDate()
@@ -87,7 +88,7 @@ namespace Sanatorium.Forms
             catch (Exception)
             {
                 sqlConnection.connection.Close();
-                MessageBox.Show("Данных не существует или они повторяются", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Некорректные данные или их отсутствие. Проверьте чтобы все данные были введены корректно ({tableSecondary}ID) и не повторялись ({tablePrimary}ID)!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
