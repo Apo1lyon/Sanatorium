@@ -1,7 +1,7 @@
 ﻿
 namespace Sanatorium.Forms
 {
-    partial class FormPatient
+    partial class FormDisease
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,8 @@ namespace Sanatorium.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDataBase = new System.Windows.Forms.DataGridView();
             this.panelSetValue = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -46,13 +48,9 @@ namespace Sanatorium.Forms
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panelTitleBar.SuspendLayout();
             this.panelDataGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataBase)).BeginInit();
@@ -77,7 +75,7 @@ namespace Sanatorium.Forms
             this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Montserrat", 15F);
+            this.btnBack.Font = new System.Drawing.Font("Montserrat", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.Black;
             this.btnBack.Image = global::Sanatorium.Properties.Resources.icons8_двойная_стрелка_влево_24;
             this.btnBack.Location = new System.Drawing.Point(3, 2);
@@ -92,7 +90,7 @@ namespace Sanatorium.Forms
             // 
             this.lblTextTitleForm.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblTextTitleForm.AutoSize = true;
-            this.lblTextTitleForm.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.lblTextTitleForm.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblTextTitleForm.Location = new System.Drawing.Point(42, 8);
             this.lblTextTitleForm.Name = "lblTextTitleForm";
             this.lblTextTitleForm.Size = new System.Drawing.Size(128, 22);
@@ -155,9 +153,8 @@ namespace Sanatorium.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSetValue.BackColor = System.Drawing.Color.White;
-            this.panelSetValue.Controls.Add(this.textBox6);
-            this.panelSetValue.Controls.Add(this.label10);
             this.panelSetValue.Controls.Add(this.textBox5);
+            this.panelSetValue.Controls.Add(this.label4);
             this.panelSetValue.Controls.Add(this.label1);
             this.panelSetValue.Controls.Add(this.btnDelete);
             this.panelSetValue.Controls.Add(this.btnAdd);
@@ -167,7 +164,6 @@ namespace Sanatorium.Forms
             this.panelSetValue.Controls.Add(this.textBox3);
             this.panelSetValue.Controls.Add(this.label5);
             this.panelSetValue.Controls.Add(this.textBox2);
-            this.panelSetValue.Controls.Add(this.label4);
             this.panelSetValue.Controls.Add(this.textBox1);
             this.panelSetValue.Controls.Add(this.label3);
             this.panelSetValue.Location = new System.Drawing.Point(691, 45);
@@ -177,15 +173,35 @@ namespace Sanatorium.Forms
             this.panelSetValue.Size = new System.Drawing.Size(245, 435);
             this.panelSetValue.TabIndex = 2;
             // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox5.Location = new System.Drawing.Point(128, 226);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(105, 22);
+            this.textBox5.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.label4.Location = new System.Drawing.Point(18, 193);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 20);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Причина";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Montserrat", 10F);
             this.label1.Location = new System.Drawing.Point(18, 226);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 20);
+            this.label1.Size = new System.Drawing.Size(87, 20);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Отчество";
+            this.label1.Text = "Симптомы";
             // 
             // btnDelete
             // 
@@ -194,7 +210,7 @@ namespace Sanatorium.Forms
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnDelete.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnDelete.Location = new System.Drawing.Point(22, 357);
+            this.btnDelete.Location = new System.Drawing.Point(23, 305);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(210, 29);
             this.btnDelete.TabIndex = 12;
@@ -209,7 +225,7 @@ namespace Sanatorium.Forms
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnAdd.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnAdd.Location = new System.Drawing.Point(21, 322);
+            this.btnAdd.Location = new System.Drawing.Point(22, 270);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(211, 29);
             this.btnAdd.TabIndex = 11;
@@ -221,11 +237,11 @@ namespace Sanatorium.Forms
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label7.Location = new System.Drawing.Point(17, 193);
+            this.label7.Location = new System.Drawing.Point(18, 160);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 20);
+            this.label7.Size = new System.Drawing.Size(36, 20);
             this.label7.TabIndex = 10;
-            this.label7.Text = "Имя";
+            this.label7.Text = "Тип";
             // 
             // textBox4
             // 
@@ -241,11 +257,11 @@ namespace Sanatorium.Forms
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label6.Location = new System.Drawing.Point(18, 160);
+            this.label6.Location = new System.Drawing.Point(18, 127);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 20);
+            this.label6.Size = new System.Drawing.Size(81, 20);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Фамилия";
+            this.label6.Text = "Название";
             // 
             // textBox3
             // 
@@ -261,11 +277,11 @@ namespace Sanatorium.Forms
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label5.Location = new System.Drawing.Point(18, 127);
+            this.label5.Location = new System.Drawing.Point(18, 94);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 20);
+            this.label5.Size = new System.Drawing.Size(92, 20);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Паспорт";
+            this.label5.Text = "ID Болезни";
             // 
             // textBox2
             // 
@@ -276,16 +292,6 @@ namespace Sanatorium.Forms
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(105, 22);
             this.textBox2.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label4.Location = new System.Drawing.Point(18, 94);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 20);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "ID Пациента";
             // 
             // textBox1
             // 
@@ -318,45 +324,15 @@ namespace Sanatorium.Forms
             this.panelDesktop.Size = new System.Drawing.Size(948, 492);
             this.panelDesktop.TabIndex = 3;
             // 
-            // textBox5
-            // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(128, 226);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(105, 22);
-            this.textBox5.TabIndex = 15;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Location = new System.Drawing.Point(128, 259);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(105, 22);
-            this.textBox6.TabIndex = 17;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label10.Location = new System.Drawing.Point(18, 259);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 20);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Возраст";
-            // 
-            // FormPatient
+            // FormDisease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 492);
             this.Controls.Add(this.panelDesktop);
-            this.Name = "FormPatient";
-            this.Text = "База данных";
-            this.Load += new System.EventHandler(this.FormPatient_Load);
+            this.Name = "FormDisease";
+            this.Text = "База данных болезней";
+            this.Load += new System.EventHandler(this.FormDisease_Load);
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             this.panelDataGrid.ResumeLayout(false);
@@ -383,7 +359,6 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnUpdate;
@@ -392,8 +367,7 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -40,6 +40,8 @@ namespace Sanatorium.Forms
             childForm.BringToFront();
             childForm.Show();
         }//Открытие дочерней формы
+        
+        private void FormServices_Click(object sender, EventArgs e) => OpenChildForm(new FormServices(), sender);
 
         private void Operation_Click(object sender, EventArgs e) => OpenChildForm(new FormOperation(), sender);
     }

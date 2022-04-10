@@ -47,40 +47,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\FormDoctorOffice.cs">
+    <Compile Include="Forms\Tables\FormDoctorOffice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormDoctorOffice.Designer.cs">
+    <Compile Include="Forms\Tables\FormDoctorOffice.Designer.cs">
       <DependentUpon>FormDoctorOffice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormDisease.cs">
+    <Compile Include="Forms\Tables\FormDisease.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormDisease.Designer.cs">
+    <Compile Include="Forms\Tables\FormDisease.Designer.cs">
       <DependentUpon>FormDisease.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormListPersonnel.cs">
+    <Compile Include="Forms\List\FormListPersonnel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormListPersonnel.Designer.cs">
+    <Compile Include="Forms\List\FormListPersonnel.Designer.cs">
       <DependentUpon>FormListPersonnel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormListReporting.cs">
+    <Compile Include="Forms\List\FormListReporting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormListReporting.Designer.cs">
+    <Compile Include="Forms\List\FormListReporting.Designer.cs">
       <DependentUpon>FormListReporting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormListServices.cs">
+    <Compile Include="Forms\List\FormListServices.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormListServices.Designer.cs">
+    <Compile Include="Forms\List\FormListServices.Designer.cs">
       <DependentUpon>FormListServices.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormMedication.cs">
+    <Compile Include="Forms\Tables\FormMedication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormMedication.Designer.cs">
+    <Compile Include="Forms\Tables\FormMedication.Designer.cs">
       <DependentUpon>FormMedication.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormMenu.cs">
@@ -89,16 +89,16 @@
     <Compile Include="Forms\FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormDiagnosis.cs">
+    <Compile Include="Forms\Tables\FormDiagnosis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormDiagnosis.Designer.cs">
+    <Compile Include="Forms\Tables\FormDiagnosis.Designer.cs">
       <DependentUpon>FormDiagnosis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormListPatient.cs">
+    <Compile Include="Forms\List\FormListPatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormListPatient.Designer.cs">
+    <Compile Include="Forms\List\FormListPatient.Designer.cs">
       <DependentUpon>FormListPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormOperation.cs">
@@ -108,55 +108,64 @@
       <DependentUpon>FormOperation.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\SqlConnection.cs" />
-    <Compile Include="Forms\FormPatient.cs">
+    <Compile Include="Forms\Tables\FormPatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormPatient.Designer.cs">
+    <Compile Include="Forms\Tables\FormPatient.Designer.cs">
       <DependentUpon>FormPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormSpecialty.cs">
+    <Compile Include="Forms\Tables\FormServices.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormSpecialty.Designer.cs">
+    <Compile Include="Forms\Tables\FormServices.Designer.cs">
+      <DependentUpon>FormServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tables\FormSpecialty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tables\FormSpecialty.Designer.cs">
       <DependentUpon>FormSpecialty.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Class\ThemeColor.cs" />
-    <EmbeddedResource Include="Forms\FormDoctorOffice.resx">
+    <EmbeddedResource Include="Forms\Tables\FormDoctorOffice.resx">
       <DependentUpon>FormDoctorOffice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormDisease.resx">
+    <EmbeddedResource Include="Forms\Tables\FormDisease.resx">
       <DependentUpon>FormDisease.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormListPersonnel.resx">
+    <EmbeddedResource Include="Forms\List\FormListPersonnel.resx">
       <DependentUpon>FormListPersonnel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormListReporting.resx">
+    <EmbeddedResource Include="Forms\List\FormListReporting.resx">
       <DependentUpon>FormListReporting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormListServices.resx">
+    <EmbeddedResource Include="Forms\List\FormListServices.resx">
       <DependentUpon>FormListServices.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormMedication.resx">
+    <EmbeddedResource Include="Forms\Tables\FormMedication.resx">
       <DependentUpon>FormMedication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormListPatient.resx">
+    <EmbeddedResource Include="Forms\List\FormListPatient.resx">
       <DependentUpon>FormListPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormDiagnosis.resx">
+    <EmbeddedResource Include="Forms\Tables\FormDiagnosis.resx">
       <DependentUpon>FormDiagnosis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormOperation.resx">
       <DependentUpon>FormOperation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormPatient.resx">
+    <EmbeddedResource Include="Forms\Tables\FormPatient.resx">
       <DependentUpon>FormPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormSpecialty.resx">
+    <EmbeddedResource Include="Forms\Tables\FormServices.resx">
+      <DependentUpon>FormServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tables\FormSpecialty.resx">
       <DependentUpon>FormSpecialty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

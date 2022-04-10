@@ -25,7 +25,7 @@ namespace Sanatorium.Forms
             lblTextTitleForm.Text = this.Text;
         }
         
-        private void FormDataGrid_Load(object sender, EventArgs e)
+        private void FormDisease_Load(object sender, EventArgs e)
         {
             LoadTheme();
             FillDate();
