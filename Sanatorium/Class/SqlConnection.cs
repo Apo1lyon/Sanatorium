@@ -69,29 +69,20 @@ namespace Sanatorium
         {
             if (dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText == $"{tableSecondary}ID")
             {
-                //SqlDataAdapter adapterPrimary = new SqlDataAdapter($"SELECT * FROM {tablePrimary}", connection);
                 SqlDataAdapter adapterSecondary = new SqlDataAdapter($"SELECT * FROM {tableSecondary}", connection);
 
                 DataSet ds = new DataSet();
-                //adapterPrimary.Fill(ds, $"{tablePrimary}");
                 adapterSecondary.Fill(ds, $"{tableSecondary}");
 
-                /*ds.Relations.Add("diagnosis-disease",
-                    ds.Tables[$"{tableSecondary}"].Columns[$"{tableSecondary}ID"],
-                    ds.Tables[$"{tablePrimory}"].Columns[$"{tableSecondary}ID"]);*/
-
                 var bindingSourceSecondary = new BindingSource(ds, $"{tableSecondary}");
-                //var bindingSourcePrimary = new BindingSource(bindingSourceSecondary, "diagnosis-disease");
-                //var bindingSourcePrimary = new BindingSource(ds, $"{tablePrimary}");
-                //dgvDataBase.DataSource = bindingSourcePrimary;
                 dgvSelectDataBase.DataSource = bindingSourceSecondary;
             }
             else dgvSelectDataBase.DataSource = null;
         }
 
-        public void BroadcastID(DataGridView dgvDataBase, DataGridView dgvSelectDataBase, string tableSecondary)
+        public void BroadcastID(DataGridView dgvDataBase, DataGridView dgvSelectDataBase, string table)
         {
-            if (dgvSelectDataBase.CurrentCell.OwningColumn.Name == $"{tableSecondary}ID" && dgvDataBase.CurrentCell.OwningColumn.Name == $"{tableSecondary}ID") dgvDataBase.CurrentCell.Value = dgvSelectDataBase.CurrentCell.Value;
+            if (dgvSelectDataBase.CurrentCell.OwningColumn.Name == $"{table}" && dgvDataBase.CurrentCell.OwningColumn.Name == $"{table}") dgvDataBase.CurrentCell.Value = dgvSelectDataBase.CurrentCell.Value;
         }
     } 
 }

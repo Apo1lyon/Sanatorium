@@ -120,6 +120,12 @@
     <Compile Include="Forms\Tables\FormServices.Designer.cs">
       <DependentUpon>FormServices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Tables\FormSpecialist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tables\FormSpecialist.Designer.cs">
+      <DependentUpon>FormSpecialist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Tables\FormSpecialty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tables\FormServices.resx">
       <DependentUpon>FormServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tables\FormSpecialist.resx">
+      <DependentUpon>FormSpecialist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tables\FormSpecialty.resx">
       <DependentUpon>FormSpecialty.cs</DependentUpon>

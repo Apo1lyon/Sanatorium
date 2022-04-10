@@ -100,7 +100,7 @@ namespace Sanatorium.Forms
         
         private void dgvDataBase_CellClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableSecondary);
 
-        private void dgvSelectDataBase_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.BroadcastID(dgvDataBase, dgvSelectDataBase, tableSecondary);
+        private void dgvSelectDataBase_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.BroadcastID(dgvDataBase, dgvSelectDataBase, dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText);
 
         private void btnDate_Click(object sender, EventArgs e)
         {
