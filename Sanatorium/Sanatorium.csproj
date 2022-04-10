@@ -108,6 +108,12 @@
       <DependentUpon>FormOperation.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\SqlConnection.cs" />
+    <Compile Include="Forms\FormPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPatient.Designer.cs">
+      <DependentUpon>FormPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormSpecialty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormOperation.resx">
       <DependentUpon>FormOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPatient.resx">
+      <DependentUpon>FormPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSpecialty.resx">
       <DependentUpon>FormSpecialty.cs</DependentUpon>

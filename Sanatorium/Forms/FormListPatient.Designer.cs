@@ -31,6 +31,7 @@ namespace Sanatorium.Forms
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -60,6 +61,7 @@ namespace Sanatorium.Forms
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.White;
+            this.panelDesktop.Controls.Add(this.label14);
             this.panelDesktop.Controls.Add(this.label13);
             this.panelDesktop.Controls.Add(this.label10);
             this.panelDesktop.Controls.Add(this.label11);
@@ -79,6 +81,17 @@ namespace Sanatorium.Forms
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(948, 492);
             this.panelDesktop.TabIndex = 9;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label14.Location = new System.Drawing.Point(25, 152);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(106, 13);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Таблица пациентов";
+            this.label14.Click += new System.EventHandler(this.FormPatient_Click);
             // 
             // label13
             // 
@@ -183,7 +196,7 @@ namespace Sanatorium.Forms
             this.label4.Size = new System.Drawing.Size(112, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Таблица припаратов";
-            this.label4.Click += new System.EventHandler(this.ForMedication_Click);
+            this.label4.Click += new System.EventHandler(this.FormMedication_Click);
             // 
             // label3
             // 
@@ -238,5 +251,6 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label14;
     }
 }

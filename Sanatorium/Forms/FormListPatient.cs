@@ -43,8 +43,9 @@ namespace Sanatorium.Forms
 
         private void FormDiagnosis_Click(object sender, EventArgs e) => OpenChildForm(new FormDiagnosis(), sender);
         private void FormDisease_Click(object sender, EventArgs e) => OpenChildForm(new FormDisease(), sender);
-        private void ForMedication_Click(object sender, EventArgs e) => OpenChildForm(new FormMedication(), sender);
-        
+        private void FormMedication_Click(object sender, EventArgs e) => OpenChildForm(new FormMedication(), sender);
+        private void FormPatient_Click(object sender, EventArgs e) => OpenChildForm(new FormPatient(), sender);
+
         private void Operation_Click(object sender, EventArgs e) => OpenChildForm(new FormOperation(), sender);
     }
 }
