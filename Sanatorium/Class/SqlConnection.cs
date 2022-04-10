@@ -56,13 +56,23 @@ namespace Sanatorium
 
         public void ValueChanged(DataGridView dataGrid, string table)
         {
-            connection.Open();
-            string fieldTable = dataGrid.Columns[dataGrid.CurrentCell.ColumnIndex].HeaderText;
-            string addQuery = $"UPDATE {table} SET {fieldTable} = '{dataGrid.Rows[dataGrid.CurrentCell.RowIndex].Cells[dataGrid.CurrentCell.ColumnIndex].Value}' WHERE Num{table} = '{dataGrid.Rows[dataGrid.CurrentCell.RowIndex].Cells[0].Value}'";
-            var command = new SqlCommand(addQuery, connection);
-            command.ExecuteNonQuery();
+            try
+            {
+                connection.Open();
+                string fieldTable = dataGrid.Columns[dataGrid.CurrentCell.ColumnIndex].HeaderText;
+                string addQuery = $"UPDATE {table} SET {fieldTable} = '{dataGrid.Rows[dataGrid.CurrentCell.RowIndex].Cells[dataGrid.CurrentCell.ColumnIndex].Value}' WHERE Num{table} = '{dataGrid.Rows[dataGrid.CurrentCell.RowIndex].Cells[0].Value}'";
+                var command = new SqlCommand(addQuery, connection);
+                command.ExecuteNonQuery();
 
-            connection.Close();
+                connection.Close();
+            }
+            catch (Exception)
+            {
+                connection.Close();
+                MessageBox.Show($"Эти данные нельзя изменить.", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+                
+
         }
 
         public void Relations(DataGridView dgvDataBase, DataGridView dgvSelectDataBase, string tableSecondary)
@@ -83,6 +93,20 @@ namespace Sanatorium
         public void BroadcastID(DataGridView dgvDataBase, DataGridView dgvSelectDataBase, string table)
         {
             if (dgvSelectDataBase.CurrentCell.OwningColumn.Name == $"{table}" && dgvDataBase.CurrentCell.OwningColumn.Name == $"{table}") dgvDataBase.CurrentCell.Value = dgvSelectDataBase.CurrentCell.Value;
+        }
+
+        public string NextID(DataGridView dgvDataBase)
+        {
+            string textID = (string)dgvDataBase.Rows[dgvDataBase.Rows.Count - 2].Cells[1].Value;
+            string ID = null;
+            string text = null;
+            foreach (var item in textID)
+            {
+                if (Char.IsNumber(item)) ID += item;
+                else text += item;
+            }
+            ID = $"{ Convert.ToInt32(ID) + 1}";
+            return text + ID;
         }
     } 
 }

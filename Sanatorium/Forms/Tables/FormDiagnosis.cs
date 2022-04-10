@@ -29,13 +29,15 @@ namespace Sanatorium.Forms
         {
             LoadTheme();
             FillDate();
-            textBox1.Text = (string)dgvDataBase.Rows[dgvDataBase.Rows.Count - 2].Cells[1].Value;
+            textBox1.Text = sqlConnection.NextID(dgvDataBase);
+
         }
 
         private void FillDate()
         {
             BindingSource bindingSourcePrimary = new BindingSource();
             bindingSourcePrimary.DataSource = sqlConnection.GetData($"SELECT * FROM {tablePrimary}", new DataTable($"{tablePrimary}"));
+            bindingSourcePrimary.Filter = $"Num{tablePrimary}";
             dgvDataBase.DataSource = bindingSourcePrimary;
         }
 
@@ -65,8 +67,8 @@ namespace Sanatorium.Forms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FillDate();
-            textBox1.Text = (string)dgvDataBase.Rows[dgvDataBase.Rows.Count - 2].Cells[1].Value;
+            FillDate(); 
+            textBox1.Text = sqlConnection.NextID(dgvDataBase);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
