@@ -67,6 +67,7 @@ namespace Sanatorium.Forms
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             FillDate();
+            textBox1.Text = (string)dgvDataBase.Rows[dgvDataBase.Rows.Count - 2].Cells[1].Value;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
