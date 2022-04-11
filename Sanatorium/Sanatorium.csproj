@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Tables\FormAppoint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tables\FormAppoint.Designer.cs">
+      <DependentUpon>FormAppoint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Tables\FormDoctorOffice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Class\ThemeColor.cs" />
+    <EmbeddedResource Include="Forms\Tables\FormAppoint.resx">
+      <DependentUpon>FormAppoint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tables\FormDoctorOffice.resx">
       <DependentUpon>FormDoctorOffice.cs</DependentUpon>
     </EmbeddedResource>

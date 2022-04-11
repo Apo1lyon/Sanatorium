@@ -11,21 +11,23 @@ using System.Windows.Forms;
 
 namespace Sanatorium.Forms
 {
-    public partial class FormServices : System.Windows.Forms.Form
+    public partial class FormAppoint : System.Windows.Forms.Form
     {
         SqlConnection sqlConnection = new SqlConnection();
         SqlCommand command;
         BindingSource bindingSourcePrimary;
-        string tablePrimary = "Services";
-        string tableSecondary;
+        string tablePrimary = "Appoint";
+        string tableSecondary = "Specialist";
+        string tableTernary = "Medication";
+        string tableFourth = "Services";
 
-        public FormServices()
+        public FormAppoint()
         {
             InitializeComponent();
             lblTextTitleForm.Text = this.Text;
         }
         
-        private void FormServices_Load(object sender, EventArgs e)
+        private void FormAppoint_Load(object sender, EventArgs e)
         {
             LoadTheme();
             UpdateTable();
@@ -54,7 +56,7 @@ namespace Sanatorium.Forms
             FillDate();
             textBox1.Text = sqlConnection.NextID(dgvDataBase);
         }
-        
+
         private void OpenChildForm(System.Windows.Forms.Form childForm, object btnSender)
         {
             childForm.TopLevel = false;
@@ -66,16 +68,16 @@ namespace Sanatorium.Forms
             childForm.Show();
         }//Открытие дочерней формы
 
-        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListServices(), sender);
+        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPersonnel(), sender);
 
         private void btnUpdate_Click(object sender, EventArgs e) => UpdateTable();
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            try
-            {
+           try
+           {
                 sqlConnection.connection.Open();
-                string addQuery = $"insert into {tablePrimary} (ServicesID, TypeOfServices, NameServices, Note, Units, Price) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}','{textBox5.Text}','{textBox6.Text}')";
+                string addQuery = $"insert into {tablePrimary} (AppointID, SpecialistID, MedicationID, ServicesID) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}')";
 
                 command = new SqlCommand(addQuery, sqlConnection.connection);
                 command.ExecuteNonQuery();
@@ -88,12 +90,12 @@ namespace Sanatorium.Forms
                 UpdateTable();
 
                 sqlConnection.connection.Close();
-            }
+           }
             catch (Exception)
-            {
-                sqlConnection.connection.Close();
-                MessageBox.Show($"Некорректные данные или их отсутствие. Проверьте чтобы все данные были введены корректно ({tableSecondary}ID) и не повторялись ({tablePrimary}ID)!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           {
+               sqlConnection.connection.Close();
+               MessageBox.Show($"Некорректные данные или их отсутствие. Проверьте чтобы все данные были введены корректно ({tableSecondary}ID) и не повторялись ({tablePrimary}ID)!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+           }
         }
 
         private void btnDelete_Click(object sender, EventArgs e) => sqlConnection.ClearTextBox(panelSetValue.Controls);
@@ -101,5 +103,21 @@ namespace Sanatorium.Forms
         private void dgvDataBase_CellValueChanged(object sender, DataGridViewCellEventArgs e) => sqlConnection.ValueChanged(dgvDataBase, tablePrimary);
         
         private void dgvDataBase_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e) => sqlConnection.DeletingRow(dgvDataBase, tablePrimary);
+
+        private void dgvDataBase_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableSecondary);
+            if (dgvSelectDataBase.DataSource == null) sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableTernary);
+            if (dgvSelectDataBase.DataSource == null) sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableFourth);
+        }
+
+        private void dgvSelectDataBase_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.BroadcastID(dgvDataBase, dgvSelectDataBase, dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText);
+
+        private void btnDate_Click(object sender, EventArgs e)
+        {
+            BindingSource bindingSourcePrimary = new BindingSource();
+            bindingSourcePrimary.DataSource = sqlConnection.GetData($"SELECT * FROM {tablePrimary} WHERE Date >= '{dtpStartDate.Value}' and Date <= '{dtpEndDate.Value}'", new DataTable($"{tablePrimary}"));
+            dgvDataBase.DataSource = bindingSourcePrimary;
+        }
     }
 }

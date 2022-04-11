@@ -29,8 +29,7 @@ namespace Sanatorium.Forms
         private void FormSpecialist_Load(object sender, EventArgs e)
         {
             LoadTheme();
-            FillDate();
-            textBox1.Text = sqlConnection.NextID(dgvDataBase);
+            UpdateTable();
         }
 
         private void FillDate()
@@ -51,8 +50,12 @@ namespace Sanatorium.Forms
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPersonnel(), sender);
-        
+        private void UpdateTable()
+        {
+            FillDate();
+            textBox1.Text = sqlConnection.NextID(dgvDataBase);
+        }
+
         private void OpenChildForm(System.Windows.Forms.Form childForm, object btnSender)
         {
             childForm.TopLevel = false;
@@ -64,11 +67,9 @@ namespace Sanatorium.Forms
             childForm.Show();
         }//Открытие дочерней формы
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            FillDate();
-            textBox1.Text = sqlConnection.NextID(dgvDataBase);
-        }
+        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPersonnel(), sender);
+
+        private void btnUpdate_Click(object sender, EventArgs e) => UpdateTable();
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -84,6 +85,8 @@ namespace Sanatorium.Forms
                 bindingSourcePrimary.DataSource = sqlConnection.GetData($"Select * From {tablePrimary}", new DataTable($"{tablePrimary}"));
 
                 sqlConnection.ClearTextBox(panelSetValue.Controls);
+
+                UpdateTable();
 
                 sqlConnection.connection.Close();
            }

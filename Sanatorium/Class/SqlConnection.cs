@@ -92,24 +92,24 @@ namespace Sanatorium
         }
 
         public string NextID(DataGridView dgvDataBase)
-        {
-            string textID = (string)dgvDataBase.Rows[dgvDataBase.Rows.Count - 2].Cells[1].Value;
-            string ID = null, text = null;
-            foreach (var item in textID)
-            {
-                if (Char.IsNumber(item)) ID += item;
-                else text += item;
-            }
-            int num = (Convert.ToInt32(ID)) + 1;
-            
+        {   
             try
             {
-                return textID = $"{text}{ID.Remove(ID.Length - (num.ToString().Length), num.ToString().Length) + Convert.ToString(num)}";
+                string textID = (string)dgvDataBase.Rows[dgvDataBase.Rows.Count - 2].Cells[1].Value;
+                string ID = null, text = null;
+                foreach (var item in textID)
+                {
+                    if (Char.IsNumber(item)) ID += item;
+                    else text += item;
+                }
+                int num = (Convert.ToInt32(ID)) + 1;
+
+                    return textID = $"{text}{ID.Remove(ID.Length - (num.ToString().Length), num.ToString().Length) + Convert.ToString(num)}";
             }
             catch (Exception)
             {
-                MessageBox.Show("Переполнение таблицы по ID номеру. Очистите некоторые позиции!,", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return textID = "Переполнено";
+                MessageBox.Show("Переполнение таблицы по ID номеру или полное отсутствие значений. Добавьте или очистите некоторые позиции!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "###";
             }
         }
     }

@@ -43,6 +43,7 @@ namespace Sanatorium.Forms
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.panelDesktop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +61,7 @@ namespace Sanatorium.Forms
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.White;
+            this.panelDesktop.Controls.Add(this.label14);
             this.panelDesktop.Controls.Add(this.label13);
             this.panelDesktop.Controls.Add(this.label10);
             this.panelDesktop.Controls.Add(this.label11);
@@ -207,6 +209,17 @@ namespace Sanatorium.Forms
             this.label2.Text = "Таблица специальностей";
             this.label2.Click += new System.EventHandler(this.FormSpecialty_Click);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label14.Location = new System.Drawing.Point(25, 152);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(112, 13);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Таблица назначений";
+            this.label14.Click += new System.EventHandler(this.FormAppoint_Click);
+            // 
             // FormListPersonnel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,5 +251,6 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label14;
     }
 }
