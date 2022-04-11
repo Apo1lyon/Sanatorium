@@ -37,7 +37,6 @@ namespace Sanatorium.Forms
         {
             BindingSource bindingSourcePrimary = new BindingSource();
             bindingSourcePrimary.DataSource = sqlConnection.GetData($"SELECT * FROM {tablePrimary}", new DataTable($"{tablePrimary}"));
-            bindingSourcePrimary.Filter = $"Num{tablePrimary}";
             dgvDataBase.DataSource = bindingSourcePrimary;
         }
 

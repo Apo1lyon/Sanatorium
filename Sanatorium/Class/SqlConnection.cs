@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -29,7 +25,7 @@ namespace Sanatorium
         public DataTable GetData(string sqlCommand, DataTable table)
         {
             SqlCommand command = new SqlCommand(sqlCommand, connection);
-            SqlDataAdapter adapter = new SqlDataAdapter{ SelectCommand = command };
+            SqlDataAdapter adapter = new SqlDataAdapter { SelectCommand = command };
             table.Locale = System.Globalization.CultureInfo.InvariantCulture;
             adapter.Fill(table);
 
@@ -71,7 +67,7 @@ namespace Sanatorium
                 connection.Close();
                 MessageBox.Show($"Эти данные нельзя изменить.", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-                
+
 
         }
 
@@ -98,15 +94,23 @@ namespace Sanatorium
         public string NextID(DataGridView dgvDataBase)
         {
             string textID = (string)dgvDataBase.Rows[dgvDataBase.Rows.Count - 2].Cells[1].Value;
-            string ID = null;
-            string text = null;
+            string ID = null, text = null;
             foreach (var item in textID)
             {
                 if (Char.IsNumber(item)) ID += item;
                 else text += item;
             }
-            ID = $"{ Convert.ToInt32(ID) + 1}";
-            return text + ID;
+            int num = (Convert.ToInt32(ID)) + 1;
+            
+            try
+            {
+                return textID = $"{text}{ID.Remove(ID.Length - (num.ToString().Length), num.ToString().Length) + Convert.ToString(num)}";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Переполнение таблицы по ID номеру. Очистите некоторые позиции!,", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return textID = "Переполнено";
+            }
         }
-    } 
+    }
 }
