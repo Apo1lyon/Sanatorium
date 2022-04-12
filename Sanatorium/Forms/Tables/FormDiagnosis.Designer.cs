@@ -281,7 +281,7 @@ namespace Sanatorium.Forms
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnDelete.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnDelete.Location = new System.Drawing.Point(23, 305);
+            this.btnDelete.Location = new System.Drawing.Point(23, 297);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(210, 29);
             this.btnDelete.TabIndex = 12;
@@ -296,7 +296,7 @@ namespace Sanatorium.Forms
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnAdd.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnAdd.Location = new System.Drawing.Point(22, 270);
+            this.btnAdd.Location = new System.Drawing.Point(22, 262);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(211, 29);
             this.btnAdd.TabIndex = 11;

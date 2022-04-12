@@ -11,23 +11,22 @@ using System.Windows.Forms;
 
 namespace Sanatorium.Forms
 {
-    public partial class FormAppoint : System.Windows.Forms.Form
+    public partial class FormSunCurrortBook : System.Windows.Forms.Form
     {
         SqlConnection sqlConnection = new SqlConnection();
         SqlCommand command;
         BindingSource bindingSourcePrimary;
-        string tablePrimary = "Appoint";
-        string tableSecondary = "Specialist";
-        string tableTernary = "Medication";
-        string tableFourth = "Services";
+        string tablePrimary = "SunCurrortBook";
+        string tableSecondary = "Patient";
+        string tableTernary = "Specialist";
 
-        public FormAppoint()
+        public FormSunCurrortBook()
         {
             InitializeComponent();
             lblTextTitleForm.Text = this.Text;
         }
         
-        private void FormAppoint_Load(object sender, EventArgs e)
+        private void FormSunCurrortBook_Load(object sender, EventArgs e)
         {
             LoadTheme();
             UpdateTable();
@@ -68,7 +67,7 @@ namespace Sanatorium.Forms
             childForm.Show();
         }//Открытие дочерней формы
 
-        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPersonnel(), sender);
+        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPatient(), sender);
 
         private void btnUpdate_Click(object sender, EventArgs e) => UpdateTable();
 
@@ -77,7 +76,7 @@ namespace Sanatorium.Forms
            try
            {
                 sqlConnection.connection.Open();
-                string addQuery = $"insert into {tablePrimary} (AppointID, SpecialistID, MedicationID, ServicesID, Date) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}',{dateTimePicker1.Value})";
+                string addQuery = $"insert into {tablePrimary} (SunCurrortBookID, PatientID, SpecialistID, Date) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{dateTimePicker1.Value}')";
 
                 command = new SqlCommand(addQuery, sqlConnection.connection);
                 command.ExecuteNonQuery();
@@ -108,7 +107,6 @@ namespace Sanatorium.Forms
         {
             sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableSecondary);
             if (dgvSelectDataBase.DataSource == null) sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableTernary);
-            if (dgvSelectDataBase.DataSource == null) sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableFourth);
         }
 
         private void dgvSelectDataBase_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.BroadcastID(dgvDataBase, dgvSelectDataBase, dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText);

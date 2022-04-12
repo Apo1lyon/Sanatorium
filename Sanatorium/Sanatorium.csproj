@@ -120,6 +120,12 @@
     <Compile Include="Forms\Tables\FormPatient.Designer.cs">
       <DependentUpon>FormPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Tables\FormRecordSunCurrortBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tables\FormRecordSunCurrortBook.Designer.cs">
+      <DependentUpon>FormRecordSunCurrortBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Tables\FormServices.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,12 @@
     </Compile>
     <Compile Include="Forms\Tables\FormSpecialty.Designer.cs">
       <DependentUpon>FormSpecialty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tables\FormSunCurrortBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tables\FormSunCurrortBook.Designer.cs">
+      <DependentUpon>FormSunCurrortBook.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,6 +189,9 @@
     <EmbeddedResource Include="Forms\Tables\FormPatient.resx">
       <DependentUpon>FormPatient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tables\FormRecordSunCurrortBook.resx">
+      <DependentUpon>FormRecordSunCurrortBook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tables\FormServices.resx">
       <DependentUpon>FormServices.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tables\FormSpecialty.resx">
       <DependentUpon>FormSpecialty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tables\FormSunCurrortBook.resx">
+      <DependentUpon>FormSunCurrortBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

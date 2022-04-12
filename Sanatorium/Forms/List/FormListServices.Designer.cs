@@ -200,9 +200,9 @@ namespace Sanatorium.Forms
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Location = new System.Drawing.Point(25, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
+            this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Таблица услуг";
+            this.label2.Text = "Список услуг";
             this.label2.Click += new System.EventHandler(this.FormServices_Click);
             // 
             // FormListServices
