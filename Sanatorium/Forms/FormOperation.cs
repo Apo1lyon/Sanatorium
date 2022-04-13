@@ -12,9 +12,14 @@ namespace Sanatorium.Forms
 {
     public partial class FormOperation : Form
     {
+        SqlConnection sqlConnection = new SqlConnection();
+        string tablePrimary = "Diagnosis";
+        string tableSecondary = "Disease";
+
         public FormOperation()
         {
             InitializeComponent();
+            FillDate();
         }
 
         private void FormDataGrid_Load(object sender, EventArgs e)
@@ -22,6 +27,14 @@ namespace Sanatorium.Forms
             LoadTheme();
             lblTextTitleForm.Text = this.Text;
         }
+
+        private void FillDate()
+        {
+            BindingSource bindingSourcePrimary = new BindingSource();
+            bindingSourcePrimary.DataSource = sqlConnection.GetData($"SELECT Diagnosis.NumDiagnosis, Disease.TypeOfDisease, Disease.NameDisease, Disease.Symptoms, Diagnosis.Complications, Diagnosis.Diagnosis, Diagnosis.Date FROM Diagnosis JOIN Disease ON Disease.DiseaseID = Diagnosis.DiseaseID", new DataTable($"{tablePrimary}"));
+            dgvDataBase.DataSource = bindingSourcePrimary;
+        }
+
 
         private void LoadTheme()
         {

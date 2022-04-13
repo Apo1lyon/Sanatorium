@@ -33,7 +33,6 @@ namespace Sanatorium.Forms
             this.btnBack = new System.Windows.Forms.Button();
             this.lblTextTitleForm = new System.Windows.Forms.Label();
             this.panelDataGrid = new System.Windows.Forms.Panel();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDataBase = new System.Windows.Forms.DataGridView();
             this.panelSetValue = new System.Windows.Forms.Panel();
@@ -104,7 +103,6 @@ namespace Sanatorium.Forms
             this.panelDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelDataGrid.BackColor = System.Drawing.Color.White;
-            this.panelDataGrid.Controls.Add(this.btnUpdate);
             this.panelDataGrid.Controls.Add(this.label2);
             this.panelDataGrid.Controls.Add(this.dgvDataBase);
             this.panelDataGrid.Location = new System.Drawing.Point(12, 45);
@@ -112,25 +110,11 @@ namespace Sanatorium.Forms
             this.panelDataGrid.Size = new System.Drawing.Size(674, 435);
             this.panelDataGrid.TabIndex = 1;
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnUpdate.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnUpdate.Location = new System.Drawing.Point(17, 394);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(113, 25);
-            this.btnUpdate.TabIndex = 12;
-            this.btnUpdate.Text = "Обновить";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Montserrat", 14F);
-            this.label2.Location = new System.Drawing.Point(12, 17);
+            this.label2.Location = new System.Drawing.Point(12, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(171, 26);
             this.label2.TabIndex = 1;
@@ -144,7 +128,7 @@ namespace Sanatorium.Forms
             this.dgvDataBase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDataBase.Location = new System.Drawing.Point(12, 46);
             this.dgvDataBase.Name = "dgvDataBase";
-            this.dgvDataBase.Size = new System.Drawing.Size(651, 333);
+            this.dgvDataBase.Size = new System.Drawing.Size(651, 376);
             this.dgvDataBase.TabIndex = 0;
             this.dgvDataBase.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataBase_CellValueChanged);
             this.dgvDataBase.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvDataBase_UserDeletingRow);
@@ -386,7 +370,6 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label7;
