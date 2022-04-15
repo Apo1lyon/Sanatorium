@@ -35,7 +35,6 @@ namespace Sanatorium.Forms
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -67,7 +66,6 @@ namespace Sanatorium.Forms
             this.panelDesktop.Controls.Add(this.label15);
             this.panelDesktop.Controls.Add(this.label14);
             this.panelDesktop.Controls.Add(this.label13);
-            this.panelDesktop.Controls.Add(this.label10);
             this.panelDesktop.Controls.Add(this.label11);
             this.panelDesktop.Controls.Add(this.label12);
             this.panelDesktop.Controls.Add(this.label9);
@@ -124,27 +122,17 @@ namespace Sanatorium.Forms
             this.label13.AutoSize = true;
             this.label13.Cursor = System.Windows.Forms.Cursors.Default;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(363, 28);
+            this.label13.Location = new System.Drawing.Point(328, 28);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 20);
             this.label13.TabIndex = 12;
             this.label13.Text = "Настройки";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label10.Location = new System.Drawing.Point(25, 461);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 13);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Отчет3";
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label11.Location = new System.Drawing.Point(25, 433);
+            this.label11.Location = new System.Drawing.Point(25, 453);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(42, 13);
             this.label11.TabIndex = 10;
@@ -154,7 +142,7 @@ namespace Sanatorium.Forms
             // 
             this.label12.AutoSize = true;
             this.label12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label12.Location = new System.Drawing.Point(25, 405);
+            this.label12.Location = new System.Drawing.Point(25, 425);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(42, 13);
             this.label12.TabIndex = 9;
@@ -165,7 +153,7 @@ namespace Sanatorium.Forms
             this.label9.AutoSize = true;
             this.label9.Cursor = System.Windows.Forms.Cursors.Default;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(24, 370);
+            this.label9.Location = new System.Drawing.Point(24, 390);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 20);
             this.label9.TabIndex = 8;
@@ -175,7 +163,7 @@ namespace Sanatorium.Forms
             // 
             this.label8.AutoSize = true;
             this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label8.Location = new System.Drawing.Point(25, 337);
+            this.label8.Location = new System.Drawing.Point(25, 347);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 13);
             this.label8.TabIndex = 7;
@@ -185,7 +173,7 @@ namespace Sanatorium.Forms
             // 
             this.label7.AutoSize = true;
             this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label7.Location = new System.Drawing.Point(25, 309);
+            this.label7.Location = new System.Drawing.Point(25, 319);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 13);
             this.label7.TabIndex = 6;
@@ -195,7 +183,7 @@ namespace Sanatorium.Forms
             // 
             this.label6.AutoSize = true;
             this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label6.Location = new System.Drawing.Point(25, 281);
+            this.label6.Location = new System.Drawing.Point(25, 291);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 5;
@@ -207,7 +195,7 @@ namespace Sanatorium.Forms
             this.label5.AutoSize = true;
             this.label5.Cursor = System.Windows.Forms.Cursors.Default;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(24, 241);
+            this.label5.Location = new System.Drawing.Point(24, 251);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 20);
             this.label5.TabIndex = 4;
@@ -271,7 +259,6 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;

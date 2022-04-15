@@ -100,8 +100,9 @@ namespace Sanatorium.Forms
             // 
             // panelDataGrid
             // 
-            this.panelDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelDataGrid.BackColor = System.Drawing.Color.White;
             this.panelDataGrid.Controls.Add(this.label2);
             this.panelDataGrid.Controls.Add(this.dgvDataBase);
@@ -135,8 +136,7 @@ namespace Sanatorium.Forms
             // 
             // panelSetValue
             // 
-            this.panelSetValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panelSetValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSetValue.BackColor = System.Drawing.Color.White;
             this.panelSetValue.Controls.Add(this.textBox6);

@@ -69,8 +69,6 @@ namespace Sanatorium.Forms
 
         private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPatient(), sender);
 
-        private void btnUpdate_Click(object sender, EventArgs e) => UpdateTable();
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
            try

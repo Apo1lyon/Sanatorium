@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Sanatorium.Forms
 {
     public partial class FormOperation : Form
     {
         SqlConnection sqlConnection = new SqlConnection();
+        OperationsDataBase operations = new OperationsDataBase();
         string tablePrimary = "Diagnosis";
         string tableSecondary = "Disease";
 
@@ -20,6 +22,8 @@ namespace Sanatorium.Forms
         {
             InitializeComponent();
             FillDate();
+            operations.CreateChartColumn(chart1, dgvDataBase, 5, 4); 
+            operations.CreateChartDoughnut(chart2, dgvDataBase, 0, 4);
         }
 
         private void FormDataGrid_Load(object sender, EventArgs e)
@@ -31,10 +35,20 @@ namespace Sanatorium.Forms
         private void FillDate()
         {
             BindingSource bindingSourcePrimary = new BindingSource();
-            bindingSourcePrimary.DataSource = sqlConnection.GetData($"SELECT Diagnosis.NumDiagnosis, Disease.TypeOfDisease, Disease.NameDisease, Disease.Symptoms, Diagnosis.Complications, Diagnosis.Diagnosis, Diagnosis.Date FROM Diagnosis JOIN Disease ON Disease.DiseaseID = Diagnosis.DiseaseID", new DataTable($"{tablePrimary}"));
+            bindingSourcePrimary.DataSource = sqlConnection.GetData($"SELECT DISTINCT Disease.NameDisease AS Болезнь, Disease.TypeOfDisease AS ТипБолезни, Disease.Reason AS Причина, Disease.Symptoms AS Симптом, COUNT(Disease.NameDisease) OVER (PARTITION BY Disease.NameDisease) AS Колличество, FORMAT(Diagnosis.Date,'%M.%y') AS Дата FROM Diagnosis JOIN Disease ON Diagnosis.DiseaseID = Disease.DiseaseID  Group by Disease.NameDisease, Disease.TypeOfDisease, Disease.Reason, Disease.Symptoms, Diagnosis.Date", new DataTable($"{tablePrimary}"));
             dgvDataBase.DataSource = bindingSourcePrimary;
         }
-
+        
+        private void OpenChildForm(Form childForm, object btnSender)
+        {
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.panelDesktop.Controls.Add(childForm);
+            this.panelDesktop.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }//Открытие дочерней формы
 
         private void LoadTheme()
         {
@@ -48,16 +62,5 @@ namespace Sanatorium.Forms
         }
 
         private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPatient(), sender);
-
-        private void OpenChildForm(Form childForm, object btnSender)
-        {
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.panelDesktop.Controls.Add(childForm);
-            this.panelDesktop.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-        }//Открытие дочерней формы
     }
 }
