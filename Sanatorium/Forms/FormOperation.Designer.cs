@@ -434,7 +434,7 @@ namespace Sanatorium.Forms
             title1.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
             title1.Font = new System.Drawing.Font("Montserrat", 15F);
             title1.Name = "Title1";
-            title1.Text = "Диаграмма";
+            title1.Text = "Соотношение болезней";
             this.chart2.Titles.Add(title1);
             // 
             // chart1
@@ -451,7 +451,7 @@ namespace Sanatorium.Forms
             title2.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
             title2.Font = new System.Drawing.Font("Montserrat", 15F);
             title2.Name = "Title1";
-            title2.Text = "Диаграмма";
+            title2.Text = "Диагнозы по датам";
             this.chart1.Titles.Add(title2);
             // 
             // FormOperation
@@ -462,6 +462,7 @@ namespace Sanatorium.Forms
             this.Controls.Add(this.panelDesktop);
             this.Name = "FormOperation";
             this.Text = "FormOperation";
+            this.Load += new System.EventHandler(this.FormOperation_Load);
             this.panelDesktop.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
