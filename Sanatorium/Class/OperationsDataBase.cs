@@ -30,5 +30,28 @@ namespace Sanatorium
             s.ChartType = type;
             for (int rowindex = 0; rowindex < dataGrid.Rows.Count - 1; rowindex++) s.Points.AddXY(dataGrid.Rows[rowindex].Cells[X].Value, dataGrid.Rows[rowindex].Cells[Y].Value);
         }
+
+        public string ReturnDistributed(DataGridView dataGrid, int cellIndex)
+        {
+            for (int rowindex = 0; rowindex < dataGrid.Rows.Count - 1; rowindex++)
+            {
+                if ((int)dataGrid.Rows[rowindex].Cells[cellIndex].Value == dataGrid.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToInt32(r.Cells[cellIndex].Value)))
+                    return (string)dataGrid.Rows[rowindex].Cells[0].Value;
+            }
+            return "";
+        }
+        public string ReturnNonDistributed(DataGridView dataGrid, int cellIndex)
+        {
+            if(dataGrid.Rows.Count - 1 != 0)
+            for (int i = 0; ; i++)
+            {
+                for (int rowindex = 0; rowindex < dataGrid.Rows.Count - 1; rowindex++)
+                {
+                    if ((int)dataGrid.Rows[rowindex].Cells[cellIndex].Value == i)return (string)dataGrid.Rows[rowindex].Cells[0].Value;
+                }
+            }
+            return "";
+
+        }
     }  
 }

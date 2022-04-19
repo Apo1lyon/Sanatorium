@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Sanatorium.Forms
 {
-    public partial class FormListReporting : System.Windows.Forms.Form
+    public partial class FormListReporting : Form
     {
         public FormListReporting()
         {
@@ -30,7 +30,7 @@ namespace Sanatorium.Forms
             }
         }
         
-        private void OpenChildForm(System.Windows.Forms.Form childForm, object btnSender)
+        private void OpenChildForm(Form childForm, object btnSender)
         {
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -40,7 +40,5 @@ namespace Sanatorium.Forms
             childForm.BringToFront();
             childForm.Show();
         }//Открытие дочерней формы
-
-        private void Operation_Click(object sender, EventArgs e) => OpenChildForm(new FormOperation(), sender);
     }
 }

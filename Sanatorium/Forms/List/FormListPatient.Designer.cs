@@ -185,9 +185,9 @@ namespace Sanatorium.Forms
             this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label6.Location = new System.Drawing.Point(25, 291);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.Size = new System.Drawing.Size(59, 13);
             this.label6.TabIndex = 5;
-            this.label6.Text = "Операция1";
+            this.label6.Text = "Диагнозы";
             this.label6.Click += new System.EventHandler(this.Operation_Click);
             // 
             // label5

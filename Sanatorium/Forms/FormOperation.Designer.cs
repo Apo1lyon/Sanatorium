@@ -38,20 +38,17 @@ namespace Sanatorium.Forms
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblMin = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblMax = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblNum = new System.Windows.Forms.Label();
+            this.lblCol = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.btbAllTime = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnOk = new System.Windows.Forms.Button();
             this.btnCustomDate = new System.Windows.Forms.Button();
             this.btnToday = new System.Windows.Forms.Button();
             this.btnLast7days = new System.Windows.Forms.Button();
@@ -69,7 +66,6 @@ namespace Sanatorium.Forms
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -95,14 +91,12 @@ namespace Sanatorium.Forms
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 46);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -114,24 +108,24 @@ namespace Sanatorium.Forms
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.lblMin);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(462, 0);
+            this.panel4.Location = new System.Drawing.Point(616, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(221, 51);
+            this.panel4.Size = new System.Drawing.Size(298, 51);
             this.panel4.TabIndex = 3;
             // 
-            // label7
+            // lblMin
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Montserrat", 12F);
-            this.label7.Location = new System.Drawing.Point(3, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 22);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "100000";
+            this.lblMin.AutoSize = true;
+            this.lblMin.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.lblMin.Location = new System.Drawing.Point(3, 16);
+            this.lblMin.Name = "lblMin";
+            this.lblMin.Size = new System.Drawing.Size(71, 22);
+            this.lblMin.TabIndex = 2;
+            this.lblMin.Text = "100000";
             // 
             // label8
             // 
@@ -139,31 +133,31 @@ namespace Sanatorium.Forms
             this.label8.Font = new System.Drawing.Font("Montserrat", 9F);
             this.label8.Location = new System.Drawing.Point(4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 16);
+            this.label8.Size = new System.Drawing.Size(99, 16);
             this.label8.TabIndex = 1;
-            this.label8.Text = "Номер";
+            this.label8.Text = "Самый редкий";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.lblMax);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(231, 0);
+            this.panel3.Location = new System.Drawing.Point(308, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(221, 51);
+            this.panel3.Size = new System.Drawing.Size(298, 51);
             this.panel3.TabIndex = 2;
             // 
-            // label4
+            // lblMax
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Montserrat", 12F);
-            this.label4.Location = new System.Drawing.Point(3, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 22);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "100000";
+            this.lblMax.AutoSize = true;
+            this.lblMax.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.lblMax.Location = new System.Drawing.Point(3, 16);
+            this.lblMax.Name = "lblMax";
+            this.lblMax.Size = new System.Drawing.Size(71, 22);
+            this.lblMax.TabIndex = 2;
+            this.lblMax.Text = "100000";
             // 
             // label5
             // 
@@ -171,63 +165,31 @@ namespace Sanatorium.Forms
             this.label5.Font = new System.Drawing.Font("Montserrat", 9F);
             this.label5.Location = new System.Drawing.Point(4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 16);
+            this.label5.Size = new System.Drawing.Size(97, 16);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Номер";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(693, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(231, 51);
-            this.panel2.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Montserrat", 12F);
-            this.label2.Location = new System.Drawing.Point(3, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 22);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "100000";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Montserrat", 9F);
-            this.label3.Location = new System.Drawing.Point(4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 16);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Номер";
+            this.label5.Text = "Самый частый";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.lblNum);
+            this.panel1.Controls.Add(this.lblCol);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(221, 51);
+            this.panel1.Size = new System.Drawing.Size(298, 51);
             this.panel1.TabIndex = 0;
             // 
-            // lblNum
+            // lblCol
             // 
-            this.lblNum.AutoSize = true;
-            this.lblNum.Font = new System.Drawing.Font("Montserrat", 12F);
-            this.lblNum.Location = new System.Drawing.Point(3, 16);
-            this.lblNum.Name = "lblNum";
-            this.lblNum.Size = new System.Drawing.Size(71, 22);
-            this.lblNum.TabIndex = 2;
-            this.lblNum.Text = "100000";
+            this.lblCol.AutoSize = true;
+            this.lblCol.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.lblCol.Location = new System.Drawing.Point(3, 16);
+            this.lblCol.Name = "lblCol";
+            this.lblCol.Size = new System.Drawing.Size(71, 22);
+            this.lblCol.TabIndex = 2;
+            this.lblCol.Text = "100000";
             // 
             // label1
             // 
@@ -235,17 +197,17 @@ namespace Sanatorium.Forms
             this.label1.Font = new System.Drawing.Font("Montserrat", 9F);
             this.label1.Location = new System.Drawing.Point(4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 16);
+            this.label1.Size = new System.Drawing.Size(151, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Номер";
+            this.label1.Text = "Количество диагнозов";
             // 
             // panelTitleBar
             // 
             this.panelTitleBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTitleBar.BackColor = System.Drawing.Color.White;
+            this.panelTitleBar.Controls.Add(this.btbAllTime);
             this.panelTitleBar.Controls.Add(this.btnBack);
-            this.panelTitleBar.Controls.Add(this.btnOk);
             this.panelTitleBar.Controls.Add(this.btnCustomDate);
             this.panelTitleBar.Controls.Add(this.btnToday);
             this.panelTitleBar.Controls.Add(this.btnLast7days);
@@ -258,6 +220,20 @@ namespace Sanatorium.Forms
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(948, 40);
             this.panelTitleBar.TabIndex = 14;
+            // 
+            // btbAllTime
+            // 
+            this.btbAllTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btbAllTime.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btbAllTime.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btbAllTime.Font = new System.Drawing.Font("Montserrat", 8F);
+            this.btbAllTime.Location = new System.Drawing.Point(861, 6);
+            this.btbAllTime.Name = "btbAllTime";
+            this.btbAllTime.Size = new System.Drawing.Size(83, 30);
+            this.btbAllTime.TabIndex = 19;
+            this.btbAllTime.Text = "За всё время";
+            this.btbAllTime.UseVisualStyleBackColor = true;
+            this.btbAllTime.Click += new System.EventHandler(this.btbAllTime_Click);
             // 
             // btnBack
             // 
@@ -275,31 +251,19 @@ namespace Sanatorium.Forms
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnOk
-            // 
-            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnOk.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.btnOk.Location = new System.Drawing.Point(463, 6);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(28, 30);
-            this.btnOk.TabIndex = 17;
-            this.btnOk.Text = "Ок";
-            this.btnOk.UseVisualStyleBackColor = true;
-            // 
             // btnCustomDate
             // 
             this.btnCustomDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCustomDate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCustomDate.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCustomDate.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.btnCustomDate.Location = new System.Drawing.Point(497, 6);
+            this.btnCustomDate.Location = new System.Drawing.Point(416, 6);
             this.btnCustomDate.Name = "btnCustomDate";
             this.btnCustomDate.Size = new System.Drawing.Size(83, 30);
             this.btnCustomDate.TabIndex = 16;
             this.btnCustomDate.Text = "Своя дата";
             this.btnCustomDate.UseVisualStyleBackColor = true;
+            this.btnCustomDate.Click += new System.EventHandler(this.btnCustomDate_Click);
             // 
             // btnToday
             // 
@@ -307,12 +271,13 @@ namespace Sanatorium.Forms
             this.btnToday.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnToday.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnToday.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.btnToday.Location = new System.Drawing.Point(586, 6);
+            this.btnToday.Location = new System.Drawing.Point(505, 6);
             this.btnToday.Name = "btnToday";
             this.btnToday.Size = new System.Drawing.Size(83, 30);
             this.btnToday.TabIndex = 15;
             this.btnToday.Text = "Сегодня";
             this.btnToday.UseVisualStyleBackColor = true;
+            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
             // btnLast7days
             // 
@@ -320,12 +285,13 @@ namespace Sanatorium.Forms
             this.btnLast7days.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLast7days.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnLast7days.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.btnLast7days.Location = new System.Drawing.Point(675, 6);
+            this.btnLast7days.Location = new System.Drawing.Point(594, 6);
             this.btnLast7days.Name = "btnLast7days";
             this.btnLast7days.Size = new System.Drawing.Size(83, 30);
             this.btnLast7days.TabIndex = 14;
             this.btnLast7days.Text = "7 дней";
             this.btnLast7days.UseVisualStyleBackColor = true;
+            this.btnLast7days.Click += new System.EventHandler(this.btnLast7days_Click);
             // 
             // btnLast30days
             // 
@@ -333,12 +299,13 @@ namespace Sanatorium.Forms
             this.btnLast30days.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLast30days.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnLast30days.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.btnLast30days.Location = new System.Drawing.Point(764, 6);
+            this.btnLast30days.Location = new System.Drawing.Point(683, 6);
             this.btnLast30days.Name = "btnLast30days";
             this.btnLast30days.Size = new System.Drawing.Size(83, 30);
             this.btnLast30days.TabIndex = 13;
             this.btnLast30days.Text = " 30 дней";
             this.btnLast30days.UseVisualStyleBackColor = true;
+            this.btnLast30days.Click += new System.EventHandler(this.btnLast30days_Click);
             // 
             // lblTextTitleForm
             // 
@@ -357,19 +324,20 @@ namespace Sanatorium.Forms
             this.btnThisMonth.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnThisMonth.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnThisMonth.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.btnThisMonth.Location = new System.Drawing.Point(853, 6);
+            this.btnThisMonth.Location = new System.Drawing.Point(772, 6);
             this.btnThisMonth.Name = "btnThisMonth";
             this.btnThisMonth.Size = new System.Drawing.Size(83, 30);
             this.btnThisMonth.TabIndex = 12;
             this.btnThisMonth.Text = "Этот месяц";
             this.btnThisMonth.UseVisualStyleBackColor = true;
+            this.btnThisMonth.Click += new System.EventHandler(this.btnThisMonth_Click);
             // 
             // dtpStartDate
             // 
             this.dtpStartDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpStartDate.CustomFormat = "dd MMM, yyyy";
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(269, 12);
+            this.dtpStartDate.Location = new System.Drawing.Point(222, 12);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(91, 20);
             this.dtpStartDate.TabIndex = 0;
@@ -379,7 +347,7 @@ namespace Sanatorium.Forms
             this.dtpEndDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpEndDate.CustomFormat = "dd MMM, yyyy";
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDate.Location = new System.Drawing.Point(366, 12);
+            this.dtpEndDate.Location = new System.Drawing.Point(319, 12);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(91, 20);
             this.dtpEndDate.TabIndex = 3;
@@ -461,7 +429,7 @@ namespace Sanatorium.Forms
             this.ClientSize = new System.Drawing.Size(948, 492);
             this.Controls.Add(this.panelDesktop);
             this.Name = "FormOperation";
-            this.Text = "FormOperation";
+            this.Text = "Диагнозы";
             this.Load += new System.EventHandler(this.FormOperation_Load);
             this.panelDesktop.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -469,8 +437,6 @@ namespace Sanatorium.Forms
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelTitleBar.ResumeLayout(false);
@@ -492,11 +458,10 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblNum;
+        private System.Windows.Forms.Label lblCol;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelTitleBar;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCustomDate;
         private System.Windows.Forms.Button btnToday;
         private System.Windows.Forms.Button btnLast7days;
@@ -507,13 +472,11 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.DateTimePicker dtpEndDate;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblMin;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblMax;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btbAllTime;
     }
 }

@@ -117,5 +117,7 @@ namespace Sanatorium.Forms
             bindingSourcePrimary.DataSource = sqlConnection.GetData($"SELECT * FROM {tablePrimary} WHERE Date >= '{dtpStartDate.Value}' and Date <= '{dtpEndDate.Value}'", new DataTable($"{tablePrimary}"));
             dgvDataBase.DataSource = bindingSourcePrimary;
         }
+
+        private void btnAllTime_Click(object sender, EventArgs e) => UpdateTable();
     }
 }

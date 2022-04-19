@@ -174,7 +174,6 @@ namespace Sanatorium.Forms
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Операция1";
-            this.label6.Click += new System.EventHandler(this.Operation_Click);
             // 
             // label5
             // 

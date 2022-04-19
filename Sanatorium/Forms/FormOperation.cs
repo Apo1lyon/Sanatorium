@@ -16,6 +16,7 @@ namespace Sanatorium.Forms
         SqlConnection sqlConnection = new SqlConnection();
         OperationsDataBase operations = new OperationsDataBase();
         string tablePrimary = "Diagnosis";
+        public string QueryDate { get; set; }
 
         public FormOperation()
         {
@@ -27,11 +28,9 @@ namespace Sanatorium.Forms
             LoadTheme();
             lblTextTitleForm.Text = this.Text;
             FillChart();
-            FillDate("SELECT Diagnosis.NumDiagnosis as 'Номер Диагноза', Diagnosis.DiagnosisID as 'ID Диагноза', Disease.NameDisease as 'Болезнь', " +
-                "Disease.TypeOfDisease as 'Тип болезни', Disease.Symptoms as 'Симптомы', Diagnosis.Complications as 'Осложнения', " +
-                "Diagnosis.Diagnosis as 'Диагноз', Diagnosis.Date as 'Дата' FROM Diagnosis JOIN Disease ON Diagnosis.DiseaseID = Disease.DiseaseID " +
-                "Group by Diagnosis.NumDiagnosis, Diagnosis.DiagnosisID, Disease.NameDisease, Disease.TypeOfDisease, Disease.Symptoms, " +
-                "Diagnosis.Complications, Diagnosis.Diagnosis, Diagnosis.Date");
+            FillDate($"SELECT Diagnosis.NumDiagnosis as 'Номер Диагноза', Diagnosis.DiagnosisID as 'ID Диагноза', Disease.NameDisease as 'Болезнь', Disease.TypeOfDisease as 'Тип болезни', Disease.Symptoms as 'Симптомы', Diagnosis.Complications as 'Осложнения', Diagnosis.Diagnosis as 'Диагноз', Diagnosis.Date as 'Дата' FROM Diagnosis JOIN Disease ON Diagnosis.DiseaseID = Disease.DiseaseID {QueryDate} Group by Diagnosis.NumDiagnosis, Diagnosis.DiagnosisID, Disease.NameDisease, Disease.TypeOfDisease, Disease.Symptoms, Diagnosis.Complications, Diagnosis.Diagnosis, Diagnosis.Date");
+            lblCol.Text = dgvDataBase.Rows.Cast<DataGridViewRow>().Count(r => Convert.ToBoolean(r.Cells[0].Value)).ToString();
+
         }
 
         private void FillDate(string Query)
@@ -43,9 +42,12 @@ namespace Sanatorium.Forms
 
         private void FillChart()
         {
-            FillDate("SELECT Disease.NameDisease AS Болезнь, Disease.TypeOfDisease AS ТипБолезни, Disease.Reason AS Причина, Disease.Symptoms AS Симптом, COUNT(Disease.NameDisease) AS Колличество, Diagnosis.Date as Дата FROM Diagnosis JOIN Disease ON Diagnosis.DiseaseID = Disease.DiseaseID GROUP BY Disease.NameDisease, Disease.TypeOfDisease, Disease.Reason, Disease.Symptoms, Diagnosis.Date Order by COUNT(Disease.NameDisease) DESC");
+            FillDate($"SELECT Disease.NameDisease AS Болезнь, Disease.TypeOfDisease AS ТипБолезни, Disease.Reason AS Причина, Disease.Symptoms AS Симптом, COUNT(Disease.NameDisease) AS Колличество, Diagnosis.Date as Дата FROM Diagnosis JOIN Disease ON Diagnosis.DiseaseID = Disease.DiseaseID {QueryDate}GROUP BY Disease.NameDisease, Disease.TypeOfDisease, Disease.Reason, Disease.Symptoms, Diagnosis.Date Order by COUNT(Disease.NameDisease) DESC");
             operations.CreateChartPrimary(chart1, dgvDataBase, SeriesChartType.Column, 5, 4);
-            FillDate("SELECT Distinct Disease.NameDisease AS Болезнь, Disease.TypeOfDisease AS ТипБолезни, Disease.Reason AS Причина, Disease.Symptoms AS Симптом, COUNT(Disease.NameDisease) OVER(PARTITION BY Disease.NameDisease) AS Колличество FROM Diagnosis JOIN Disease ON Diagnosis.DiseaseID = Disease.DiseaseID GROUP BY Disease.NameDisease, Disease.TypeOfDisease, Disease.Reason, Disease.Symptoms, Diagnosis.Date");
+
+            FillDate($"SELECT Distinct Disease.NameDisease AS Болезнь, Disease.TypeOfDisease AS ТипБолезни, Disease.Reason AS Причина, Disease.Symptoms AS Симптом, COUNT(Disease.NameDisease) OVER(PARTITION BY Disease.NameDisease) AS Колличество FROM Diagnosis JOIN Disease ON Diagnosis.DiseaseID = Disease.DiseaseID {QueryDate} GROUP BY Disease.NameDisease, Disease.TypeOfDisease, Disease.Reason, Disease.Symptoms, Diagnosis.Date");
+            lblMax.Text = operations.ReturnDistributed(dgvDataBase, 4);
+            lblMin.Text = operations.ReturnNonDistributed(dgvDataBase, 4);
             operations.CreateChartSecondary(chart2, dgvDataBase, SeriesChartType.Doughnut, 0, 4);
         }
         
@@ -72,5 +74,41 @@ namespace Sanatorium.Forms
         }
 
         private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPatient(), sender);
+
+        private void btnThisMonth_Click(object sender, EventArgs e)
+        {
+            QueryDate = "Where DATEPART(m, Diagnosis.Date) = DATEPART(m, DATEADD(m, 0, getdate()))AND DATEPART(yyyy, Diagnosis.Date) = DATEPART(yyyy, DATEADD(m, 0, getdate())) ";
+            FormOperation_Load(sender, e);
+        }
+
+        private void btnLast30days_Click(object sender, EventArgs e)
+        {
+            QueryDate = "Where Diagnosis.Date >= DATEADD(day, -30, GETDATE()) and Diagnosis.Date <= GETDATE() ";
+            FormOperation_Load(sender, e);
+        }
+
+        private void btnLast7days_Click(object sender, EventArgs e)
+        {
+            QueryDate = "Where Diagnosis.Date >= DATEADD(day, -7, GETDATE()) and Diagnosis.Date <= GETDATE() ";
+            FormOperation_Load(sender, e);
+        }
+
+        private void btnToday_Click(object sender, EventArgs e)
+        {
+            QueryDate = $"Where Diagnosis.Date = '{DateTime.Now.Date.ToString()}' ";
+            FormOperation_Load(sender, e);
+        }
+
+        private void btnCustomDate_Click(object sender, EventArgs e)
+        {
+            QueryDate = $"Where Diagnosis.Date >= '{dtpStartDate.Value}' and Diagnosis.Date <= '{dtpEndDate.Value}' ";
+            FormOperation_Load(sender, e);
+        }
+
+        private void btbAllTime_Click(object sender, EventArgs e)
+        {
+            QueryDate = "";
+            FormOperation_Load(sender, e);
+        }
     }
 }
