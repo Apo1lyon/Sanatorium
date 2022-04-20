@@ -161,9 +161,10 @@ namespace Sanatorium.Forms
             this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label7.Location = new System.Drawing.Point(25, 262);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 13);
+            this.label7.Size = new System.Drawing.Size(67, 13);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Операция2";
+            this.label7.Text = "Специалист";
+            this.label7.Click += new System.EventHandler(this.FormOperationSpecialist_Click);
             // 
             // label6
             // 
@@ -171,9 +172,10 @@ namespace Sanatorium.Forms
             this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label6.Location = new System.Drawing.Point(25, 234);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.Size = new System.Drawing.Size(68, 13);
             this.label6.TabIndex = 5;
-            this.label6.Text = "Операция1";
+            this.label6.Text = "Назначение";
+            this.label6.Click += new System.EventHandler(this.FormOperationAppoint_Click);
             // 
             // label5
             // 

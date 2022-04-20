@@ -21,6 +21,7 @@ namespace Sanatorium.Forms
         string tableSecondary = "SunCurrortBook";
         string tableTernary = "Diagnosis";
         string tableFourth = "Appoint";
+        string tableFive = "Specialist";
        
         public FormRecordSunCurrortBook()
         {
@@ -75,7 +76,7 @@ namespace Sanatorium.Forms
            try
            {
                 sqlConnection.connection.Open();
-                string addQuery = $"insert into {tablePrimary} (SunCurrortBookID, DiagnosisID, AppointID, Date) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{dateTimePicker1.Value}')";
+                string addQuery = $"insert into {tablePrimary} (SunCurrortBookID, DiagnosisID, AppointID, SpecialistID, Date) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}','{dateTimePicker1.Value}')";
 
                 command = new SqlCommand(addQuery, sqlConnection.connection);
                 command.ExecuteNonQuery();
@@ -107,6 +108,7 @@ namespace Sanatorium.Forms
             sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableSecondary);
             if (dgvSelectDataBase.DataSource == null) sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableTernary);
             if (dgvSelectDataBase.DataSource == null) sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableFourth);
+            if (dgvSelectDataBase.DataSource == null) sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableFive);
         }
 
         private void dgvSelectDataBase_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.BroadcastID(dgvDataBase, dgvSelectDataBase, dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText);

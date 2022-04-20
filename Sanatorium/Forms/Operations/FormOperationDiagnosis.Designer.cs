@@ -1,7 +1,7 @@
 ﻿
 namespace Sanatorium.Forms
 {
-    partial class FormOperation
+    partial class FormOperationDiagnosis
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,12 @@ namespace Sanatorium.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -120,10 +120,11 @@ namespace Sanatorium.Forms
             // lblMin
             // 
             this.lblMin.AutoSize = true;
-            this.lblMin.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.lblMin.Font = new System.Drawing.Font("Montserrat", 8F);
             this.lblMin.Location = new System.Drawing.Point(3, 16);
+            this.lblMin.MaximumSize = new System.Drawing.Size(300, 0);
             this.lblMin.Name = "lblMin";
-            this.lblMin.Size = new System.Drawing.Size(71, 22);
+            this.lblMin.Size = new System.Drawing.Size(46, 15);
             this.lblMin.TabIndex = 2;
             this.lblMin.Text = "100000";
             // 
@@ -133,9 +134,9 @@ namespace Sanatorium.Forms
             this.label8.Font = new System.Drawing.Font("Montserrat", 9F);
             this.label8.Location = new System.Drawing.Point(4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(99, 16);
+            this.label8.Size = new System.Drawing.Size(153, 16);
             this.label8.TabIndex = 1;
-            this.label8.Text = "Самый редкий";
+            this.label8.Text = "Самый редкий диагноз";
             // 
             // panel3
             // 
@@ -152,10 +153,11 @@ namespace Sanatorium.Forms
             // lblMax
             // 
             this.lblMax.AutoSize = true;
-            this.lblMax.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.lblMax.Font = new System.Drawing.Font("Montserrat", 8F);
             this.lblMax.Location = new System.Drawing.Point(3, 16);
+            this.lblMax.MaximumSize = new System.Drawing.Size(300, 0);
             this.lblMax.Name = "lblMax";
-            this.lblMax.Size = new System.Drawing.Size(71, 22);
+            this.lblMax.Size = new System.Drawing.Size(46, 15);
             this.lblMax.TabIndex = 2;
             this.lblMax.Text = "100000";
             // 
@@ -165,9 +167,9 @@ namespace Sanatorium.Forms
             this.label5.Font = new System.Drawing.Font("Montserrat", 9F);
             this.label5.Location = new System.Drawing.Point(4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 16);
+            this.label5.Size = new System.Drawing.Size(151, 16);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Самый частый";
+            this.label5.Text = "Самый частый диагноз";
             // 
             // panel1
             // 
@@ -389,48 +391,48 @@ namespace Sanatorium.Forms
             this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea1);
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Name = "Legend1";
-            this.chart2.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea3);
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend3.Name = "Legend1";
+            this.chart2.Legends.Add(legend3);
             this.chart2.Location = new System.Drawing.Point(609, 103);
             this.chart2.Name = "chart2";
             this.chart2.Size = new System.Drawing.Size(327, 377);
             this.chart2.TabIndex = 6;
             this.chart2.Text = "chart2";
-            title1.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            title1.Font = new System.Drawing.Font("Montserrat", 15F);
-            title1.Name = "Title1";
-            title1.Text = "Соотношение болезней";
-            this.chart2.Titles.Add(title1);
+            title3.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            title3.Font = new System.Drawing.Font("Montserrat", 15F);
+            title3.Name = "Title1";
+            title3.Text = "Соотношение болезней";
+            this.chart2.Titles.Add(title3);
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(12, 103);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(591, 238);
             this.chart1.TabIndex = 5;
             this.chart1.Text = "chart1";
-            title2.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            title2.Font = new System.Drawing.Font("Montserrat", 15F);
-            title2.Name = "Title1";
-            title2.Text = "Диагнозы по датам";
-            this.chart1.Titles.Add(title2);
+            title4.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            title4.Font = new System.Drawing.Font("Montserrat", 15F);
+            title4.Name = "Title1";
+            title4.Text = "Диагнозы по датам";
+            this.chart1.Titles.Add(title4);
             // 
-            // FormOperation
+            // FormOperationDiagnosis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 492);
             this.Controls.Add(this.panelDesktop);
-            this.Name = "FormOperation";
+            this.Name = "FormOperationDiagnosis";
             this.Text = "Диагнозы";
-            this.Load += new System.EventHandler(this.FormOperation_Load);
+            this.Load += new System.EventHandler(this.FormOperationDiagnosis_Load);
             this.panelDesktop.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);

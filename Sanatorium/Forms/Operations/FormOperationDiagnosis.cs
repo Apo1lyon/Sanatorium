@@ -11,19 +11,19 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Sanatorium.Forms
 {
-    public partial class FormOperation : Form
+    public partial class FormOperationDiagnosis : Form
     {
         SqlConnection sqlConnection = new SqlConnection();
         OperationsDataBase operations = new OperationsDataBase();
         string tablePrimary = "Diagnosis";
         public string QueryDate { get; set; }
 
-        public FormOperation()
+        public FormOperationDiagnosis()
         {
             InitializeComponent();
         }
 
-        private void FormOperation_Load(object sender, EventArgs e)
+        private void FormOperationDiagnosis_Load(object sender, EventArgs e)
         {
             LoadTheme();
             lblTextTitleForm.Text = this.Text;
@@ -78,37 +78,37 @@ namespace Sanatorium.Forms
         private void btnThisMonth_Click(object sender, EventArgs e)
         {
             QueryDate = "Where DATEPART(m, Diagnosis.Date) = DATEPART(m, DATEADD(m, 0, getdate()))AND DATEPART(yyyy, Diagnosis.Date) = DATEPART(yyyy, DATEADD(m, 0, getdate())) ";
-            FormOperation_Load(sender, e);
+            FormOperationDiagnosis_Load(sender, e);
         }
 
         private void btnLast30days_Click(object sender, EventArgs e)
         {
             QueryDate = "Where Diagnosis.Date >= DATEADD(day, -30, GETDATE()) and Diagnosis.Date <= GETDATE() ";
-            FormOperation_Load(sender, e);
+            FormOperationDiagnosis_Load(sender, e);
         }
 
         private void btnLast7days_Click(object sender, EventArgs e)
         {
             QueryDate = "Where Diagnosis.Date >= DATEADD(day, -7, GETDATE()) and Diagnosis.Date <= GETDATE() ";
-            FormOperation_Load(sender, e);
+            FormOperationDiagnosis_Load(sender, e);
         }
 
         private void btnToday_Click(object sender, EventArgs e)
         {
             QueryDate = $"Where Diagnosis.Date = '{DateTime.Now.Date.ToString()}' ";
-            FormOperation_Load(sender, e);
+            FormOperationDiagnosis_Load(sender, e);
         }
 
         private void btnCustomDate_Click(object sender, EventArgs e)
         {
             QueryDate = $"Where Diagnosis.Date >= '{dtpStartDate.Value}' and Diagnosis.Date <= '{dtpEndDate.Value}' ";
-            FormOperation_Load(sender, e);
+            FormOperationDiagnosis_Load(sender, e);
         }
 
         private void btbAllTime_Click(object sender, EventArgs e)
         {
             QueryDate = "";
-            FormOperation_Load(sender, e);
+            FormOperationDiagnosis_Load(sender, e);
         }
     }
 }

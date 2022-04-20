@@ -42,5 +42,7 @@ namespace Sanatorium.Forms
         }//Открытие дочерней формы
         
         private void FormServices_Click(object sender, EventArgs e) => OpenChildForm(new FormServices(), sender);
+
+        private void FormOperationServices_Click(object sender, EventArgs e) => OpenChildForm(new FormOperationServices(), sender);
     }
 }

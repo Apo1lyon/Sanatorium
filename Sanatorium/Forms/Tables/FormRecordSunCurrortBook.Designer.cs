@@ -30,6 +30,7 @@ namespace Sanatorium.Forms
         private void InitializeComponent()
         {
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.btnAllTime = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.lblTextTitleForm = new System.Windows.Forms.Label();
@@ -52,7 +53,8 @@ namespace Sanatorium.Forms
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.btnAllTime = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.panelTitleBar.SuspendLayout();
             this.panelDataGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectDataBase)).BeginInit();
@@ -76,6 +78,20 @@ namespace Sanatorium.Forms
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(948, 40);
             this.panelTitleBar.TabIndex = 0;
+            // 
+            // btnAllTime
+            // 
+            this.btnAllTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAllTime.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAllTime.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnAllTime.Font = new System.Drawing.Font("Montserrat", 8F);
+            this.btnAllTime.Location = new System.Drawing.Point(853, 9);
+            this.btnAllTime.Name = "btnAllTime";
+            this.btnAllTime.Size = new System.Drawing.Size(83, 25);
+            this.btnAllTime.TabIndex = 21;
+            this.btnAllTime.Text = "За всё время";
+            this.btnAllTime.UseVisualStyleBackColor = true;
+            this.btnAllTime.Click += new System.EventHandler(this.btnAllTime_Click);
             // 
             // btnBack
             // 
@@ -194,6 +210,8 @@ namespace Sanatorium.Forms
             this.panelSetValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSetValue.BackColor = System.Drawing.Color.White;
+            this.panelSetValue.Controls.Add(this.label1);
+            this.panelSetValue.Controls.Add(this.textBox4);
             this.panelSetValue.Controls.Add(this.dateTimePicker1);
             this.panelSetValue.Controls.Add(this.btnDelete);
             this.panelSetValue.Controls.Add(this.btnAdd);
@@ -215,7 +233,7 @@ namespace Sanatorium.Forms
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(128, 193);
+            this.dateTimePicker1.Location = new System.Drawing.Point(128, 226);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(105, 20);
             this.dateTimePicker1.TabIndex = 13;
@@ -227,7 +245,7 @@ namespace Sanatorium.Forms
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnDelete.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnDelete.Location = new System.Drawing.Point(22, 264);
+            this.btnDelete.Location = new System.Drawing.Point(22, 297);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(210, 29);
             this.btnDelete.TabIndex = 12;
@@ -242,7 +260,7 @@ namespace Sanatorium.Forms
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnAdd.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnAdd.Location = new System.Drawing.Point(21, 229);
+            this.btnAdd.Location = new System.Drawing.Point(21, 262);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(211, 29);
             this.btnAdd.TabIndex = 11;
@@ -254,7 +272,7 @@ namespace Sanatorium.Forms
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label7.Location = new System.Drawing.Point(17, 193);
+            this.label7.Location = new System.Drawing.Point(17, 226);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 20);
             this.label7.TabIndex = 10;
@@ -341,19 +359,25 @@ namespace Sanatorium.Forms
             this.panelDesktop.Size = new System.Drawing.Size(948, 492);
             this.panelDesktop.TabIndex = 3;
             // 
-            // btnAllTime
+            // label1
             // 
-            this.btnAllTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAllTime.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAllTime.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnAllTime.Font = new System.Drawing.Font("Montserrat", 8F);
-            this.btnAllTime.Location = new System.Drawing.Point(853, 9);
-            this.btnAllTime.Name = "btnAllTime";
-            this.btnAllTime.Size = new System.Drawing.Size(83, 25);
-            this.btnAllTime.TabIndex = 21;
-            this.btnAllTime.Text = "За всё время";
-            this.btnAllTime.UseVisualStyleBackColor = true;
-            this.btnAllTime.Click += new System.EventHandler(this.btnAllTime_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.label1.Location = new System.Drawing.Point(18, 193);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 20);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "ID Специали.";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox4.Location = new System.Drawing.Point(128, 193);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(105, 22);
+            this.textBox4.TabIndex = 14;
             // 
             // FormRecordSunCurrortBook
             // 
@@ -403,5 +427,7 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.DataGridView dgvSelectDataBase;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btnAllTime;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }

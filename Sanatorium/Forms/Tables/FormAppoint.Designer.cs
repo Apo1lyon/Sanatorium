@@ -30,6 +30,7 @@ namespace Sanatorium.Forms
         private void InitializeComponent()
         {
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.btnAllTime = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.lblTextTitleForm = new System.Windows.Forms.Label();
@@ -45,16 +46,13 @@ namespace Sanatorium.Forms
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.btnAllTime = new System.Windows.Forms.Button();
             this.panelTitleBar.SuspendLayout();
             this.panelDataGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectDataBase)).BeginInit();
@@ -78,6 +76,20 @@ namespace Sanatorium.Forms
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(948, 40);
             this.panelTitleBar.TabIndex = 0;
+            // 
+            // btnAllTime
+            // 
+            this.btnAllTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAllTime.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAllTime.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnAllTime.Font = new System.Drawing.Font("Montserrat", 8F);
+            this.btnAllTime.Location = new System.Drawing.Point(853, 9);
+            this.btnAllTime.Name = "btnAllTime";
+            this.btnAllTime.Size = new System.Drawing.Size(83, 25);
+            this.btnAllTime.TabIndex = 20;
+            this.btnAllTime.Text = "За всё время";
+            this.btnAllTime.UseVisualStyleBackColor = true;
+            this.btnAllTime.Click += new System.EventHandler(this.btnAllTime_Click);
             // 
             // btnBack
             // 
@@ -201,10 +213,8 @@ namespace Sanatorium.Forms
             this.panelSetValue.Controls.Add(this.btnDelete);
             this.panelSetValue.Controls.Add(this.btnAdd);
             this.panelSetValue.Controls.Add(this.label7);
-            this.panelSetValue.Controls.Add(this.textBox4);
-            this.panelSetValue.Controls.Add(this.label6);
             this.panelSetValue.Controls.Add(this.textBox3);
-            this.panelSetValue.Controls.Add(this.label5);
+            this.panelSetValue.Controls.Add(this.label6);
             this.panelSetValue.Controls.Add(this.textBox2);
             this.panelSetValue.Controls.Add(this.label4);
             this.panelSetValue.Controls.Add(this.textBox1);
@@ -220,7 +230,7 @@ namespace Sanatorium.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label1.Location = new System.Drawing.Point(18, 226);
+            this.label1.Location = new System.Drawing.Point(19, 193);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 20);
             this.label1.TabIndex = 14;
@@ -229,7 +239,7 @@ namespace Sanatorium.Forms
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(128, 226);
+            this.dateTimePicker1.Location = new System.Drawing.Point(128, 193);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(105, 20);
             this.dateTimePicker1.TabIndex = 13;
@@ -241,7 +251,7 @@ namespace Sanatorium.Forms
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnDelete.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnDelete.Location = new System.Drawing.Point(23, 297);
+            this.btnDelete.Location = new System.Drawing.Point(23, 264);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(210, 29);
             this.btnDelete.TabIndex = 12;
@@ -256,7 +266,7 @@ namespace Sanatorium.Forms
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnAdd.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnAdd.Location = new System.Drawing.Point(22, 262);
+            this.btnAdd.Location = new System.Drawing.Point(22, 229);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(211, 29);
             this.btnAdd.TabIndex = 11;
@@ -268,31 +278,11 @@ namespace Sanatorium.Forms
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label7.Location = new System.Drawing.Point(17, 193);
+            this.label7.Location = new System.Drawing.Point(17, 160);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 20);
             this.label7.TabIndex = 10;
             this.label7.Text = "ID Услуги";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(128, 193);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(105, 22);
-            this.textBox4.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label6.Location = new System.Drawing.Point(18, 160);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 20);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "ID Препарата";
             // 
             // textBox3
             // 
@@ -302,17 +292,17 @@ namespace Sanatorium.Forms
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(105, 22);
-            this.textBox3.TabIndex = 7;
+            this.textBox3.TabIndex = 9;
             // 
-            // label5
+            // label6
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label5.Location = new System.Drawing.Point(18, 127);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 20);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "ID Специал.";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.label6.Location = new System.Drawing.Point(18, 127);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(110, 20);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "ID Препарата";
             // 
             // textBox2
             // 
@@ -322,7 +312,7 @@ namespace Sanatorium.Forms
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(105, 22);
-            this.textBox2.TabIndex = 5;
+            this.textBox2.TabIndex = 7;
             // 
             // label4
             // 
@@ -365,20 +355,6 @@ namespace Sanatorium.Forms
             this.panelDesktop.Size = new System.Drawing.Size(948, 492);
             this.panelDesktop.TabIndex = 3;
             // 
-            // btnAllTime
-            // 
-            this.btnAllTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAllTime.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAllTime.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnAllTime.Font = new System.Drawing.Font("Montserrat", 8F);
-            this.btnAllTime.Location = new System.Drawing.Point(853, 9);
-            this.btnAllTime.Name = "btnAllTime";
-            this.btnAllTime.Size = new System.Drawing.Size(83, 25);
-            this.btnAllTime.TabIndex = 20;
-            this.btnAllTime.Text = "За всё время";
-            this.btnAllTime.UseVisualStyleBackColor = true;
-            this.btnAllTime.Click += new System.EventHandler(this.btnAllTime_Click);
-            // 
             // FormAppoint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,8 +388,6 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.Panel panelSetValue;
         private System.Windows.Forms.Panel panelDesktop;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
@@ -421,7 +395,7 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.DateTimePicker dtpEndDate;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.Button btnDate;
