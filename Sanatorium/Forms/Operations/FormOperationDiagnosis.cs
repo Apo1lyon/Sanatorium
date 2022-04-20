@@ -42,10 +42,14 @@ namespace Sanatorium.Forms
 
         private void FillChart()
         {
-            FillDate($"SELECT Disease.NameDisease AS Болезнь, Disease.TypeOfDisease AS ТипБолезни, Disease.Reason AS Причина, Disease.Symptoms AS Симптом, COUNT(Disease.NameDisease) AS Колличество, Diagnosis.Date as Дата FROM Diagnosis JOIN Disease ON Diagnosis.DiseaseID = Disease.DiseaseID {QueryDate}GROUP BY Disease.NameDisease, Disease.TypeOfDisease, Disease.Reason, Disease.Symptoms, Diagnosis.Date Order by COUNT(Disease.NameDisease) DESC");
+            FillDate($"SELECT Disease.NameDisease AS Болезнь, Disease.TypeOfDisease AS ТипБолезни, Disease.Reason AS Причина, Disease.Symptoms AS Симптом, COUNT(Disease.NameDisease) AS Колличество, Diagnosis.Date as Дата FROM Diagnosis " +
+                $"JOIN Disease ON Diagnosis.DiseaseID = Disease.DiseaseID {QueryDate}" +
+                $"GROUP BY Disease.NameDisease, Disease.TypeOfDisease, Disease.Reason, Disease.Symptoms, Diagnosis.Date Order by COUNT(Disease.NameDisease) DESC");
             operations.CreateChartPrimary(chart1, dgvDataBase, SeriesChartType.Column, 5, 4);
 
-            FillDate($"SELECT Distinct Disease.NameDisease AS Болезнь, Disease.TypeOfDisease AS ТипБолезни, Disease.Reason AS Причина, Disease.Symptoms AS Симптом, COUNT(Disease.NameDisease) OVER(PARTITION BY Disease.NameDisease) AS Колличество FROM Diagnosis JOIN Disease ON Diagnosis.DiseaseID = Disease.DiseaseID {QueryDate} GROUP BY Disease.NameDisease, Disease.TypeOfDisease, Disease.Reason, Disease.Symptoms, Diagnosis.Date");
+            FillDate($"SELECT Distinct Disease.NameDisease AS Болезнь, Disease.TypeOfDisease AS ТипБолезни, Disease.Reason AS Причина, Disease.Symptoms AS Симптом, COUNT(Disease.NameDisease) OVER(PARTITION BY Disease.NameDisease) AS Колличество FROM Diagnosis " +
+                $"JOIN Disease ON Diagnosis.DiseaseID = Disease.DiseaseID {QueryDate} " +
+                $"GROUP BY Disease.NameDisease, Disease.TypeOfDisease, Disease.Reason, Disease.Symptoms, Diagnosis.Date");
             lblMax.Text = operations.ReturnDistributed(dgvDataBase, 4);
             lblMin.Text = operations.ReturnNonDistributed(dgvDataBase, 4);
             operations.CreateChartSecondary(chart2, dgvDataBase, SeriesChartType.Doughnut, 0, 4);

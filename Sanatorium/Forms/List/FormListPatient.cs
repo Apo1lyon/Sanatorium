@@ -53,6 +53,10 @@ namespace Sanatorium.Forms
         
         private void FormRecordSunCurrortBook_Click(object sender, EventArgs e) => OpenChildForm(new FormRecordSunCurrortBook(), sender);
         
-        private void Operation_Click(object sender, EventArgs e) => OpenChildForm(new FormOperationDiagnosis(), sender);
+        private void FormOperationDiagnosis_Click(object sender, EventArgs e) => OpenChildForm(new FormOperationDiagnosis(), sender);
+
+        private void FormOperationMedication_Click(object sender, EventArgs e) => OpenChildForm(new FormOperationMedication(), sender);
+
+        private void FormOperationPatient_Click(object sender, EventArgs e) => OpenChildForm(new FormOperationPatient(), sender);
     }
 }

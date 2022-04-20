@@ -11,19 +11,19 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Sanatorium.Forms
 {
-    public partial class FormOperationServices : Form
+    public partial class FormOperationPatient : Form
     {
         SqlConnection sqlConnection = new SqlConnection();
         OperationsDataBase operations = new OperationsDataBase();
         string tablePrimary = "SunCurrortBook";
         public string QueryDate { get; set; }
 
-        public FormOperationServices()
+        public FormOperationPatient()
         {
             InitializeComponent();
         }
 
-        private void FormOperationServices_Load(object sender, EventArgs e)
+        private void FormOperationPatient_Load(object sender, EventArgs e)
         {
             LoadTheme();
             lblTextTitleForm.Text = this.Text;
@@ -34,8 +34,8 @@ namespace Sanatorium.Forms
                     "JOIN Appoint ON RecordSunCurrortBook.AppointID = Appoint.AppointID " +
                     "JOIN Medication ON Medication.MedicationID = Appoint.MedicationID " +
                     "JOIN Services ON Services.ServicesID = Appoint.ServicesID " +
-                    "JOIN Patient ON Patient.PatientID = SunCurrortBook.PatientID " + 
-                    $"JOIN Specialist ON SunCurrortBook.SpecialistID = Specialist.SpecialistID {QueryDate} " +
+                    "JOIN Patient ON Patient.PatientID = SunCurrortBook.PatientID " +
+                    $"JOIN Specialist ON SunCurrortBook.SpecialistID = Specialist.SpecialistID {QueryDate}" +
                     "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, SunCurrortBook.SunCurrortBookID, Patient.LastName, Patient.FirstName, Patient.MiddleName, Diagnosis.Diagnosis, Medication.NameMedication, Services.NameServices, Specialist.LastName, RecordSunCurrortBook.Date");
             lblCol.Text = dgvDataBase.Rows.Cast<DataGridViewRow>().Count(r => Convert.ToBoolean(r.Cells[0].Value)).ToString();
 
@@ -50,18 +50,17 @@ namespace Sanatorium.Forms
 
         private void FillChart()
         {
-            FillDate($"SELECT Services.NameServices as 'Услуги', Count(Services.NameServices), RecordSunCurrortBook.Date as 'Дата записи'  FROM SunCurrortBook " +
+            FillDate($"SELECT Distinct Patient.LastName, Count(Patient.LastName) OVER(PARTITION BY RecordSunCurrortBook.Date), RecordSunCurrortBook.Date as 'Дата записи'  FROM SunCurrortBook " +
                     "JOIN RecordSunCurrortBook ON RecordSunCurrortBook.SunCurrortBookID = SunCurrortBook.SunCurrortBookID " +
                     "JOIN Appoint ON RecordSunCurrortBook.AppointID = Appoint.AppointID " +
-                    $"JOIN Services ON Services.ServicesID = Appoint.ServicesID {QueryDate} " +
-                    "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, SunCurrortBook.SunCurrortBookID, Services.NameServices, RecordSunCurrortBook.Date");
+                    $"JOIN Patient ON Patient.PatientID = SunCurrortBook.PatientID { QueryDate} " +
+                    "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, SunCurrortBook.SunCurrortBookID, Patient.LastName, RecordSunCurrortBook.Date");
             operations.CreateChartPrimary(chart1, dgvDataBase, SeriesChartType.Column, 2, 1);
 
-            FillDate($"SELECT Distinct Services.NameServices as 'Услуги', COUNT(Services.NameServices) OVER(PARTITION BY Services.NameServices)  FROM SunCurrortBook  " +
-                        "JOIN RecordSunCurrortBook ON RecordSunCurrortBook.SunCurrortBookID = SunCurrortBook.SunCurrortBookID " +
-                        "JOIN Appoint ON RecordSunCurrortBook.AppointID = Appoint.AppointID " +
-                        $"JOIN Services ON Services.ServicesID = Appoint.ServicesID {QueryDate} " +
-                        "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, SunCurrortBook.SunCurrortBookID, Services.NameServices, RecordSunCurrortBook.Date");
+            FillDate($"SELECT Distinct Patient.LastName, Count(Patient.LastName) OVER(PARTITION BY Patient.LastName) FROM SunCurrortBook " +
+                    "JOIN RecordSunCurrortBook ON RecordSunCurrortBook.SunCurrortBookID = SunCurrortBook.SunCurrortBookID " +
+                    $"JOIN Patient ON Patient.PatientID = SunCurrortBook.PatientID {QueryDate} " +
+                    "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, Patient.LastName, SunCurrortBook.SunCurrortBookID, RecordSunCurrortBook.Date");
             lblMax.Text = operations.ReturnDistributed(dgvDataBase, 1);
             lblMin.Text = operations.ReturnNonDistributed(dgvDataBase, 1);
             operations.CreateChartSecondary(chart2, dgvDataBase, SeriesChartType.Doughnut, 0, 1);
@@ -89,42 +88,42 @@ namespace Sanatorium.Forms
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListServices(), sender);
+        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPatient(), sender);
 
         private void btnThisMonth_Click(object sender, EventArgs e)
         {
             QueryDate = "Where DATEPART(m, RecordSunCurrortBook.Date) = DATEPART(m, DATEADD(m, 0, getdate()))AND DATEPART(yyyy, RecordSunCurrortBook.Date) = DATEPART(yyyy, DATEADD(m, 0, getdate())) ";
-            FormOperationServices_Load(sender, e);
+            FormOperationPatient_Load(sender, e);
         }
 
         private void btnLast30days_Click(object sender, EventArgs e)
         {
             QueryDate = "Where RecordSunCurrortBook.Date >= DATEADD(day, -30, GETDATE()) and RecordSunCurrortBook.Date <= GETDATE() ";
-            FormOperationServices_Load(sender, e);
+            FormOperationPatient_Load(sender, e);
         }
 
         private void btnLast7days_Click(object sender, EventArgs e)
         {
             QueryDate = "Where RecordSunCurrortBook.Date >= DATEADD(day, -7, GETDATE()) and RecordSunCurrortBook.Date <= GETDATE() ";
-            FormOperationServices_Load(sender, e);
+            FormOperationPatient_Load(sender, e);
         }
 
         private void btnToday_Click(object sender, EventArgs e)
         {
             QueryDate = $"Where RecordSunCurrortBook.Date = '{DateTime.Now.Date.ToString()}' ";
-            FormOperationServices_Load(sender, e);
+            FormOperationPatient_Load(sender, e);
         }
 
         private void btnCustomDate_Click(object sender, EventArgs e)
         {
             QueryDate = $"Where RecordSunCurrortBook.Date >= '{dtpStartDate.Value}' and RecordSunCurrortBook.Date <= '{dtpEndDate.Value}' ";
-            FormOperationServices_Load(sender, e);
+            FormOperationPatient_Load(sender, e);
         }
 
         private void btbAllTime_Click(object sender, EventArgs e)
         {
             QueryDate = "";
-            FormOperationServices_Load(sender, e);
+            FormOperationPatient_Load(sender, e);
         }
     }
 }
