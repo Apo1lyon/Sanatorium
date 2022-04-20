@@ -136,7 +136,7 @@ namespace Sanatorium.Forms
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(153, 16);
             this.label8.TabIndex = 1;
-            this.label8.Text = "Самые редкие болезни";
+            this.label8.Text = "Самый редкий диагноз";
             // 
             // panel3
             // 
@@ -169,7 +169,7 @@ namespace Sanatorium.Forms
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(151, 16);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Самые частые болезни";
+            this.label5.Text = "Самый частый диагноз";
             // 
             // panel1
             // 
@@ -188,6 +188,7 @@ namespace Sanatorium.Forms
             this.lblCol.AutoSize = true;
             this.lblCol.Font = new System.Drawing.Font("Montserrat", 12F);
             this.lblCol.Location = new System.Drawing.Point(3, 16);
+            this.lblCol.MaximumSize = new System.Drawing.Size(390, 0);
             this.lblCol.Name = "lblCol";
             this.lblCol.Size = new System.Drawing.Size(71, 22);
             this.lblCol.TabIndex = 2;
@@ -199,9 +200,9 @@ namespace Sanatorium.Forms
             this.label1.Font = new System.Drawing.Font("Montserrat", 9F);
             this.label1.Location = new System.Drawing.Point(4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 16);
+            this.label1.Size = new System.Drawing.Size(235, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Количество болезней";
+            this.label1.Text = "Количество назначенных диагнозов";
             // 
             // panelTitleBar
             // 
@@ -404,7 +405,7 @@ namespace Sanatorium.Forms
             title1.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
             title1.Font = new System.Drawing.Font("Montserrat", 15F);
             title1.Name = "Title1";
-            title1.Text = "Соотношение болезней";
+            title1.Text = "Соотношение диагнозов";
             this.chart2.Titles.Add(title1);
             // 
             // chart1
@@ -421,7 +422,7 @@ namespace Sanatorium.Forms
             title2.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
             title2.Font = new System.Drawing.Font("Montserrat", 15F);
             title2.Name = "Title1";
-            title2.Text = "Болезни по датам";
+            title2.Text = "Диагнозы по датам";
             this.chart1.Titles.Add(title2);
             // 
             // FormOperationDiagnosis
@@ -431,7 +432,7 @@ namespace Sanatorium.Forms
             this.ClientSize = new System.Drawing.Size(948, 492);
             this.Controls.Add(this.panelDesktop);
             this.Name = "FormOperationDiagnosis";
-            this.Text = "Болезни";
+            this.Text = "Услуги";
             this.Load += new System.EventHandler(this.FormOperationDiagnosis_Load);
             this.panelDesktop.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

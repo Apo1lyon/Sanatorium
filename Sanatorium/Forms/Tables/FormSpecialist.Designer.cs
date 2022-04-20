@@ -34,9 +34,6 @@ namespace Sanatorium.Forms
             this.lblTextTitleForm = new System.Windows.Forms.Label();
             this.panelDataGrid = new System.Windows.Forms.Panel();
             this.dgvSelectDataBase = new System.Windows.Forms.DataGridView();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.btnDate = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDataBase = new System.Windows.Forms.DataGridView();
             this.panelSetValue = new System.Windows.Forms.Panel();
@@ -70,10 +67,7 @@ namespace Sanatorium.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTitleBar.BackColor = System.Drawing.Color.White;
             this.panelTitleBar.Controls.Add(this.btnBack);
-            this.panelTitleBar.Controls.Add(this.dtpEndDate);
             this.panelTitleBar.Controls.Add(this.lblTextTitleForm);
-            this.panelTitleBar.Controls.Add(this.dtpStartDate);
-            this.panelTitleBar.Controls.Add(this.btnDate);
             this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(948, 40);
@@ -130,42 +124,6 @@ namespace Sanatorium.Forms
             this.dgvSelectDataBase.Size = new System.Drawing.Size(651, 160);
             this.dgvSelectDataBase.TabIndex = 13;
             this.dgvSelectDataBase.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSelectDataBase_CellDoubleClick);
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpEndDate.CustomFormat = "dd MMM, yyyy";
-            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDate.Location = new System.Drawing.Point(726, 9);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(91, 20);
-            this.dtpEndDate.TabIndex = 18;
-            this.dtpEndDate.Value = new System.DateTime(2022, 4, 13, 0, 0, 0, 0);
-            // 
-            // dtpStartDate
-            // 
-            this.dtpStartDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpStartDate.CustomFormat = "dd MMM, yyyy";
-            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(629, 9);
-            this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(91, 20);
-            this.dtpStartDate.TabIndex = 16;
-            this.dtpStartDate.Value = new System.DateTime(2022, 4, 13, 0, 0, 0, 0);
-            // 
-            // btnDate
-            // 
-            this.btnDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDate.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnDate.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnDate.Location = new System.Drawing.Point(823, 7);
-            this.btnDate.Name = "btnDate";
-            this.btnDate.Size = new System.Drawing.Size(113, 25);
-            this.btnDate.TabIndex = 14;
-            this.btnDate.Text = "По дате";
-            this.btnDate.UseVisualStyleBackColor = true;
-            this.btnDate.Click += new System.EventHandler(this.btnDate_Click);
             // 
             // label2
             // 
@@ -432,9 +390,6 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.DateTimePicker dtpEndDate;
-        private System.Windows.Forms.DateTimePicker dtpStartDate;
-        private System.Windows.Forms.Button btnDate;
         private System.Windows.Forms.DataGridView dgvSelectDataBase;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox6;

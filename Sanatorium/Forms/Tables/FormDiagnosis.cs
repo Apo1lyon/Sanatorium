@@ -63,17 +63,18 @@ namespace Sanatorium.Forms
         private void UpdateTable()
         {
             FillDate();
+            sqlConnection.ClearTextBox(panelSetValue.Controls);
             textBox1.Text = sqlConnection.NextID(dgvDataBase);
         }
 
-        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPatient(), sender);
+        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPersonnel(), sender);
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
                 sqlConnection.connection.Open();
-                string addQuery = $"insert into {tablePrimary} (DiagnosisID, DiseaseID, Complications, Diagnosis, Date) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}','{dateTimePicker1.Text}')";
+                string addQuery = $"insert into {tablePrimary} (DiagnosisID, DiseaseID, Complications, Diagnosis) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}'')";
 
                 command = new SqlCommand(addQuery, sqlConnection.connection);
                 command.ExecuteNonQuery();
@@ -94,7 +95,7 @@ namespace Sanatorium.Forms
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e) => sqlConnection.ClearTextBox(panelSetValue.Controls);
+        private void btnDelete_Click(object sender, EventArgs e) => UpdateTable();
 
         private void dgvDataBase_CellValueChanged(object sender, DataGridViewCellEventArgs e) => sqlConnection.ValueChanged(dgvDataBase, tablePrimary);
         
@@ -103,14 +104,5 @@ namespace Sanatorium.Forms
         private void dgvDataBase_CellClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableSecondary);
 
         private void dgvSelectDataBase_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.BroadcastID(dgvDataBase, dgvSelectDataBase, dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText);
-
-        private void btnDate_Click(object sender, EventArgs e)
-        {
-            BindingSource bindingSourcePrimary = new BindingSource();
-            bindingSourcePrimary.DataSource = sqlConnection.GetData($"SELECT * FROM {tablePrimary} WHERE Date >= '{dtpStartDate.Value}' and Date <= '{dtpEndDate.Value}'", new DataTable($"{tablePrimary}"));
-            dgvDataBase.DataSource = bindingSourcePrimary;
-        }
-
-        private void btnAllTime_Click(object sender, EventArgs e) => UpdateTable();
     }
 }

@@ -28,15 +28,16 @@ namespace Sanatorium.Forms
             LoadTheme();
             lblTextTitleForm.Text = this.Text;
             FillChart();
-            FillDate($"SELECT RecordSunCurrortBook.NumRecordSunCurrortBook as 'Номер записи', SunCurrortBook.SunCurrortBookID as 'ID Санаторной книги', Patient.LastName as 'Фамилия', Patient.FirstName as 'Имя', Patient.MiddleName as 'Отчество', Diagnosis.Diagnosis as 'Диагноз', Medication.NameMedication as 'Лекарства', Services.NameServices as 'Услуги', Specialist.LastName as 'Лечащий врач', RecordSunCurrortBook.Date as 'Дата записи'  FROM SunCurrortBook " +
+            FillDate($"SELECT RecordSunCurrortBook.NumRecordSunCurrortBook as 'Номер записи', SunCurrortBook.SunCurrortBookID as 'ID Санаторной книги', Patient.LastName as 'Фамилия', Patient.FirstName as 'Имя', Patient.MiddleName as 'Отчество', Diagnosis.Diagnosis as 'Диагноз', Disease.NameDisease as 'Болезнь', Medication.NameMedication as 'Лекарства', Services.NameServices as 'Услуги', Specialist.LastName as 'Лечащий врач', RecordSunCurrortBook.Date as 'Дата записи'  FROM SunCurrortBook " +
                     "JOIN RecordSunCurrortBook ON RecordSunCurrortBook.SunCurrortBookID = SunCurrortBook.SunCurrortBookID " +
                     "JOIN Diagnosis ON Diagnosis.DiagnosisID = RecordSunCurrortBook.DiagnosisID " +
+                    "JOIN Disease ON Disease.DiseaseID = Diagnosis.DiseaseID " +
                     "JOIN Appoint ON RecordSunCurrortBook.AppointID = Appoint.AppointID " +
                     "JOIN Medication ON Medication.MedicationID = Appoint.MedicationID " +
                     "JOIN Services ON Services.ServicesID = Appoint.ServicesID " +
                     "JOIN Patient ON Patient.PatientID = SunCurrortBook.PatientID " +
-                    $"JOIN Specialist ON SunCurrortBook.SpecialistID = Specialist.SpecialistID {QueryDate} " +
-                    "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, SunCurrortBook.SunCurrortBookID, Patient.LastName, Patient.FirstName, Patient.MiddleName, Diagnosis.Diagnosis, Medication.NameMedication, Services.NameServices, Specialist.LastName, RecordSunCurrortBook.Date");
+                    $"JOIN Specialist ON SunCurrortBook.SpecialistID = Specialist.SpecialistID {QueryDate}" +
+                    "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, SunCurrortBook.SunCurrortBookID, Patient.LastName, Patient.FirstName, Patient.MiddleName, Diagnosis.Diagnosis, Medication.NameMedication, Services.NameServices, Specialist.LastName, Disease.NameDisease, RecordSunCurrortBook.Date");
             lblCol.Text = dgvDataBase.Rows.Cast<DataGridViewRow>().Count(r => Convert.ToBoolean(r.Cells[0].Value)).ToString();
 
         }
@@ -54,6 +55,7 @@ namespace Sanatorium.Forms
                     "JOIN RecordSunCurrortBook ON RecordSunCurrortBook.SunCurrortBookID = SunCurrortBook.SunCurrortBookID " +
                     $"JOIN Specialist ON Specialist.SpecialistID = SunCurrortBook.SpecialistID {QueryDate}" +
                     "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, Specialist.LastName, SunCurrortBook.SunCurrortBookID, RecordSunCurrortBook.Date");
+            
             operations.CreateChartPrimary(chart1, dgvDataBase, SeriesChartType.Column, 2, 1);
 
             FillDate($"SELECT Distinct Specialist.LastName, Count(Specialist.LastName) OVER(PARTITION BY Specialist.LastName) FROM SunCurrortBook " +

@@ -15,7 +15,7 @@ namespace Sanatorium.Forms
     {
         SqlConnection sqlConnection = new SqlConnection();
         OperationsDataBase operations = new OperationsDataBase();
-        string tablePrimary = "Diagnosis";
+        string tablePrimary = "SunCurrortBook";
         public string QueryDate { get; set; }
 
         public FormOperationDiagnosis()
@@ -28,7 +28,15 @@ namespace Sanatorium.Forms
             LoadTheme();
             lblTextTitleForm.Text = this.Text;
             FillChart();
-            FillDate($"SELECT Diagnosis.NumDiagnosis as 'Номер Диагноза', Diagnosis.DiagnosisID as 'ID Диагноза', Disease.NameDisease as 'Болезнь', Disease.TypeOfDisease as 'Тип болезни', Disease.Symptoms as 'Симптомы', Diagnosis.Complications as 'Осложнения', Diagnosis.Diagnosis as 'Диагноз', Diagnosis.Date as 'Дата' FROM Diagnosis JOIN Disease ON Diagnosis.DiseaseID = Disease.DiseaseID {QueryDate} Group by Diagnosis.NumDiagnosis, Diagnosis.DiagnosisID, Disease.NameDisease, Disease.TypeOfDisease, Disease.Symptoms, Diagnosis.Complications, Diagnosis.Diagnosis, Diagnosis.Date");
+            FillDate($"SELECT RecordSunCurrortBook.NumRecordSunCurrortBook as 'Номер записи', SunCurrortBook.SunCurrortBookID as 'ID Санаторной книги', Patient.LastName as 'Фамилия', Patient.FirstName as 'Имя', Patient.MiddleName as 'Отчество', Diagnosis.Diagnosis as 'Диагноз', Medication.NameMedication as 'Лекарства', Services.NameServices as 'Услуги', Specialist.LastName as 'Лечащий врач', RecordSunCurrortBook.Date as 'Дата записи'  FROM SunCurrortBook " +
+                    "JOIN RecordSunCurrortBook ON RecordSunCurrortBook.SunCurrortBookID = SunCurrortBook.SunCurrortBookID " +
+                    "JOIN Diagnosis ON Diagnosis.DiagnosisID = RecordSunCurrortBook.DiagnosisID " +
+                    "JOIN Appoint ON RecordSunCurrortBook.AppointID = Appoint.AppointID " +
+                    "JOIN Medication ON Medication.MedicationID = Appoint.MedicationID " +
+                    "JOIN Services ON Services.ServicesID = Appoint.ServicesID " +
+                    "JOIN Patient ON Patient.PatientID = SunCurrortBook.PatientID " +
+                    $"JOIN Specialist ON SunCurrortBook.SpecialistID = Specialist.SpecialistID {QueryDate}" +
+                    "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, SunCurrortBook.SunCurrortBookID, Patient.LastName, Patient.FirstName, Patient.MiddleName, Diagnosis.Diagnosis, Medication.NameMedication, Services.NameServices, Specialist.LastName, RecordSunCurrortBook.Date");
             lblCol.Text = dgvDataBase.Rows.Cast<DataGridViewRow>().Count(r => Convert.ToBoolean(r.Cells[0].Value)).ToString();
 
         }
@@ -42,17 +50,19 @@ namespace Sanatorium.Forms
 
         private void FillChart()
         {
-            FillDate($"SELECT Disease.NameDisease AS Болезнь, Disease.TypeOfDisease AS ТипБолезни, Disease.Reason AS Причина, Disease.Symptoms AS Симптом, COUNT(Disease.NameDisease) AS Колличество, Diagnosis.Date as Дата FROM Diagnosis " +
-                $"JOIN Disease ON Diagnosis.DiseaseID = Disease.DiseaseID {QueryDate}" +
-                $"GROUP BY Disease.NameDisease, Disease.TypeOfDisease, Disease.Reason, Disease.Symptoms, Diagnosis.Date Order by COUNT(Disease.NameDisease) DESC");
-            operations.CreateChartPrimary(chart1, dgvDataBase, SeriesChartType.Column, 5, 4);
+            FillDate($"SELECT Distinct Diagnosis.Diagnosis, Count(Diagnosis.Diagnosis) OVER(PARTITION BY RecordSunCurrortBook.Date), RecordSunCurrortBook.Date FROM SunCurrortBook " +
+                        "JOIN RecordSunCurrortBook ON RecordSunCurrortBook.SunCurrortBookID = SunCurrortBook.SunCurrortBookID " +
+                        $"JOIN Diagnosis ON RecordSunCurrortBook.DiagnosisID = Diagnosis.DiagnosisID {QueryDate}" +
+                        "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, Diagnosis.Diagnosis, SunCurrortBook.SunCurrortBookID, RecordSunCurrortBook.Date");
+            operations.CreateChartPrimary(chart1, dgvDataBase, SeriesChartType.Column, 2, 1);
 
-            FillDate($"SELECT Distinct Disease.NameDisease AS Болезнь, Disease.TypeOfDisease AS ТипБолезни, Disease.Reason AS Причина, Disease.Symptoms AS Симптом, COUNT(Disease.NameDisease) OVER(PARTITION BY Disease.NameDisease) AS Колличество FROM Diagnosis " +
-                $"JOIN Disease ON Diagnosis.DiseaseID = Disease.DiseaseID {QueryDate} " +
-                $"GROUP BY Disease.NameDisease, Disease.TypeOfDisease, Disease.Reason, Disease.Symptoms, Diagnosis.Date");
-            lblMax.Text = operations.ReturnDistributed(dgvDataBase, 4);
-            lblMin.Text = operations.ReturnNonDistributed(dgvDataBase, 4);
-            operations.CreateChartSecondary(chart2, dgvDataBase, SeriesChartType.Doughnut, 0, 4);
+            FillDate($"SELECT Distinct Diagnosis.Diagnosis, Count(Diagnosis.Diagnosis) OVER(PARTITION BY Diagnosis.Diagnosis) FROM SunCurrortBook " +
+                        "JOIN RecordSunCurrortBook ON RecordSunCurrortBook.SunCurrortBookID = SunCurrortBook.SunCurrortBookID " +
+                        $"JOIN Diagnosis ON RecordSunCurrortBook.DiagnosisID = Diagnosis.DiagnosisID {QueryDate}" +
+                        "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, Diagnosis.Diagnosis, SunCurrortBook.SunCurrortBookID, RecordSunCurrortBook.Date");
+            lblMax.Text = operations.ReturnDistributed(dgvDataBase, 1);
+            lblMin.Text = operations.ReturnNonDistributed(dgvDataBase, 1);
+            operations.CreateChartSecondary(chart2, dgvDataBase, SeriesChartType.Doughnut, 0, 1);
         }
         
         private void OpenChildForm(Form childForm, object btnSender)
@@ -77,35 +87,35 @@ namespace Sanatorium.Forms
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPatient(), sender);
+        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPersonnel(), sender);
 
         private void btnThisMonth_Click(object sender, EventArgs e)
         {
-            QueryDate = "Where DATEPART(m, Diagnosis.Date) = DATEPART(m, DATEADD(m, 0, getdate()))AND DATEPART(yyyy, Diagnosis.Date) = DATEPART(yyyy, DATEADD(m, 0, getdate())) ";
+            QueryDate = "Where DATEPART(m, RecordSunCurrortBook.Date) = DATEPART(m, DATEADD(m, 0, getdate()))AND DATEPART(yyyy, RecordSunCurrortBook.Date) = DATEPART(yyyy, DATEADD(m, 0, getdate())) ";
             FormOperationDiagnosis_Load(sender, e);
         }
 
         private void btnLast30days_Click(object sender, EventArgs e)
         {
-            QueryDate = "Where Diagnosis.Date >= DATEADD(day, -30, GETDATE()) and Diagnosis.Date <= GETDATE() ";
+            QueryDate = "Where RecordSunCurrortBook.Date >= DATEADD(day, -30, GETDATE()) and RecordSunCurrortBook.Date <= GETDATE() ";
             FormOperationDiagnosis_Load(sender, e);
         }
 
         private void btnLast7days_Click(object sender, EventArgs e)
         {
-            QueryDate = "Where Diagnosis.Date >= DATEADD(day, -7, GETDATE()) and Diagnosis.Date <= GETDATE() ";
+            QueryDate = "Where RecordSunCurrortBook.Date >= DATEADD(day, -7, GETDATE()) and RecordSunCurrortBook.Date <= GETDATE() ";
             FormOperationDiagnosis_Load(sender, e);
         }
 
         private void btnToday_Click(object sender, EventArgs e)
         {
-            QueryDate = $"Where Diagnosis.Date = '{DateTime.Now.Date.ToString()}' ";
+            QueryDate = $"Where RecordSunCurrortBook.Date = '{DateTime.Now.Date.ToString()}' ";
             FormOperationDiagnosis_Load(sender, e);
         }
 
         private void btnCustomDate_Click(object sender, EventArgs e)
         {
-            QueryDate = $"Where Diagnosis.Date >= '{dtpStartDate.Value}' and Diagnosis.Date <= '{dtpEndDate.Value}' ";
+            QueryDate = $"Where RecordSunCurrortBook.Date >= '{dtpStartDate.Value}' and RecordSunCurrortBook.Date <= '{dtpEndDate.Value}' ";
             FormOperationDiagnosis_Load(sender, e);
         }
 

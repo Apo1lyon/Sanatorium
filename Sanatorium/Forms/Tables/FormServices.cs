@@ -52,6 +52,7 @@ namespace Sanatorium.Forms
         private void UpdateTable()
         {
             FillDate();
+            sqlConnection.ClearTextBox(panelSetValue.Controls);
             textBox1.Text = sqlConnection.NextID(dgvDataBase);
         }
         
@@ -94,7 +95,7 @@ namespace Sanatorium.Forms
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e) => sqlConnection.ClearTextBox(panelSetValue.Controls);
+        private void btnDelete_Click(object sender, EventArgs e) => UpdateTable();
 
         private void dgvDataBase_CellValueChanged(object sender, DataGridViewCellEventArgs e) => sqlConnection.ValueChanged(dgvDataBase, tablePrimary);
         

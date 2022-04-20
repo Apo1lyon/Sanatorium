@@ -200,9 +200,9 @@ namespace Sanatorium.Forms
             this.label1.Font = new System.Drawing.Font("Montserrat", 9F);
             this.label1.Location = new System.Drawing.Point(4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 16);
+            this.label1.Size = new System.Drawing.Size(258, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Количество назначений";
+            this.label1.Text = "Количество назначенных специалистов";
             // 
             // panelTitleBar
             // 

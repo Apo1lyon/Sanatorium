@@ -30,19 +30,13 @@ namespace Sanatorium.Forms
         private void InitializeComponent()
         {
             this.panelTitleBar = new System.Windows.Forms.Panel();
-            this.btnAllTime = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.lblTextTitleForm = new System.Windows.Forms.Label();
-            this.btnDate = new System.Windows.Forms.Button();
-            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.panelDataGrid = new System.Windows.Forms.Panel();
             this.dgvSelectDataBase = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDataBase = new System.Windows.Forms.DataGridView();
             this.panelSetValue = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -66,30 +60,12 @@ namespace Sanatorium.Forms
             this.panelTitleBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTitleBar.BackColor = System.Drawing.Color.White;
-            this.panelTitleBar.Controls.Add(this.btnAllTime);
             this.panelTitleBar.Controls.Add(this.btnBack);
-            this.panelTitleBar.Controls.Add(this.dtpEndDate);
             this.panelTitleBar.Controls.Add(this.lblTextTitleForm);
-            this.panelTitleBar.Controls.Add(this.btnDate);
-            this.panelTitleBar.Controls.Add(this.dtpStartDate);
             this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(948, 40);
             this.panelTitleBar.TabIndex = 0;
-            // 
-            // btnAllTime
-            // 
-            this.btnAllTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAllTime.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAllTime.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnAllTime.Font = new System.Drawing.Font("Montserrat", 8F);
-            this.btnAllTime.Location = new System.Drawing.Point(853, 9);
-            this.btnAllTime.Name = "btnAllTime";
-            this.btnAllTime.Size = new System.Drawing.Size(83, 25);
-            this.btnAllTime.TabIndex = 20;
-            this.btnAllTime.Text = "За всё время";
-            this.btnAllTime.UseVisualStyleBackColor = true;
-            this.btnAllTime.Click += new System.EventHandler(this.btnAllTime_Click);
             // 
             // btnBack
             // 
@@ -107,17 +83,6 @@ namespace Sanatorium.Forms
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpEndDate.CustomFormat = "dd MMM, yyyy";
-            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDate.Location = new System.Drawing.Point(637, 11);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(91, 20);
-            this.dtpEndDate.TabIndex = 18;
-            this.dtpEndDate.Value = new System.DateTime(2022, 4, 13, 0, 0, 0, 0);
-            // 
             // lblTextTitleForm
             // 
             this.lblTextTitleForm.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -128,31 +93,6 @@ namespace Sanatorium.Forms
             this.lblTextTitleForm.Size = new System.Drawing.Size(128, 22);
             this.lblTextTitleForm.TabIndex = 0;
             this.lblTextTitleForm.Text = "Data Grid View";
-            // 
-            // btnDate
-            // 
-            this.btnDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDate.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnDate.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnDate.Location = new System.Drawing.Point(734, 9);
-            this.btnDate.Name = "btnDate";
-            this.btnDate.Size = new System.Drawing.Size(113, 25);
-            this.btnDate.TabIndex = 14;
-            this.btnDate.Text = "По дате";
-            this.btnDate.UseVisualStyleBackColor = true;
-            this.btnDate.Click += new System.EventHandler(this.btnDate_Click);
-            // 
-            // dtpStartDate
-            // 
-            this.dtpStartDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpStartDate.CustomFormat = "dd MMM, yyyy";
-            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(540, 11);
-            this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(91, 20);
-            this.dtpStartDate.TabIndex = 16;
-            this.dtpStartDate.Value = new System.DateTime(2022, 4, 13, 0, 0, 0, 0);
             // 
             // panelDataGrid
             // 
@@ -208,8 +148,6 @@ namespace Sanatorium.Forms
             this.panelSetValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSetValue.BackColor = System.Drawing.Color.White;
-            this.panelSetValue.Controls.Add(this.label1);
-            this.panelSetValue.Controls.Add(this.dateTimePicker1);
             this.panelSetValue.Controls.Add(this.btnDelete);
             this.panelSetValue.Controls.Add(this.btnAdd);
             this.panelSetValue.Controls.Add(this.label7);
@@ -226,24 +164,6 @@ namespace Sanatorium.Forms
             this.panelSetValue.Size = new System.Drawing.Size(245, 435);
             this.panelSetValue.TabIndex = 2;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label1.Location = new System.Drawing.Point(19, 193);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 20);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Дата";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(128, 193);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(105, 20);
-            this.dateTimePicker1.TabIndex = 13;
-            // 
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -251,7 +171,7 @@ namespace Sanatorium.Forms
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnDelete.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnDelete.Location = new System.Drawing.Point(23, 264);
+            this.btnDelete.Location = new System.Drawing.Point(23, 228);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(210, 29);
             this.btnDelete.TabIndex = 12;
@@ -266,7 +186,7 @@ namespace Sanatorium.Forms
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnAdd.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnAdd.Location = new System.Drawing.Point(22, 229);
+            this.btnAdd.Location = new System.Drawing.Point(22, 193);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(211, 29);
             this.btnAdd.TabIndex = 11;
@@ -278,7 +198,7 @@ namespace Sanatorium.Forms
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.label7.Location = new System.Drawing.Point(17, 160);
+            this.label7.Location = new System.Drawing.Point(18, 160);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 20);
             this.label7.TabIndex = 10;
@@ -396,12 +316,6 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DateTimePicker dtpEndDate;
-        private System.Windows.Forms.DateTimePicker dtpStartDate;
-        private System.Windows.Forms.Button btnDate;
         private System.Windows.Forms.DataGridView dgvSelectDataBase;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button btnAllTime;
     }
 }

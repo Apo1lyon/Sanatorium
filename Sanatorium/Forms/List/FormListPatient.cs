@@ -40,8 +40,6 @@ namespace Sanatorium.Forms
             childForm.BringToFront();
             childForm.Show();
         }//Открытие дочерней формы
-
-        private void FormDiagnosis_Click(object sender, EventArgs e) => OpenChildForm(new FormDiagnosis(), sender);
         
         private void FormDisease_Click(object sender, EventArgs e) => OpenChildForm(new FormDisease(), sender);
         
@@ -53,10 +51,10 @@ namespace Sanatorium.Forms
         
         private void FormRecordSunCurrortBook_Click(object sender, EventArgs e) => OpenChildForm(new FormRecordSunCurrortBook(), sender);
         
-        private void FormOperationDiagnosis_Click(object sender, EventArgs e) => OpenChildForm(new FormOperationDiagnosis(), sender);
-
         private void FormOperationMedication_Click(object sender, EventArgs e) => OpenChildForm(new FormOperationMedication(), sender);
 
         private void FormOperationPatient_Click(object sender, EventArgs e) => OpenChildForm(new FormOperationPatient(), sender);
+
+        private void FormOperationDisease_Click(object sender, EventArgs e) => OpenChildForm(new FormOperationDisease(), sender);
     }
 }
