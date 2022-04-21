@@ -432,7 +432,7 @@ namespace Sanatorium.Forms
             this.ClientSize = new System.Drawing.Size(948, 492);
             this.Controls.Add(this.panelDesktop);
             this.Name = "FormOperationDiagnosis";
-            this.Text = "Услуги";
+            this.Text = "Диагноз";
             this.Load += new System.EventHandler(this.FormOperationDiagnosis_Load);
             this.panelDesktop.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

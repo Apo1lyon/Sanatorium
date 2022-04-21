@@ -51,11 +51,10 @@ namespace Sanatorium.Forms
 
         private void FillChart()
         {
-            FillDate($"SELECT Distinct Disease.NameDisease, Count(Disease.NameDisease) OVER(PARTITION BY RecordSunCurrortBook.Date), RecordSunCurrortBook.Date FROM SunCurrortBook " +
-                    "JOIN RecordSunCurrortBook ON RecordSunCurrortBook.SunCurrortBookID = SunCurrortBook.SunCurrortBookID " +
-                    "JOIN Diagnosis ON RecordSunCurrortBook.DiagnosisID = Diagnosis.DiagnosisID " +
-                    $"JOIN Disease ON Disease.DiseaseID = Diagnosis.DiseaseID { QueryDate}" +
-                    "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, Disease.NameDisease, SunCurrortBook.SunCurrortBookID, RecordSunCurrortBook.Date");
+            FillDate($"SELECT Disease.NameDisease, Count(Disease.NameDisease), RecordSunCurrortBook.Date FROM Disease " +
+                $"JOIN Diagnosis ON Diagnosis.DiseaseID = Disease.DiseaseID " +
+                $"JOIN RecordSunCurrortBook ON RecordSunCurrortBook.DiagnosisID = Diagnosis.DiagnosisID {QueryDate}" +
+                $"Group by  Disease.NameDisease, RecordSunCurrortBook.Date Order by Count(Disease.NameDisease) DESC");
             operations.CreateChartPrimary(chart1, dgvDataBase, SeriesChartType.Column, 2, 1);
 
             FillDate($"SELECT Distinct Disease.NameDisease, Count(Disease.NameDisease) OVER(PARTITION BY Disease.NameDisease) FROM SunCurrortBook " +
@@ -94,31 +93,31 @@ namespace Sanatorium.Forms
 
         private void btnThisMonth_Click(object sender, EventArgs e)
         {
-            QueryDate = "Where DATEPART(m, Diagnosis.Date) = DATEPART(m, DATEADD(m, 0, getdate()))AND DATEPART(yyyy, Diagnosis.Date) = DATEPART(yyyy, DATEADD(m, 0, getdate())) ";
+            QueryDate = "Where DATEPART(m, RecordSunCurrortBook.Date) = DATEPART(m, DATEADD(m, 0, getdate()))AND DATEPART(yyyy, RecordSunCurrortBook.Date) = DATEPART(yyyy, DATEADD(m, 0, getdate())) ";
             FormOperationDisease_Load(sender, e);
         }
 
         private void btnLast30days_Click(object sender, EventArgs e)
         {
-            QueryDate = "Where Diagnosis.Date >= DATEADD(day, -30, GETDATE()) and Diagnosis.Date <= GETDATE() ";
+            QueryDate = "Where RecordSunCurrortBook.Date >= DATEADD(day, -30, GETDATE()) and RecordSunCurrortBook.Date <= GETDATE() ";
             FormOperationDisease_Load(sender, e);
         }
 
         private void btnLast7days_Click(object sender, EventArgs e)
         {
-            QueryDate = "Where Diagnosis.Date >= DATEADD(day, -7, GETDATE()) and Diagnosis.Date <= GETDATE() ";
+            QueryDate = "Where RecordSunCurrortBook.Date >= DATEADD(day, -7, GETDATE()) and RecordSunCurrortBook.Date <= GETDATE() ";
             FormOperationDisease_Load(sender, e);
         }
 
         private void btnToday_Click(object sender, EventArgs e)
         {
-            QueryDate = $"Where Diagnosis.Date = '{DateTime.Now.Date.ToString()}' ";
+            QueryDate = $"Where RecordSunCurrortBook.Date = '{DateTime.Now.Date.ToString()}' ";
             FormOperationDisease_Load(sender, e);
         }
 
         private void btnCustomDate_Click(object sender, EventArgs e)
         {
-            QueryDate = $"Where Diagnosis.Date >= '{dtpStartDate.Value}' and Diagnosis.Date <= '{dtpEndDate.Value}' ";
+            QueryDate = $"Where RecordSunCurrortBook.Date>= '{dtpStartDate.Value}' and RecordSunCurrortBook.Date <= '{dtpEndDate.Value}' ";
             FormOperationDisease_Load(sender, e);
         }
 

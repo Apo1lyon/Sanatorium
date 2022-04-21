@@ -36,7 +36,7 @@ namespace Sanatorium.Forms
                     "JOIN Medication ON Medication.MedicationID = Appoint.MedicationID " +
                     "JOIN Services ON Services.ServicesID = Appoint.ServicesID " +
                     "JOIN Patient ON Patient.PatientID = SunCurrortBook.PatientID " +
-                    $"JOIN Specialist ON SunCurrortBook.SpecialistID = Specialist.SpecialistID {QueryDate}" +
+                    $"JOIN Specialist ON RecordSunCurrortBook.SpecialistID = Specialist.SpecialistID {QueryDate}" +
                     "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, SunCurrortBook.SunCurrortBookID, Patient.LastName, Patient.FirstName, Patient.MiddleName, Diagnosis.Diagnosis, Medication.NameMedication, Services.NameServices, Specialist.LastName, Disease.NameDisease, RecordSunCurrortBook.Date");
             lblCol.Text = dgvDataBase.Rows.Cast<DataGridViewRow>().Count(r => Convert.ToBoolean(r.Cells[0].Value)).ToString();
 
@@ -51,17 +51,15 @@ namespace Sanatorium.Forms
 
         private void FillChart()
         {
-            FillDate($"SELECT Distinct Specialist.LastName, Count(Specialist.LastName) OVER(PARTITION BY RecordSunCurrortBook.Date), RecordSunCurrortBook.Date FROM SunCurrortBook " +
-                    "JOIN RecordSunCurrortBook ON RecordSunCurrortBook.SunCurrortBookID = SunCurrortBook.SunCurrortBookID " +
-                    $"JOIN Specialist ON Specialist.SpecialistID = SunCurrortBook.SpecialistID {QueryDate}" +
-                    "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, Specialist.LastName, SunCurrortBook.SunCurrortBookID, RecordSunCurrortBook.Date");
-            
+            FillDate($"SELECT Specialist.LastName, Count(Specialist.LastName), RecordSunCurrortBook.Date FROM Specialist " +
+                    $"JOIN RecordSunCurrortBook ON RecordSunCurrortBook.SpecialistID =Specialist.SpecialistID {QueryDate}" +
+                    $"Group by Specialist.LastName, RecordSunCurrortBook.Date Order by Count(Specialist.LastName) DESC");
+
             operations.CreateChartPrimary(chart1, dgvDataBase, SeriesChartType.Column, 2, 1);
 
-            FillDate($"SELECT Distinct Specialist.LastName, Count(Specialist.LastName) OVER(PARTITION BY Specialist.LastName) FROM SunCurrortBook " +
-                    "JOIN RecordSunCurrortBook ON RecordSunCurrortBook.SunCurrortBookID = SunCurrortBook.SunCurrortBookID " +
-                    $"JOIN Specialist ON Specialist.SpecialistID = SunCurrortBook.SpecialistID {QueryDate}" +
-                    "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, Specialist.LastName, SunCurrortBook.SunCurrortBookID, RecordSunCurrortBook.Date");
+            FillDate($"SELECT Distinct Specialist.LastName, Count(Specialist.LastName) OVER(PARTITION BY Specialist.LastName) FROM Specialist " +
+                    $"JOIN RecordSunCurrortBook ON RecordSunCurrortBook.SpecialistID =Specialist.SpecialistID {QueryDate}" +
+                    "Group by Specialist.LastName, RecordSunCurrortBook.Date");
             lblMax.Text = operations.ReturnDistributed(dgvDataBase, 1);
             lblMin.Text = operations.ReturnNonDistributed(dgvDataBase, 1);
             operations.CreateChartSecondary(chart2, dgvDataBase, SeriesChartType.Doughnut, 0, 1);

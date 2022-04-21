@@ -51,11 +51,10 @@ namespace Sanatorium.Forms
 
         private void FillChart()
         {
-            FillDate($"SELECT Medication.NameMedication, Count(Medication.NameMedication), RecordSunCurrortBook.Date as 'Дата записи'  FROM SunCurrortBook " +
-                    "JOIN RecordSunCurrortBook ON RecordSunCurrortBook.SunCurrortBookID = SunCurrortBook.SunCurrortBookID " +
-                    "JOIN Appoint ON RecordSunCurrortBook.AppointID = Appoint.AppointID " +
-                    $"JOIN Medication ON Appoint.MedicationID = Medication.MedicationID {QueryDate}" +
-                    "Group by RecordSunCurrortBook.NumRecordSunCurrortBook, SunCurrortBook.SunCurrortBookID, Medication.NameMedication, RecordSunCurrortBook.Date");
+            FillDate($"SELECT Medication.NameMedication, Count(Medication.NameMedication), RecordSunCurrortBook.Date FROM Medication " +
+              $"JOIN Appoint ON Appoint.MedicationID = Medication.MedicationID " +
+              $"JOIN RecordSunCurrortBook ON RecordSunCurrortBook.AppointID = Appoint.AppointID {QueryDate}" +
+              $"Group by Medication.NameMedication, RecordSunCurrortBook.Date Order by Count(Medication.NameMedication) DESC");
             operations.CreateChartPrimary(chart1, dgvDataBase, SeriesChartType.Column, 2, 1);
 
             FillDate($"SELECT Distinct Medication.NameMedication, COUNT(Medication.NameMedication) OVER(PARTITION BY Medication.NameMedication) FROM SunCurrortBook  " +
