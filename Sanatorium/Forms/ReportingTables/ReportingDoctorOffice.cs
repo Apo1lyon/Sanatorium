@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace Sanatorium.Forms
 {
-    public partial class ReportingServices : Form
+    public partial class ReportingDoctorOffice : Form
     {
-        public ReportingServices()
+        public ReportingDoctorOffice()
         {
             InitializeComponent();
             lblTextTitleForm.Text = this.Text;
         }
 
-        private void ReportingServices_Load(object sender, EventArgs e)
+        private void ReportingDoctorOffice_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "sanatoriumDataSet.Services". При необходимости она может быть перемещена или удалена.
-            this.servicesTableAdapter.Fill(this.sanatoriumDataSet.Services);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "sanatoriumDataSet.DoctorOffice". При необходимости она может быть перемещена или удалена.
+            this.doctorOfficeTableAdapter.Fill(this.sanatoriumDataSet.DoctorOffice);
             this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
         }

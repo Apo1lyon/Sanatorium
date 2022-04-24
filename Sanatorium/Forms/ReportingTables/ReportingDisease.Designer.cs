@@ -1,7 +1,7 @@
 ﻿
 namespace Sanatorium.Forms
 {
-    partial class ReportingServices
+    partial class ReportingDisease
     {
         /// <summary>
         /// Required designer variable.
@@ -37,12 +37,12 @@ namespace Sanatorium.Forms
             this.lblTextTitleForm = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.sanatoriumDataSet = new Sanatorium.SanatoriumDataSet();
-            this.servicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.servicesTableAdapter = new Sanatorium.SanatoriumDataSetTableAdapters.ServicesTableAdapter();
+            this.diseaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.diseaseTableAdapter = new Sanatorium.SanatoriumDataSetTableAdapters.DiseaseTableAdapter();
             this.panelTitleBar.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sanatoriumDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diseaseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
@@ -50,10 +50,10 @@ namespace Sanatorium.Forms
             this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            reportDataSource1.Name = "DataSetServices";
-            reportDataSource1.Value = this.servicesBindingSource;
+            reportDataSource1.Name = "DataSetDisease";
+            reportDataSource1.Value = this.diseaseBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Sanatorium.Forms.ReportingTables.Reporting.ReportServices.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Sanatorium.Forms.ReportingTables.Reporting.ReportDisease.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(10, 50);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(10);
             this.reportViewer1.Name = "reportViewer1";
@@ -115,29 +115,29 @@ namespace Sanatorium.Forms
             this.sanatoriumDataSet.DataSetName = "SanatoriumDataSet";
             this.sanatoriumDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // servicesBindingSource
+            // diseaseBindingSource
             // 
-            this.servicesBindingSource.DataMember = "Services";
-            this.servicesBindingSource.DataSource = this.sanatoriumDataSet;
+            this.diseaseBindingSource.DataMember = "Disease";
+            this.diseaseBindingSource.DataSource = this.sanatoriumDataSet;
             // 
-            // servicesTableAdapter
+            // diseaseTableAdapter
             // 
-            this.servicesTableAdapter.ClearBeforeFill = true;
+            this.diseaseTableAdapter.ClearBeforeFill = true;
             // 
-            // ReportingServices
+            // ReportingDisease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 492);
             this.Controls.Add(this.panelDesktop);
-            this.Name = "ReportingServices";
-            this.Text = "Отчёт по услугам";
-            this.Load += new System.EventHandler(this.ReportingServices_Load);
+            this.Name = "ReportingDisease";
+            this.Text = "Отчёт по болезням";
+            this.Load += new System.EventHandler(this.ReportingDisease_Load);
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             this.panelDesktop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sanatoriumDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.diseaseBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -149,7 +149,7 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.Label lblTextTitleForm;
         private System.Windows.Forms.Panel panelDesktop;
         private SanatoriumDataSet sanatoriumDataSet;
-        private System.Windows.Forms.BindingSource servicesBindingSource;
-        private SanatoriumDataSetTableAdapters.ServicesTableAdapter servicesTableAdapter;
+        private System.Windows.Forms.BindingSource diseaseBindingSource;
+        private SanatoriumDataSetTableAdapters.DiseaseTableAdapter diseaseTableAdapter;
     }
 }

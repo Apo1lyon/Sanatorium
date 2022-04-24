@@ -68,6 +68,8 @@ namespace Sanatorium.Forms
         
         private void OpenChildForm(Form childForm, object btnSender)
         {
+            this.Dispose();
+            this.Close();
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;

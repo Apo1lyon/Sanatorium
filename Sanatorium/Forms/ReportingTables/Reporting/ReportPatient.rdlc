@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>1.70625cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>1.60042cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -183,7 +183,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>2.5cm</Size>
+                <Size>2.05021cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox13">
                     <CanGrow>true</CanGrow>
@@ -424,7 +424,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>2.5cm</Size>
+                <Size>2.05021cm</Size>
                 <CellContents>
                   <Textbox Name="PatientID">
                     <CanGrow>true</CanGrow>
@@ -682,7 +682,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSetPatient</DataSetName>
         <Height>1.2cm</Height>
-        <Width>17.5cm</Width>
+        <Width>15.35687cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -693,7 +693,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>6.88976in</Width>
+  <Width>6.04601in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

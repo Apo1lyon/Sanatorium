@@ -41,6 +41,26 @@ namespace Sanatorium.Forms
             childForm.Show();
         }//Открытие дочерней формы
 
+        private void FormReportingServices_Click(object sender, EventArgs e) => OpenChildForm(new ReportingServices(), sender);
+
         private void FormReportingDiagnosis_Click(object sender, EventArgs e) => OpenChildForm(new ReportingDiagnosis(), sender);
+
+        private void FormReportingPatient_Click(object sender, EventArgs e) => OpenChildForm(new ReportingPatient(), sender);
+
+        private void FormReportingSpecialist_Click(object sender, EventArgs e) => OpenChildForm(new ReportingSpecialist(), sender);
+
+        private void FormReportingMedication_Click(object sender, EventArgs e) => OpenChildForm(new ReportingMedication(), sender);
+        
+        private void FormReportingDisease_Click(object sender, EventArgs e) => OpenChildForm(new ReportingDisease(), sender);
+
+        private void FormReportingDoctorOffice_Click(object sender, EventArgs e) => OpenChildForm(new ReportingDoctorOffice(), sender);
+
+        private void FormReportingSpecialty_Click(object sender, EventArgs e) => OpenChildForm(new ReportingSpecialty(), sender);
+
+        private void FormReportingAppoint_Click(object sender, EventArgs e) => OpenChildForm(new ReportingAppoint(), sender);
+
+        private void FormReportingSunCurrortBook_Click(object sender, EventArgs e) => OpenChildForm(new ReportingSunCurrortBook(), sender);
+
+        private void FormReportingRecordSunCurrortBook_Click(object sender, EventArgs e) => OpenChildForm(new ReportingRecordSunCurrortBook(), sender);
     }
 }

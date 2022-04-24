@@ -135,11 +135,71 @@
     <Compile Include="Forms\Operations\FormOperationSpecialist.Designer.cs">
       <DependentUpon>FormOperationSpecialist.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingAppoint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingAppoint.Designer.cs">
+      <DependentUpon>ReportingAppoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingDisease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingDisease.Designer.cs">
+      <DependentUpon>ReportingDisease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingDoctorOffice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingDoctorOffice.Designer.cs">
+      <DependentUpon>ReportingDoctorOffice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingMedication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingMedication.Designer.cs">
+      <DependentUpon>ReportingMedication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingRecordSunCurrortBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingRecordSunCurrortBook.Designer.cs">
+      <DependentUpon>ReportingRecordSunCurrortBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingSpecialist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingSpecialist.Designer.cs">
+      <DependentUpon>ReportingSpecialist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingDiagnosis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingDiagnosis.Designer.cs">
+      <DependentUpon>ReportingDiagnosis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingPatient.Designer.cs">
+      <DependentUpon>ReportingPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ReportingTables\ReportingServices.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ReportingTables\ReportingServices.Designer.cs">
       <DependentUpon>ReportingServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingSpecialty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingSpecialty.Designer.cs">
+      <DependentUpon>ReportingSpecialty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingSunCurrortBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportingTables\ReportingSunCurrortBook.Designer.cs">
+      <DependentUpon>ReportingSunCurrortBook.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Tables\FormAppoint.cs">
       <SubType>Form</SubType>
@@ -254,6 +314,36 @@
       <DependentUpon>SanatoriumDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Forms\ReportingTables\ReportingAppoint.resx">
+      <DependentUpon>ReportingAppoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportingTables\ReportingDisease.resx">
+      <DependentUpon>ReportingDisease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportingTables\ReportingDoctorOffice.resx">
+      <DependentUpon>ReportingDoctorOffice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportingTables\ReportingMedication.resx">
+      <DependentUpon>ReportingMedication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportingTables\ReportingRecordSunCurrortBook.resx">
+      <DependentUpon>ReportingRecordSunCurrortBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportingTables\ReportingSpecialist.resx">
+      <DependentUpon>ReportingSpecialist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportingTables\ReportingDiagnosis.resx">
+      <DependentUpon>ReportingDiagnosis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportingTables\ReportingPatient.resx">
+      <DependentUpon>ReportingPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportingTables\ReportingSpecialty.resx">
+      <DependentUpon>ReportingSpecialty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportingTables\ReportingSunCurrortBook.resx">
+      <DependentUpon>ReportingSunCurrortBook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReportingTables\Reporting\ReportAppoint.rdlc" />
     <EmbeddedResource Include="Forms\ReportingTables\Reporting\ReportDiagnosis.rdlc" />
     <EmbeddedResource Include="Forms\Operations\FormOperationDiagnosis.resx">
@@ -274,10 +364,15 @@
     <EmbeddedResource Include="Forms\ReportingTables\ReportingServices.resx">
       <DependentUpon>ReportingServices.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportingTables\Reporting\ReportDisease.rdlc" />
+    <EmbeddedResource Include="Forms\ReportingTables\Reporting\ReportDoctorOffice.rdlc" />
+    <EmbeddedResource Include="Forms\ReportingTables\Reporting\ReportMedication.rdlc" />
     <EmbeddedResource Include="Forms\ReportingTables\Reporting\ReportPatient.rdlc" />
     <EmbeddedResource Include="Forms\ReportingTables\Reporting\ReportRecordSunCurrortBook.rdlc" />
     <EmbeddedResource Include="Forms\ReportingTables\Reporting\ReportServices.rdlc" />
     <EmbeddedResource Include="Forms\ReportingTables\Reporting\ReportSpecialist.rdlc" />
+    <EmbeddedResource Include="Forms\ReportingTables\Reporting\ReportSpecialty.rdlc" />
+    <EmbeddedResource Include="Forms\ReportingTables\Reporting\ReportSunCurrortBook.rdlc" />
     <EmbeddedResource Include="Forms\Tables\FormAppoint.resx">
       <DependentUpon>FormAppoint.cs</DependentUpon>
     </EmbeddedResource>
