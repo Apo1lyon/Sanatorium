@@ -2,25 +2,22 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Xml;
 
 namespace Sanatorium
 {
     public class SqlConnection
     {
-        private int Number;
-        private string ID;
-        private string Country;
-        private string PersonName;
-        private int Start;
-        private int Final;
-        public int Number1 { get => Number; set => Number = value; }
-        public string ID1 { get => ID; set => ID = value; }
-        public string Country1 { get => Country; set => Country = value; }
-        public string Person1 { get => PersonName; set => PersonName = value; }
-        public int Start1 { get => Start; set => Start = value; }
-        public int Final1 { get => Final; set => Final = value; }
+        public System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["Sanatorium.Properties.Settings.SanatoriumConnectionString"].ConnectionString);
 
-        public System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection("server=DESKTOP-AIJD8J6; integrated security=true; database=Sanatorium");
+        public void ChangingNameServer()
+        {
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.ConnectionStrings.ConnectionStrings["Sanatorium.Properties.Settings.SanatoriumConnectionString"].ConnectionString = "server=DESKTOP-AIJD8J6; integrated security=true; database=Sanatorium";
+            config.Save();
+            ConfigurationManager.RefreshSection("connectionStrings");
+        }
 
         public DataTable GetData(string sqlCommand, DataTable table)
         {

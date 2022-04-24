@@ -85,8 +85,6 @@ namespace Sanatorium.Forms
                 bindingSourcePrimary = new BindingSource();
                 bindingSourcePrimary.DataSource = sqlConnection.GetData($"Select * From {tablePrimary}", new DataTable($"{tablePrimary}"));
 
-                sqlConnection.ClearTextBox(panelSetValue.Controls);
-
                 UpdateTable();
 
                 sqlConnection.connection.Close();

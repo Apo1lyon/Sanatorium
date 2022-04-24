@@ -31,17 +31,12 @@ namespace Sanatorium.Forms
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panelDesktop.SuspendLayout();
             this.SuspendLayout();
@@ -60,17 +55,12 @@ namespace Sanatorium.Forms
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.White;
-            this.panelDesktop.Controls.Add(this.label13);
             this.panelDesktop.Controls.Add(this.label10);
             this.panelDesktop.Controls.Add(this.label11);
             this.panelDesktop.Controls.Add(this.label12);
             this.panelDesktop.Controls.Add(this.label9);
-            this.panelDesktop.Controls.Add(this.label8);
-            this.panelDesktop.Controls.Add(this.label7);
             this.panelDesktop.Controls.Add(this.label6);
             this.panelDesktop.Controls.Add(this.label5);
-            this.panelDesktop.Controls.Add(this.label4);
-            this.panelDesktop.Controls.Add(this.label3);
             this.panelDesktop.Controls.Add(this.label2);
             this.panelDesktop.Controls.Add(this.label1);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -79,17 +69,6 @@ namespace Sanatorium.Forms
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(948, 492);
             this.panelDesktop.TabIndex = 9;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label13.Location = new System.Drawing.Point(363, 28);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 20);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Настройки";
             // 
             // label10
             // 
@@ -132,31 +111,11 @@ namespace Sanatorium.Forms
             this.label9.TabIndex = 8;
             this.label9.Text = "Отчетность";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label8.Location = new System.Drawing.Point(25, 291);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Операция3";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label7.Location = new System.Drawing.Point(25, 263);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Операция2";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label6.Location = new System.Drawing.Point(25, 235);
+            this.label6.Location = new System.Drawing.Point(25, 240);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 5;
@@ -173,26 +132,6 @@ namespace Sanatorium.Forms
             this.label5.Size = new System.Drawing.Size(84, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Операции";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label4.Location = new System.Drawing.Point(25, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Таблица3";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Location = new System.Drawing.Point(25, 96);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Таблица2";
             // 
             // label2
             // 
@@ -225,16 +164,11 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelDesktop;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
     }
 }

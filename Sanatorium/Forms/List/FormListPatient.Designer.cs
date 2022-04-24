@@ -34,7 +34,6 @@ namespace Sanatorium.Forms
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -64,7 +63,6 @@ namespace Sanatorium.Forms
             this.panelDesktop.Controls.Add(this.label16);
             this.panelDesktop.Controls.Add(this.label15);
             this.panelDesktop.Controls.Add(this.label14);
-            this.panelDesktop.Controls.Add(this.label13);
             this.panelDesktop.Controls.Add(this.label11);
             this.panelDesktop.Controls.Add(this.label12);
             this.panelDesktop.Controls.Add(this.label9);
@@ -114,17 +112,6 @@ namespace Sanatorium.Forms
             this.label14.TabIndex = 13;
             this.label14.Text = "Пациенты";
             this.label14.Click += new System.EventHandler(this.FormPatient_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(328, 28);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 20);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Настройки";
             // 
             // label11
             // 
@@ -246,7 +233,6 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;

@@ -18,6 +18,7 @@ namespace Sanatorium
         private Random random; 
         private int tempIndex; //Текущий цветовой индекс
         private Form activeForm; //Текущая активная форма
+        SqlConnection sqlConnection = new SqlConnection();
 
         //Конструктор
         public FormMenu()
@@ -28,6 +29,7 @@ namespace Sanatorium
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            sqlConnection.ChangingNameServer();
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();

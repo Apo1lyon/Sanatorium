@@ -74,15 +74,13 @@ namespace Sanatorium.Forms
             try
             {
                 sqlConnection.connection.Open();
-                string addQuery = $"insert into {tablePrimary} (DiagnosisID, DiseaseID, Complications, Diagnosis) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}'')";
+                string addQuery = $"insert into {tablePrimary} (DiagnosisID, DiseaseID, Complications, Diagnosis) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}')";
 
                 command = new SqlCommand(addQuery, sqlConnection.connection);
                 command.ExecuteNonQuery();
                 
                 bindingSourcePrimary = new BindingSource();
                 bindingSourcePrimary.DataSource = sqlConnection.GetData($"Select * From {tablePrimary}", new DataTable($"{tablePrimary}"));
-
-                sqlConnection.ClearTextBox(panelSetValue.Controls);
 
                 UpdateTable();
 
