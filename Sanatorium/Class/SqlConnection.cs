@@ -11,10 +11,10 @@ namespace Sanatorium
     {
         public System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["Sanatorium.Properties.Settings.SanatoriumConnectionString"].ConnectionString);
 
-        public void ChangingNameServer()
+        public void ChangingNameServer(string nameServer)
         {
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            config.ConnectionStrings.ConnectionStrings["Sanatorium.Properties.Settings.SanatoriumConnectionString"].ConnectionString = "server=DESKTOP-AIJD8J6; integrated security=true; database=Sanatorium";
+            config.ConnectionStrings.ConnectionStrings["Sanatorium.Properties.Settings.SanatoriumConnectionString"].ConnectionString = $"server={nameServer}; integrated security=true; database=Sanatorium";
             config.Save();
             ConfigurationManager.RefreshSection("connectionStrings");
         }

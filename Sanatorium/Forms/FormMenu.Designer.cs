@@ -90,6 +90,7 @@ namespace Sanatorium
             this.btnSetting.Text = "  Настройки";
             this.btnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSetting.UseVisualStyleBackColor = true;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // btnReporting
             // 

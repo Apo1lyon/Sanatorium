@@ -29,7 +29,6 @@ namespace Sanatorium
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            sqlConnection.ChangingNameServer();
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -114,6 +113,8 @@ namespace Sanatorium
         private void btnServices_Click(object sender, EventArgs e) => OpenChildForm(new Forms.FormListServices(), sender);//Вызов формы при нажатии кнопки
 
         private void btnReporting_Click(object sender, EventArgs e) => OpenChildForm(new Forms.FormListReporting(), sender);
+        
+        private void btnSetting_Click(object sender, EventArgs e) => OpenChildForm(new Forms.FormListSetting(), sender);
 
         private void btnCloseChildForm_Click(object sender, EventArgs e)
         {
