@@ -33,7 +33,6 @@ namespace Sanatorium
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnReporting = new System.Windows.Forms.Button();
-            this.btnNotice = new System.Windows.Forms.Button();
             this.btnServices = new System.Windows.Forms.Button();
             this.btnClient = new System.Windows.Forms.Button();
             this.btnPersonnel = new System.Windows.Forms.Button();
@@ -61,7 +60,6 @@ namespace Sanatorium
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(34)))), ((int)(((byte)(58)))));
             this.panelMenu.Controls.Add(this.btnSetting);
             this.panelMenu.Controls.Add(this.btnReporting);
-            this.panelMenu.Controls.Add(this.btnNotice);
             this.panelMenu.Controls.Add(this.btnServices);
             this.panelMenu.Controls.Add(this.btnClient);
             this.panelMenu.Controls.Add(this.btnPersonnel);
@@ -82,7 +80,7 @@ namespace Sanatorium
             this.btnSetting.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnSetting.Image = global::Sanatorium.Properties.Resources.icons8_настройки_32;
             this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.Location = new System.Drawing.Point(0, 380);
+            this.btnSetting.Location = new System.Drawing.Point(0, 320);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnSetting.Size = new System.Drawing.Size(220, 60);
@@ -102,7 +100,7 @@ namespace Sanatorium
             this.btnReporting.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnReporting.Image = global::Sanatorium.Properties.Resources.icons8_круговая_диаграмма_32;
             this.btnReporting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporting.Location = new System.Drawing.Point(0, 320);
+            this.btnReporting.Location = new System.Drawing.Point(0, 260);
             this.btnReporting.Name = "btnReporting";
             this.btnReporting.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnReporting.Size = new System.Drawing.Size(220, 60);
@@ -111,25 +109,6 @@ namespace Sanatorium
             this.btnReporting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReporting.UseVisualStyleBackColor = true;
             this.btnReporting.Click += new System.EventHandler(this.btnReporting_Click);
-            // 
-            // btnNotice
-            // 
-            this.btnNotice.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNotice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNotice.FlatAppearance.BorderSize = 0;
-            this.btnNotice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnNotice.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnNotice.Image = global::Sanatorium.Properties.Resources.icons8_будильник_32;
-            this.btnNotice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNotice.Location = new System.Drawing.Point(0, 260);
-            this.btnNotice.Name = "btnNotice";
-            this.btnNotice.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnNotice.Size = new System.Drawing.Size(220, 60);
-            this.btnNotice.TabIndex = 4;
-            this.btnNotice.Text = "  Уведомления";
-            this.btnNotice.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNotice.UseVisualStyleBackColor = true;
             // 
             // btnServices
             // 
@@ -367,7 +346,6 @@ namespace Sanatorium
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.Button btnReporting;
-        private System.Windows.Forms.Button btnNotice;
         private System.Windows.Forms.Button btnServices;
         private System.Windows.Forms.Button btnClient;
         private System.Windows.Forms.Button btnPersonnel;

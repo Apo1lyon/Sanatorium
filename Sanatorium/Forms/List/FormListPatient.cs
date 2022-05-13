@@ -47,6 +47,10 @@ namespace Sanatorium.Forms
         
         private void FormPatient_Click(object sender, EventArgs e) => OpenChildForm(new FormPatient(), sender);
         
+        private void FormDiagnosis_Click(object sender, EventArgs e) => OpenChildForm(new FormDiagnosis(), sender);
+
+        private void FormAppoint_Click(object sender, EventArgs e) => OpenChildForm(new FormAppoint(), sender);
+
         private void FormSunCurrortBook_Click(object sender, EventArgs e) => OpenChildForm(new FormSunCurrortBook(), sender);
         
         private void FormRecordSunCurrortBook_Click(object sender, EventArgs e) => OpenChildForm(new FormRecordSunCurrortBook(), sender);
@@ -56,5 +60,7 @@ namespace Sanatorium.Forms
         private void FormOperationPatient_Click(object sender, EventArgs e) => OpenChildForm(new FormOperationPatient(), sender);
 
         private void FormOperationDisease_Click(object sender, EventArgs e) => OpenChildForm(new FormOperationDisease(), sender);
+
+        private void FormOperationDiagnosis_Click(object sender, EventArgs e) => OpenChildForm(new FormOperationDiagnosis(), sender);
     }
 }
