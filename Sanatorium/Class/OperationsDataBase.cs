@@ -21,7 +21,7 @@ namespace Sanatorium
                 chart.Series[$"{dataGrid.Rows[rowindex].Cells[0].Value}"].Points.AddXY(dataGrid.Rows[rowindex].Cells[X].Value, dataGrid.Rows[rowindex].Cells[Y].Value);
                 chart.Series[$"{dataGrid.Rows[rowindex].Cells[0].Value}"].ChartType = type;
             }
-        }
+        }//Создание диаграммы на основе таблицы
     
         public void CreateChartSecondary(Chart chart, DataGridView dataGrid, SeriesChartType type, int X, int Y)
         {
@@ -29,7 +29,7 @@ namespace Sanatorium
             Series s = chart.Series.Add("pie");
             s.ChartType = type;
             for (int rowindex = 0; rowindex < dataGrid.Rows.Count - 1; rowindex++) s.Points.AddXY(dataGrid.Rows[rowindex].Cells[X].Value, dataGrid.Rows[rowindex].Cells[Y].Value);
-        }
+        }//Создание круговой диаграммы на основе таблицы
 
         public string ReturnDistributed(DataGridView dataGrid, int cellIndex)
         {
@@ -39,7 +39,8 @@ namespace Sanatorium
                     return (string)dataGrid.Rows[rowindex].Cells[0].Value;
             }
             return "";
-        }
+        } //Возвращение наибольшего значения в таблице
+       
         public string ReturnNonDistributed(DataGridView dataGrid, int cellIndex)
         {
             if(dataGrid.Rows.Count - 1 != 0)
@@ -47,11 +48,11 @@ namespace Sanatorium
             {
                 for (int rowindex = 0; rowindex < dataGrid.Rows.Count - 1; rowindex++)
                 {
-                    if ((int)dataGrid.Rows[rowindex].Cells[cellIndex].Value == i)return (string)dataGrid.Rows[rowindex].Cells[0].Value;
+                    if ((int)dataGrid.Rows[rowindex].Cells[cellIndex].Value == i) return (string)dataGrid.Rows[rowindex].Cells[0].Value;
                 }
             }
             return "";
 
-        }
+        } //Возвращение наименьшего значения в таблице
     }  
 }
