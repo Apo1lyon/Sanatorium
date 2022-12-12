@@ -76,7 +76,7 @@ namespace Sanatorium.Forms
             try
             {
                 sqlConnection.connection.Open();
-                string addQuery = $"insert into {tablePrimary} (PatientID, Passport, LastName, FirstName, MiddleName, Age) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}','{textBox5.Text}','{textBox6.Text}',)";
+                string addQuery = $"insert into {tablePrimary} (PatientID, Passport, LastName, FirstName, MiddleName, Age) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}','{textBox5.Text}','{textBox6.Text}')";
 
                 command = new SqlCommand(addQuery, sqlConnection.connection);
                 command.ExecuteNonQuery();
