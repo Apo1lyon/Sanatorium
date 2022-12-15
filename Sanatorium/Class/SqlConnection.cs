@@ -13,39 +13,40 @@ namespace Sanatorium
 
         public void ChangingNameServer(string nameServer)
         {
-            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            config.ConnectionStrings.ConnectionStrings["Sanatorium.Properties.Settings.SanatoriumConnectionString"].ConnectionString = $"server={nameServer}; integrated security=true; database=Sanatorium";
-            config.Save();
-            ConfigurationManager.RefreshSection("connectionStrings");
-        }
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);//Cоздание переменной файла конфигурации
+
+            config.ConnectionStrings.ConnectionStrings["Sanatorium.Properties.Settings.SanatoriumConnectionString"].ConnectionString = $"server={nameServer}; integrated security=true; database=Sanatorium";//Изменение строки соединения под текущий сервер
+            config.Save();//Сохранекние конфигурации
+            ConfigurationManager.RefreshSection("connectionStrings");//Обновление раздела конфигурации для последующего считывания
+        }//Изменение имени сервера
 
         public DataTable GetData(string sqlCommand, DataTable table)
         {
-            SqlCommand command = new SqlCommand(sqlCommand, connection);
-            SqlDataAdapter adapter = new SqlDataAdapter { SelectCommand = command };
-            table.Locale = System.Globalization.CultureInfo.InvariantCulture;
-            adapter.Fill(table);
+            SqlCommand command = new SqlCommand(sqlCommand, connection);//Инициализация экземпляра запроса
+            SqlDataAdapter adapter = new SqlDataAdapter { SelectCommand = command };//Инициализация экземпляра команд
+            table.Locale = System.Globalization.CultureInfo.InvariantCulture;//Добавляет сведения о языке
+            adapter.Fill(table);//Добавляет и изменяет данные в таблице
 
             return table;
-        }
+        }//Вытягивание данных по запросу в выбранную таблицу
 
         public void ClearTextBox(Control.ControlCollection contains)
         {
             foreach (Control item in contains) if (item.GetType() == typeof(TextBox)) item.Text = "";
-        }
+        }//Очистка всех textbox на форме
 
         public void DeletingRow(DataGridView dataGrid, string table)
         {
-            connection.Open();
-            int index = dataGrid.CurrentCell.RowIndex;
-            var value = dataGrid.Rows[index].Cells[0].Value;
-            var deleteQuery = $"delete from {table} where Num{table} = {value}";
+            connection.Open(); //Открытие соединения
+            int index = dataGrid.CurrentCell.RowIndex;//Присваивание переменной индекс активной ячейки
+            var value = dataGrid.Rows[index].Cells[0].Value;//Присваивание переменной значение активной ячейки
+            var deleteQuery = $"delete from {table} where Num{table} = {value}";//Запрос на удаление данных из базы данных
 
-            var command = new SqlCommand(deleteQuery, connection);
-            command.ExecuteNonQuery();
+            var command = new SqlCommand(deleteQuery, connection);//Создание запроса
+            command.ExecuteNonQuery();//Выполнение инструкции
 
             connection.Close();
-        }
+        }//Удаление данных из таблицы и базы данных
 
         public void ValueChanged(DataGridView dataGrid, string table)
         {
