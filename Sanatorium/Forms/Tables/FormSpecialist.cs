@@ -13,19 +13,23 @@ namespace Sanatorium.Forms
 {
     public partial class FormSpecialist : System.Windows.Forms.Form
     {
+        //Поля
         SqlConnection sqlConnection = new SqlConnection();
         SqlCommand command;
         BindingSource bindingSourcePrimary;
+
         string tablePrimary = "Specialist";
         string tableSecondary = "Specialty";
         string tableTernary = "DoctorOffice";
 
+        //Конструктор класса
         public FormSpecialist()
         {
             InitializeComponent();
             lblTextTitleForm.Text = this.Text;
         }
         
+        //Методы при загрузке и обновлении формы
         private void FormSpecialist_Load(object sender, EventArgs e)
         {
             LoadTheme();
@@ -57,6 +61,7 @@ namespace Sanatorium.Forms
             textBox1.Text = sqlConnection.NextID(dgvDataBase);
         }
 
+        //Методы при выполнении событий 
         private void OpenChildForm(System.Windows.Forms.Form childForm, object btnSender)
         {
             this.Dispose();
@@ -96,7 +101,7 @@ namespace Sanatorium.Forms
            }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e) => UpdateTable();
+        private void btnUpdate_Click(object sender, EventArgs e) => UpdateTable();
 
         private void dgvDataBase_CellValueChanged(object sender, DataGridViewCellEventArgs e) => sqlConnection.ValueChanged(dgvDataBase, tablePrimary);
         

@@ -15,7 +15,7 @@ namespace Sanatorium
     {
         //Поля
         private Button currentButton; //Текущая кнопка
-        private Random random; 
+        private Random random; //Генератор случайных чисел
         private int tempIndex; //Текущий цветовой индекс
         private Form activeForm; //Текущая активная форма
         SqlConnection sqlConnection = new SqlConnection();
@@ -59,7 +59,7 @@ namespace Sanatorium
                     currentButton = (Button)btnSender; //Делает её текущей кнопкой
                     currentButton.BackColor = color;
                     currentButton.ForeColor = Color.White;
-                    currentButton.Font = new Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))); //Присваивает шрифт
+                    currentButton.Font = new Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))); //Присвоить шрифт
                     panelTitleBar.BackColor = color;
                     panelLogo.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3); //Изменяет цвет логотипа на более тёмный
                     ThemeColor.PrimaryColor = color;

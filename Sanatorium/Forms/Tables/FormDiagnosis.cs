@@ -13,18 +13,22 @@ namespace Sanatorium.Forms
 {
     public partial class FormDiagnosis : Form
     {
+        //Поля
         SqlConnection sqlConnection = new SqlConnection();
         SqlCommand command;
         BindingSource bindingSourcePrimary;
+
         string tablePrimary = "Diagnosis";
         string tableSecondary = "Disease";
 
+        //Конструктор класса
         public FormDiagnosis()
         {
             InitializeComponent();
             lblTextTitleForm.Text = this.Text;
         }
         
+        //Методы при загрузке и обновлении формы
         private void FormDataGrid_Load(object sender, EventArgs e)
         {
             LoadTheme();
@@ -49,6 +53,14 @@ namespace Sanatorium.Forms
             }
         }
 
+        private void UpdateTable()
+        {
+            FillDate();
+            sqlConnection.ClearTextBox(panelSetValue.Controls);
+            textBox1.Text = sqlConnection.NextID(dgvDataBase);
+        }
+
+        //Методы при выполнении событий
         private void OpenChildForm(Form childForm, object btnSender)
         {
             this.Dispose();
@@ -61,13 +73,6 @@ namespace Sanatorium.Forms
             childForm.BringToFront();
             childForm.Show();
         }//Открытие дочерней формы
-
-        private void UpdateTable()
-        {
-            FillDate();
-            sqlConnection.ClearTextBox(panelSetValue.Controls);
-            textBox1.Text = sqlConnection.NextID(dgvDataBase);
-        }
 
         private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPersonnel(), sender);
 
@@ -95,7 +100,7 @@ namespace Sanatorium.Forms
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e) => UpdateTable();
+        private void btnUpdate_Click(object sender, EventArgs e) => UpdateTable();
 
         private void dgvDataBase_CellValueChanged(object sender, DataGridViewCellEventArgs e) => sqlConnection.ValueChanged(dgvDataBase, tablePrimary);
         

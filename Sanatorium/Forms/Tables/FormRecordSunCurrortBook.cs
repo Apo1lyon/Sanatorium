@@ -13,6 +13,7 @@ namespace Sanatorium.Forms
 {
     public partial class FormRecordSunCurrortBook : System.Windows.Forms.Form
     {
+        //Поля
         SqlConnection sqlConnection = new SqlConnection();
         SqlCommand command;
         BindingSource bindingSourcePrimary;
@@ -23,12 +24,14 @@ namespace Sanatorium.Forms
         string tableFourth = "Appoint";
         string tableFive = "Specialist";
        
+        //Конструктор класса
         public FormRecordSunCurrortBook()
         {
             InitializeComponent();
             lblTextTitleForm.Text = this.Text;
         }
         
+        //Методы при загрузке и обновлении формы
         private void FormRecordSunCurrortBook_Load(object sender, EventArgs e)
         {
             LoadTheme();
@@ -59,6 +62,7 @@ namespace Sanatorium.Forms
             sqlConnection.ClearTextBox(panelSetValue.Controls);
         }
 
+        //Методы при выполнении событий
         private void OpenChildForm(System.Windows.Forms.Form childForm, object btnSender)
         {
             this.Dispose();
@@ -98,7 +102,7 @@ namespace Sanatorium.Forms
            }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e) => UpdateTable();
+        private void btnUpdate_Click(object sender, EventArgs e) => UpdateTable();
 
         private void dgvDataBase_CellValueChanged(object sender, DataGridViewCellEventArgs e) => sqlConnection.ValueChanged(dgvDataBase, tablePrimary);
         

@@ -36,7 +36,7 @@ namespace Sanatorium.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDataBase = new System.Windows.Forms.DataGridView();
             this.panelSetValue = new System.Windows.Forms.Panel();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -133,7 +133,7 @@ namespace Sanatorium.Forms
             this.panelSetValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSetValue.BackColor = System.Drawing.Color.White;
-            this.panelSetValue.Controls.Add(this.btnDelete);
+            this.panelSetValue.Controls.Add(this.btnUpdate);
             this.panelSetValue.Controls.Add(this.btnAdd);
             this.panelSetValue.Controls.Add(this.label6);
             this.panelSetValue.Controls.Add(this.textBox3);
@@ -149,20 +149,20 @@ namespace Sanatorium.Forms
             this.panelSetValue.Size = new System.Drawing.Size(245, 435);
             this.panelSetValue.TabIndex = 2;
             // 
-            // btnDelete
+            // btnUpdate
             // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnDelete.Font = new System.Drawing.Font("Montserrat", 11F);
-            this.btnDelete.Location = new System.Drawing.Point(23, 233);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(210, 29);
-            this.btnDelete.TabIndex = 12;
-            this.btnDelete.Text = "Очистить";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnUpdate.Font = new System.Drawing.Font("Montserrat", 11F);
+            this.btnUpdate.Location = new System.Drawing.Point(23, 233);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(210, 29);
+            this.btnUpdate.TabIndex = 12;
+            this.btnUpdate.Text = "Обновить";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -298,7 +298,7 @@ namespace Sanatorium.Forms
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
     }
 }

@@ -11,27 +11,31 @@ using System.Windows.Forms;
 
 namespace Sanatorium.Forms
 {
-    public partial class FormAppoint : System.Windows.Forms.Form
+    public partial class FormAppoint : Form
     {
+        //Поля
         SqlConnection sqlConnection = new SqlConnection();
         SqlCommand command;
         BindingSource bindingSourcePrimary;
+
         string tablePrimary = "Appoint";
         string tableSecondary = "Medication";
         string tableTernary = "Services";
 
+        //Конструктор класса
         public FormAppoint()
         {
             InitializeComponent();
             lblTextTitleForm.Text = this.Text;
         }
         
+        //Методы при загрузке и обновлении формы
         private void FormAppoint_Load(object sender, EventArgs e)
         {
             LoadTheme();
             UpdateTable();
         }
-
+         
         private void FillDate()
         {
             BindingSource bindingSourcePrimary = new BindingSource();
@@ -49,15 +53,16 @@ namespace Sanatorium.Forms
                 }
             }
         }
-
+        
         private void UpdateTable()
         {
             FillDate();
             sqlConnection.ClearTextBox(panelSetValue.Controls);
             textBox1.Text = sqlConnection.NextID(dgvDataBase);
         }
-
-        private void OpenChildForm(System.Windows.Forms.Form childForm, object btnSender)
+        
+        //Методы при выполнении событий
+        private void OpenChildForm(Form childForm, object btnSender)
         {
             this.Dispose();
             this.Close();
@@ -70,7 +75,7 @@ namespace Sanatorium.Forms
             childForm.Show();
         }//Открытие дочерней формы
 
-        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPersonnel(), sender);
+        private void btnClose_Click(object sender, EventArgs e) => OpenChildForm(new FormListPersonnel(), sender); //Закрытие формы и возврат на предыдущую форму
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -94,20 +99,20 @@ namespace Sanatorium.Forms
                sqlConnection.connection.Close();
                MessageBox.Show($"Некорректные данные или их отсутствие. Проверьте чтобы все данные были введены корректно ({tableSecondary}ID) и не повторялись ({tablePrimary}ID)!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
            }
-        }
+        } //Добавление данных в таблице и обновление базы данных
 
-        private void btnDelete_Click(object sender, EventArgs e) => UpdateTable();
+        private void btnUpdate_Click(object sender, EventArgs e) => UpdateTable(); //Обновление данных в таблице и полях, обновление базы данных
 
-        private void dgvDataBase_CellValueChanged(object sender, DataGridViewCellEventArgs e) => sqlConnection.ValueChanged(dgvDataBase, tablePrimary);
+        private void dgvDataBase_CellValueChanged(object sender, DataGridViewCellEventArgs e) => sqlConnection.ValueChanged(dgvDataBase, tablePrimary); //Изменение данных в таблице и обновление базы данных
         
-        private void dgvDataBase_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e) => sqlConnection.DeletingRow(dgvDataBase, tablePrimary);
+        private void dgvDataBase_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e) => sqlConnection.DeletingRow(dgvDataBase, tablePrimary); //Удаление данных в таблице и обновление базы данных
 
         private void dgvDataBase_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableSecondary);
             if (dgvSelectDataBase.DataSource == null) sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableTernary);
-        }
+        }//Открытие дочерней базы данных во второй таблице, при выборе вторичного ключа в первой таблице
 
-        private void dgvSelectDataBase_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.BroadcastID(dgvDataBase, dgvSelectDataBase, dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText);
+        private void dgvSelectDataBase_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.BroadcastID(dgvDataBase, dgvSelectDataBase, dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText); //Присвоение данных из второй таблицы в первую
     }
 }
