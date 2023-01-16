@@ -22,10 +22,18 @@ namespace Sanatorium
 
         public DataTable GetData(string sqlCommand, DataTable table)
         {
-            SqlCommand command = new SqlCommand(sqlCommand, connection);//Инициализация экземпляра запроса
-            SqlDataAdapter adapter = new SqlDataAdapter { SelectCommand = command };//Инициализация экземпляра команд
-            table.Locale = System.Globalization.CultureInfo.InvariantCulture;//Добавляет сведения о языке
-            adapter.Fill(table);//Добавляет и изменяет данные в таблице
+            try
+            {
+                SqlCommand command = new SqlCommand(sqlCommand, connection);//Инициализация экземпляра запроса
+                SqlDataAdapter adapter = new SqlDataAdapter { SelectCommand = command };//Инициализация экземпляра команд
+                table.Locale = System.Globalization.CultureInfo.InvariantCulture;//Добавляет сведения о языке
+                adapter.Fill(table);//Добавляет и изменяет данные в таблице
+            }
+            catch (Exception)
+            {
+                MessageBox.Show($"Нет связи с сервером!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
             return table;
         }//Вытягивание данных по запросу в выбранную таблицу
