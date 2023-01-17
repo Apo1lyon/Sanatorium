@@ -18,7 +18,6 @@ namespace Sanatorium
         private Random random; //Генератор случайных чисел
         private int tempIndex; //Текущий цветовой индекс
         private Form activeForm; //Текущая активная форма
-        SqlConnection sqlConnection = new SqlConnection();
 
         //Конструктор
         public FormMenu()

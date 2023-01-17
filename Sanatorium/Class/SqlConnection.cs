@@ -7,11 +7,11 @@ using System.Xml;
 
 namespace Sanatorium
 {
-    public class SqlConnection
+    public static class SqlConnection
     {
-        public System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["Sanatorium.Properties.Settings.SanatoriumConnectionString"].ConnectionString);
+        public static System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["Sanatorium.Properties.Settings.SanatoriumConnectionString"].ConnectionString);
 
-        public void ChangingNameServer(string nameServer)
+        public static void ChangingNameServer(string nameServer)
         {
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);//Cоздание переменной файла конфигурации
 
@@ -20,7 +20,7 @@ namespace Sanatorium
             ConfigurationManager.RefreshSection("connectionStrings");//Обновление раздела конфигурации для последующего считывания
         }//Изменение имени сервера
 
-        public DataTable GetData(string sqlCommand, DataTable table)
+        public static DataTable GetData(string sqlCommand, DataTable table)
         {
             try
             {
@@ -38,12 +38,12 @@ namespace Sanatorium
             return table;
         }//Вытягивание данных по запросу в выбранную таблицу
 
-        public void ClearTextBox(Control.ControlCollection contains)
+        public static void ClearTextBox(Control.ControlCollection contains)
         {
             foreach (Control item in contains) if (item.GetType() == typeof(TextBox)) item.Text = "";
         }//Очистка всех textbox на форме
 
-        public void DeletingRow(DataGridView dataGrid, string table)
+        public static void DeletingRow(DataGridView dataGrid, string table)
         {
             connection.Open(); //Открытие соединения
             int index = dataGrid.CurrentCell.RowIndex;//Присваивание переменной индекс активной ячейки
@@ -56,7 +56,7 @@ namespace Sanatorium
             connection.Close();
         }//Удаление данных из таблицы и базы данных
 
-        public void ValueChanged(DataGridView dataGrid, string table)
+        public static void ValueChanged(DataGridView dataGrid, string table)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace Sanatorium
 
         }
 
-        public void Relations(DataGridView dgvDataBase, DataGridView dgvSelectDataBase, string tableSecondary)
+        public static void Relations(DataGridView dgvDataBase, DataGridView dgvSelectDataBase, string tableSecondary)
         {
             if (dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText == $"{tableSecondary}ID")
             {
@@ -88,16 +88,20 @@ namespace Sanatorium
 
                 var bindingSourceSecondary = new BindingSource(ds, $"{tableSecondary}");
                 dgvSelectDataBase.DataSource = bindingSourceSecondary;
+                for (int r = 0; r < dgvSelectDataBase.RowCount; r++)
+                {
+                        if (dgvSelectDataBase.Rows[r].Cells[1].Value == dgvDataBase.CurrentCell.Value) dgvSelectDataBase.Rows[r].Cells[1].Selected = true;
+                }
             }
             else dgvSelectDataBase.DataSource = null;
         }
 
-        public void BroadcastID(DataGridView dgvDataBase, DataGridView dgvSelectDataBase, string table)
+        public static void BroadcastID(DataGridView dgvDataBase, DataGridView dgvSelectDataBase, string table)
         {
             if (dgvSelectDataBase.CurrentCell.OwningColumn.Name == $"{table}" && dgvDataBase.CurrentCell.OwningColumn.Name == $"{table}") dgvDataBase.CurrentCell.Value = dgvSelectDataBase.CurrentCell.Value;
         }
 
-        public string NextID(DataGridView dgvDataBase)
+        public static string NextID(DataGridView dgvDataBase)
         {   
             try
             {

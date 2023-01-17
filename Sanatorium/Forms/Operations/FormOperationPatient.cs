@@ -13,7 +13,6 @@ namespace Sanatorium.Forms
 {
     public partial class FormOperationPatient : Form
     {
-        SqlConnection sqlConnection = new SqlConnection();
         OperationsDataBase operations = new OperationsDataBase();
         string tablePrimary = "SunCurrortBook";
         public string QueryDate { get; set; }
@@ -45,7 +44,7 @@ namespace Sanatorium.Forms
         private void FillDate(string Query)
         {
             BindingSource bindingSourcePrimary = new BindingSource();
-            bindingSourcePrimary.DataSource = sqlConnection.GetData($"{Query}", new DataTable($"{tablePrimary}"));
+            bindingSourcePrimary.DataSource = SqlConnection.GetData($"{Query}", new DataTable($"{tablePrimary}"));
             dgvDataBase.DataSource = bindingSourcePrimary;
         }
 

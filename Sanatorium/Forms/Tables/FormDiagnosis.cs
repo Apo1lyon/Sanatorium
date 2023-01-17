@@ -14,7 +14,6 @@ namespace Sanatorium.Forms
     public partial class FormDiagnosis : Form
     {
         //Поля
-        SqlConnection sqlConnection = new SqlConnection();
         SqlCommand command;
         BindingSource bindingSourcePrimary;
 
@@ -38,7 +37,7 @@ namespace Sanatorium.Forms
         private void FillDate()
         {
             BindingSource bindingSourcePrimary = new BindingSource();
-            bindingSourcePrimary.DataSource = sqlConnection.GetData($"SELECT * FROM {tablePrimary}", new DataTable($"{tablePrimary}"));
+            bindingSourcePrimary.DataSource = SqlConnection.GetData($"SELECT * FROM {tablePrimary}", new DataTable($"{tablePrimary}"));
             dgvDataBase.DataSource = bindingSourcePrimary;
         }
 
@@ -56,8 +55,8 @@ namespace Sanatorium.Forms
         private void UpdateTable()
         {
             FillDate();
-            sqlConnection.ClearTextBox(panelSetValue.Controls);
-            textBox1.Text = sqlConnection.NextID(dgvDataBase);
+            SqlConnection.ClearTextBox(panelSetValue.Controls);
+            textBox1.Text = SqlConnection.NextID(dgvDataBase);
         }
 
         //Методы при выполнении событий
@@ -80,34 +79,34 @@ namespace Sanatorium.Forms
         {
             try
             {
-                sqlConnection.connection.Open();
+                SqlConnection.connection.Open();
                 string addQuery = $"insert into {tablePrimary} (DiagnosisID, DiseaseID, Complications, Diagnosis) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}','{textBox4.Text}')";
 
-                command = new SqlCommand(addQuery, sqlConnection.connection);
+                command = new SqlCommand(addQuery, SqlConnection.connection);
                 command.ExecuteNonQuery();
                 
                 bindingSourcePrimary = new BindingSource();
-                bindingSourcePrimary.DataSource = sqlConnection.GetData($"Select * From {tablePrimary}", new DataTable($"{tablePrimary}"));
+                bindingSourcePrimary.DataSource = SqlConnection.GetData($"Select * From {tablePrimary}", new DataTable($"{tablePrimary}"));
 
                 UpdateTable();
 
-                sqlConnection.connection.Close();
+                SqlConnection.connection.Close();
             }
             catch (Exception)
             {
-                sqlConnection.connection.Close();
+                SqlConnection.connection.Close();
                 MessageBox.Show($"Некорректные данные или их отсутствие. Проверьте чтобы все данные были введены корректно ({tableSecondary}ID) и не повторялись ({tablePrimary}ID)!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e) => UpdateTable();
 
-        private void dgvDataBase_CellValueChanged(object sender, DataGridViewCellEventArgs e) => sqlConnection.ValueChanged(dgvDataBase, tablePrimary);
+        private void dgvDataBase_CellValueChanged(object sender, DataGridViewCellEventArgs e) => SqlConnection.ValueChanged(dgvDataBase, tablePrimary);
         
-        private void dgvDataBase_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e) => sqlConnection.DeletingRow(dgvDataBase, tablePrimary);
+        private void dgvDataBase_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e) => SqlConnection.DeletingRow(dgvDataBase, tablePrimary);
         
-        private void dgvDataBase_CellClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableSecondary);
+        private void dgvDataBase_CellClick(object sender, DataGridViewCellEventArgs e) => SqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableSecondary);
 
-        private void dgvSelectDataBase_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.BroadcastID(dgvDataBase, dgvSelectDataBase, dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText);
+        private void dgvSelectDataBase_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => SqlConnection.BroadcastID(dgvDataBase, dgvSelectDataBase, dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText);
     }
 }

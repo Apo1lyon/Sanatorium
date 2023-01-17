@@ -13,8 +13,6 @@ namespace Sanatorium.Forms
 {
     public partial class FormListSetting : Form
     {
-
-        SqlConnection sqlConnection = new SqlConnection();
         public FormListSetting()
         {
             InitializeComponent();
@@ -36,7 +34,7 @@ namespace Sanatorium.Forms
 
         private void btnChangeNameServer_Click(object sender, EventArgs e) 
         { 
-            sqlConnection.ChangingNameServer(tbServerName.Text);
+            SqlConnection.ChangingNameServer(tbServerName.Text);
             lblConnectionString.Text = ConfigurationManager.ConnectionStrings["Sanatorium.Properties.Settings.SanatoriumConnectionString"].ConnectionString;
         } 
     }

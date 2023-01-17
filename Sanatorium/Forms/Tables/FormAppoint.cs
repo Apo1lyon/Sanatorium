@@ -14,7 +14,6 @@ namespace Sanatorium.Forms
     public partial class FormAppoint : Form
     {
         //Поля
-        SqlConnection sqlConnection = new SqlConnection();
         SqlCommand command;
         BindingSource bindingSourcePrimary;
 
@@ -39,7 +38,7 @@ namespace Sanatorium.Forms
         private void FillDate()
         {
             BindingSource bindingSourcePrimary = new BindingSource();
-            bindingSourcePrimary.DataSource = sqlConnection.GetData($"SELECT * FROM {tablePrimary}", new DataTable($"{tablePrimary}"));
+            bindingSourcePrimary.DataSource = SqlConnection.GetData($"SELECT * FROM {tablePrimary}", new DataTable($"{tablePrimary}"));
             dgvDataBase.DataSource = bindingSourcePrimary;
         }
 
@@ -57,8 +56,8 @@ namespace Sanatorium.Forms
         private void UpdateTable()
         {
             FillDate();
-            sqlConnection.ClearTextBox(panelSetValue.Controls);
-            textBox1.Text = sqlConnection.NextID(dgvDataBase);
+            SqlConnection.ClearTextBox(panelSetValue.Controls);
+            textBox1.Text = SqlConnection.NextID(dgvDataBase);
         }
         
         //Методы при выполнении событий
@@ -81,38 +80,38 @@ namespace Sanatorium.Forms
         {
            try
            {
-                sqlConnection.connection.Open();
+                SqlConnection.connection.Open();
                 string addQuery = $"insert into {tablePrimary} (AppointID, MedicationID, ServicesID) values ('{textBox1.Text}','{textBox2.Text}','{textBox3.Text}')";
 
-                command = new SqlCommand(addQuery, sqlConnection.connection);
+                command = new SqlCommand(addQuery, SqlConnection.connection);
                 command.ExecuteNonQuery();
                 
                 bindingSourcePrimary = new BindingSource();
-                bindingSourcePrimary.DataSource = sqlConnection.GetData($"Select * From {tablePrimary}", new DataTable($"{tablePrimary}"));
+                bindingSourcePrimary.DataSource = SqlConnection.GetData($"Select * From {tablePrimary}", new DataTable($"{tablePrimary}"));
 
                 UpdateTable();
 
-                sqlConnection.connection.Close();
+                SqlConnection.connection.Close();
            }
             catch (Exception)
            {
-               sqlConnection.connection.Close();
+               SqlConnection.connection.Close();
                MessageBox.Show($"Некорректные данные или их отсутствие. Проверьте чтобы все данные были введены корректно ({tableSecondary}ID) и не повторялись ({tablePrimary}ID)!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
            }
         } //Добавление данных в таблице и обновление базы данных
 
         private void btnUpdate_Click(object sender, EventArgs e) => UpdateTable(); //Обновление данных в таблице и полях, обновление базы данных
 
-        private void dgvDataBase_CellValueChanged(object sender, DataGridViewCellEventArgs e) => sqlConnection.ValueChanged(dgvDataBase, tablePrimary); //Изменение данных в таблице и обновление базы данных
+        private void dgvDataBase_CellValueChanged(object sender, DataGridViewCellEventArgs e) => SqlConnection.ValueChanged(dgvDataBase, tablePrimary); //Изменение данных в таблице и обновление базы данных
         
-        private void dgvDataBase_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e) => sqlConnection.DeletingRow(dgvDataBase, tablePrimary); //Удаление данных в таблице и обновление базы данных
+        private void dgvDataBase_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e) => SqlConnection.DeletingRow(dgvDataBase, tablePrimary); //Удаление данных в таблице и обновление базы данных
 
         private void dgvDataBase_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableSecondary);
-            if (dgvSelectDataBase.DataSource == null) sqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableTernary);
+            SqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableSecondary);
+            if (dgvSelectDataBase.DataSource == null) SqlConnection.Relations(dgvDataBase, dgvSelectDataBase, tableTernary);
         }//Открытие дочерней базы данных во второй таблице, при выборе вторичного ключа в первой таблице
 
-        private void dgvSelectDataBase_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => sqlConnection.BroadcastID(dgvDataBase, dgvSelectDataBase, dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText); //Присвоение данных из второй таблицы в первую
+        private void dgvSelectDataBase_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => SqlConnection.BroadcastID(dgvDataBase, dgvSelectDataBase, dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText); //Присвоение данных из второй таблицы в первую
     }
 }
