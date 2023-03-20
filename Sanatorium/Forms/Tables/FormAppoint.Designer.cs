@@ -72,7 +72,7 @@ namespace Sanatorium.Forms
             this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Montserrat", 15F);
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.btnBack.ForeColor = System.Drawing.Color.Black;
             this.btnBack.Image = global::Sanatorium.Properties.Resources.icons8_двойная_стрелка_влево_24;
             this.btnBack.Location = new System.Drawing.Point(3, 2);
@@ -87,10 +87,10 @@ namespace Sanatorium.Forms
             // 
             this.lblTextTitleForm.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblTextTitleForm.AutoSize = true;
-            this.lblTextTitleForm.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.lblTextTitleForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblTextTitleForm.Location = new System.Drawing.Point(42, 8);
             this.lblTextTitleForm.Name = "lblTextTitleForm";
-            this.lblTextTitleForm.Size = new System.Drawing.Size(128, 22);
+            this.lblTextTitleForm.Size = new System.Drawing.Size(116, 20);
             this.lblTextTitleForm.TabIndex = 0;
             this.lblTextTitleForm.Text = "Data Grid View";
             // 
@@ -122,10 +122,10 @@ namespace Sanatorium.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Montserrat", 14F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label2.Location = new System.Drawing.Point(12, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 26);
+            this.label2.Size = new System.Drawing.Size(155, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "Область таблиц";
             // 
@@ -170,7 +170,7 @@ namespace Sanatorium.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnUpdate.Font = new System.Drawing.Font("Montserrat", 11F);
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnUpdate.Location = new System.Drawing.Point(23, 228);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(210, 29);
@@ -185,7 +185,7 @@ namespace Sanatorium.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnAdd.Font = new System.Drawing.Font("Montserrat", 11F);
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnAdd.Location = new System.Drawing.Point(22, 193);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(211, 29);
@@ -197,10 +197,10 @@ namespace Sanatorium.Forms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label7.Location = new System.Drawing.Point(18, 160);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 20);
+            this.label7.Size = new System.Drawing.Size(69, 17);
             this.label7.TabIndex = 10;
             this.label7.Text = "ID Услуги";
             // 
@@ -217,10 +217,10 @@ namespace Sanatorium.Forms
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label6.Location = new System.Drawing.Point(18, 127);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 20);
+            this.label6.Size = new System.Drawing.Size(98, 17);
             this.label6.TabIndex = 8;
             this.label6.Text = "ID Препарата";
             // 
@@ -237,10 +237,10 @@ namespace Sanatorium.Forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label4.Location = new System.Drawing.Point(18, 94);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 20);
+            this.label4.Size = new System.Drawing.Size(78, 17);
             this.label4.TabIndex = 4;
             this.label4.Text = "ID Назнач.";
             // 
@@ -257,10 +257,10 @@ namespace Sanatorium.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Montserrat", 14F);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label3.Location = new System.Drawing.Point(17, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(221, 26);
+            this.label3.Size = new System.Drawing.Size(198, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "Область заполнения";
             // 

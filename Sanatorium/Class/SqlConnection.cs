@@ -88,6 +88,10 @@ namespace Sanatorium
 
                 var bindingSourceSecondary = new BindingSource(ds, $"{tableSecondary}");
                 dgvSelectDataBase.DataSource = bindingSourceSecondary;
+                for (int i = 0; i < dgvSelectDataBase.RowCount - 1; i++)
+                {
+                    if (dgvDataBase.CurrentCell.Value.ToString().Substring(dgvDataBase.CurrentCell.Value.ToString().Length - 2, 2) == dgvSelectDataBase.Rows[i].Cells[1].Value.ToString().Substring(dgvSelectDataBase.Rows[i].Cells[1].Value.ToString().Length - 2, 2)) dgvSelectDataBase.Rows[i].Cells[1].Selected = true;
+                }
             }
             else dgvSelectDataBase.DataSource = null;
         }
