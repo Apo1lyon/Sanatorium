@@ -117,10 +117,8 @@ namespace Sanatorium
 
         private void btnCloseChildForm_Click(object sender, EventArgs e)
         {
-            if (activeForm != null)
-                activeForm.Close();
+            if (activeForm != null) activeForm.Close();
             Reset();
-
         } //Закрытие дочерней формы
 
         private void Reset()

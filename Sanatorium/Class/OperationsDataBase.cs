@@ -10,18 +10,31 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Sanatorium
 {
+    /// <summary>
+    /// Класс операций над базой данных
+    /// </summary>
     class OperationsDataBase
     {
-        public void CreateChartPrimary(Chart chart, DataGridView dataGrid, SeriesChartType type, int X, int Y)
+        /// <summary>
+        /// Построение диаграммы по таблице
+        /// </summary>
+        /// <param name="chart">Элемент управления диаграммы</param>
+        /// <param name="dataGrid">Таблица</param>
+        /// <param name="type">Тип диаграммы</param>
+        /// <param name="xValue">Значение X</param>
+        /// <param name="yValue">Значение Y</param>
+        public void CreateChartPrimary(Chart chart, DataGridView dataGrid, SeriesChartType type, int xValue, int yValue)
         {
+            string nameRow;
             chart.Series.Clear();
             for (int rowindex = 0; rowindex < dataGrid.Rows.Count - 1; rowindex++)
             {
-                if (chart.Series.IsUniqueName($"{dataGrid.Rows[rowindex].Cells[0].Value}")) chart.Series.Add($"{dataGrid.Rows[rowindex].Cells[0].Value}");
-                chart.Series[$"{dataGrid.Rows[rowindex].Cells[0].Value}"].Points.AddXY(dataGrid.Rows[rowindex].Cells[X].Value, dataGrid.Rows[rowindex].Cells[Y].Value);
+                nameRow = (string)dataGrid.Rows[rowindex].Cells[0].Value;
+                if (chart.Series.IsUniqueName(nameRow)) chart.Series.Add($"{dataGrid.Rows[rowindex].Cells[0].Value}");
+                chart.Series[$"{dataGrid.Rows[rowindex].Cells[0].Value}"].Points.AddXY(dataGrid.Rows[rowindex].Cells[xValue].Value, dataGrid.Rows[rowindex].Cells[yValue].Value);
                 chart.Series[$"{dataGrid.Rows[rowindex].Cells[0].Value}"].ChartType = type;
             }
-        }//Создание диаграммы на основе таблицы
+        }
     
         public void CreateChartSecondary(Chart chart, DataGridView dataGrid, SeriesChartType type, int X, int Y)
         {
