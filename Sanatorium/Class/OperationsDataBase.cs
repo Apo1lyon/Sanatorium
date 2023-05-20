@@ -11,14 +11,14 @@ using System.Windows.Forms.DataVisualization.Charting;
 namespace Sanatorium
 {
     /// <summary>
-    /// Класс операций над базой данных
+    /// Операции над базой данных
     /// </summary>
     class OperationsDataBase
     {
         /// <summary>
         /// Построение диаграммы по таблице
         /// </summary>
-        /// <param name="chart">Элемент управления диаграммы</param>
+        /// <param name="chart">Элемент диаграммы</param>
         /// <param name="dataGrid">Таблица</param>
         /// <param name="type">Тип диаграммы</param>
         /// <param name="xValue">Значение X</param>
@@ -35,21 +35,33 @@ namespace Sanatorium
                 chart.Series[$"{dataGrid.Rows[rowindex].Cells[0].Value}"].ChartType = type;
             }
         }
-    
-        public void CreateChartSecondary(Chart chart, DataGridView dataGrid, SeriesChartType type, int X, int Y)
+    /// <summary>
+    /// Построение круговой диаграммы
+    /// </summary>
+    /// <param name="chart">Элемент диаграммы</param>
+    /// <param name="dataGrid">Таблица</param>
+    /// <param name="type">Тип диаграммы</param>
+    /// <param name="xValue">Значение X</param>
+    /// <param name="yValue">Значение Y</param>
+        public void CreateChartSecondary(Chart chart, DataGridView dataGrid, SeriesChartType type, int xValue, int yValue)
         {
             chart.Series.Clear();
             Series s = chart.Series.Add("pie");
             s.ChartType = type;
-            for (int rowindex = 0; rowindex < dataGrid.Rows.Count - 1; rowindex++) s.Points.AddXY(dataGrid.Rows[rowindex].Cells[X].Value, dataGrid.Rows[rowindex].Cells[Y].Value);
+            for (int rowindex = 0; rowindex < dataGrid.Rows.Count - 1; rowindex++) s.Points.AddXY(dataGrid.Rows[rowindex].Cells[xValue].Value, dataGrid.Rows[rowindex].Cells[yValue].Value);
         }//Создание круговой диаграммы на основе таблицы
-
-        public string ReturnDistributed(DataGridView dataGrid, int cellIndex)
+        /// <summary>
+        /// Наибольшее значение в таблице
+        /// </summary>
+        /// <param name="dataGrid">Таблица</param>
+        /// <param name="columnIndex">Индекс столбца</param>
+        /// <returns>Наибольшее значение</returns>
+        public string ReturnDistributed(DataGridView dataGrid, int columnIndex)
         {
-            for (int rowindex = 0; rowindex < dataGrid.Rows.Count - 1; rowindex++)
+            for (int rowIndex = 0; rowIndex < dataGrid.Rows.Count - 1; rowIndex++)
             {
-                if ((int)dataGrid.Rows[rowindex].Cells[cellIndex].Value == dataGrid.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToInt32(r.Cells[cellIndex].Value)))
-                    return (string)dataGrid.Rows[rowindex].Cells[0].Value;
+                if ((int)dataGrid.Rows[rowIndex].Cells[columnIndex].Value == dataGrid.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToInt32(r.Cells[columnIndex].Value)))
+                    return (string)dataGrid.Rows[rowIndex].Cells[0].Value;
             }
             return "";
         } //Возвращение наибольшего значения в таблице
