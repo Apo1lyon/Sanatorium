@@ -51,27 +51,35 @@ namespace Sanatorium
             }
             return table;
         }//Вытягивание данных по запросу в выбранную таблицу
-
-        public static void DeletingRow(DataGridView dataGrid, string table)
+        /// <summary>
+        /// Удаление данных из базы данных и таблицы
+        /// </summary>
+        /// <param name="dataGrid">Экземпляр таблицы</param>
+        /// <param name="tableName">Имя таблицы в базе данных</param>
+        public static void DeletingRow(DataGridView dataGrid, string tableName)
         {
             connection.Open(); //Открытие соединения
             int index = dataGrid.CurrentCell.RowIndex;//Присваивание переменной индекс активной ячейки
             var value = dataGrid.Rows[index].Cells[0].Value;//Присваивание переменной значение активной ячейки
-            var deleteQuery = $"delete from {table} where Num{table} = {value}";//Запрос на удаление данных из базы данных
+            var deleteQuery = $"delete from {tableName} where Num{tableName} = {value}";//Запрос на удаление данных из базы данных
 
             var command = new SqlCommand(deleteQuery, connection);//Создание запроса
             command.ExecuteNonQuery();//Выполнение инструкции
 
             connection.Close();
         }//Удаление данных из таблицы и базы данных
-
-        public static void ValueChanged(DataGridView dataGrid, string table)
+        /// <summary>
+        /// Изменить данные в базе данных и таблице
+        /// </summary>
+        /// <param name="dataGrid">Экземпляр таблицы</param>
+        /// <param name="tableName">Имя таблицы в базе данных</param>
+        public static void ValueChanged(DataGridView dataGrid, string tableName)
         {
             try
             {
                 connection.Open();
                 string fieldTable = dataGrid.Columns[dataGrid.CurrentCell.ColumnIndex].HeaderText;
-                string addQuery = $"UPDATE {table} SET {fieldTable} = '{dataGrid.Rows[dataGrid.CurrentCell.RowIndex].Cells[dataGrid.CurrentCell.ColumnIndex].Value}' WHERE Num{table} = '{dataGrid.Rows[dataGrid.CurrentCell.RowIndex].Cells[0].Value}'";
+                string addQuery = $"UPDATE {tableName} SET {fieldTable} = '{dataGrid.Rows[dataGrid.CurrentCell.RowIndex].Cells[dataGrid.CurrentCell.ColumnIndex].Value}' WHERE Num{tableName} = '{dataGrid.Rows[dataGrid.CurrentCell.RowIndex].Cells[0].Value}'";
                 var command = new SqlCommand(addQuery, connection);
                 command.ExecuteNonQuery();
 
@@ -82,20 +90,23 @@ namespace Sanatorium
                 connection.Close();
                 MessageBox.Show($"Эти данные нельзя изменить.", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
-
-        public static void Relations(DataGridView dgvDataBase, DataGridView dgvSelectDataBase, string tableSecondary)
+        /// <summary>
+        /// Создать взаимосвязь между двумя таблицами
+        /// </summary>
+        /// <param name="dgvDataBase">Экземпляр первой таблицы</param>
+        /// <param name="dgvSelectDataBase">Экземпляр второй таблицы</param>
+        /// <param name="tableSecondaryName">Имя второй таблицы в базе данных</param>
+        public static void Relations(DataGridView dgvDataBase, DataGridView dgvSelectDataBase, string tableSecondaryName)
         {
-            if (dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText == $"{tableSecondary}ID")
+            if (dgvDataBase.Columns[dgvDataBase.CurrentCell.ColumnIndex].HeaderText == $"{tableSecondaryName}ID")
             {
-                SqlDataAdapter adapterSecondary = new SqlDataAdapter($"SELECT * FROM {tableSecondary}", connection);
+                SqlDataAdapter adapterSecondary = new SqlDataAdapter($"SELECT * FROM {tableSecondaryName}", connection);
 
                 DataSet ds = new DataSet();
-                adapterSecondary.Fill(ds, $"{tableSecondary}");
+                adapterSecondary.Fill(ds, $"{tableSecondaryName}");
 
-                var bindingSourceSecondary = new BindingSource(ds, $"{tableSecondary}");
+                var bindingSourceSecondary = new BindingSource(ds, $"{tableSecondaryName}");
                 dgvSelectDataBase.DataSource = bindingSourceSecondary;
                 for (int i = 0; i < dgvSelectDataBase.RowCount - 1; i++)
                 {
@@ -106,12 +117,24 @@ namespace Sanatorium
             }
             else dgvSelectDataBase.DataSource = null;
         }
-
-        public static void BroadcastID(DataGridView dgvDataBase, DataGridView dgvSelectDataBase, string table)
+        /// <summary>
+        /// Переносит данные из второй таблицы в первую
+        /// </summary>
+        /// <param name="dgvDataBase">Экземпляр первой таблицы</param>
+        /// <param name="dgvSelectDataBase">Экземпляр второй таблицы</param>
+        /// <param name="tableFirstName">Имя таблицы в которую необходимо перенести данные</param>
+        public static void BroadcastID(DataGridView dgvDataBase, DataGridView dgvSelectDataBase, string tableFirstName)
         {
-            if (dgvSelectDataBase.CurrentCell.OwningColumn.Name == $"{table}" && dgvDataBase.CurrentCell.OwningColumn.Name == $"{table}") dgvDataBase.CurrentCell.Value = dgvSelectDataBase.CurrentCell.Value;
-        }
-
+            if (dgvSelectDataBase.CurrentCell.OwningColumn.Name == $"{tableFirstName}" && dgvDataBase.CurrentCell.OwningColumn.Name == $"{tableFirstName}") 
+                dgvDataBase.CurrentCell.Value = dgvSelectDataBase.CurrentCell.Value;
+        }/*Этот метод используется для бастрого заполнения основной таблицы ID номерами из вторичной таблицы
+          Функция крайне сомнительная, и не интуитивно понятная
+          */
+        /// <summary>
+        /// Свободный ID номер для базы данных
+        /// </summary>
+        /// <param name="dgvDataBase">Экземпляр таблицы</param>
+        /// <returns>Не занятый ID</returns>
         public static string NextID(DataGridView dgvDataBase)
         {   
             try
