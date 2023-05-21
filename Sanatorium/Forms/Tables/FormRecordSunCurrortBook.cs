@@ -58,7 +58,7 @@ namespace Sanatorium.Forms
         private void UpdateTable()
         {
             FillDate();
-            SqlConnection.ClearTextBox(panelSetValue.Controls);
+            OperationsDataBase.ClearTextBox(panelSetValue.Controls);
         }
 
         //Методы при выполнении событий

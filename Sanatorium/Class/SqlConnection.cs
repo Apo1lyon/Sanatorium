@@ -7,10 +7,21 @@ using System.Xml;
 
 namespace Sanatorium
 {
+    /// <summary>
+    /// Класс для работы с базой данных
+    /// </summary>
     public static class SqlConnection
     {
+        //Поля
+        /// <summary>
+        /// Строка соединяния с базой данных
+        /// </summary>
         public static System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConfigurationManager.ConnectionStrings["Sanatorium.Properties.Settings.SanatoriumConnectionString"].ConnectionString);
-
+     
+        /// <summary>
+        /// Изменение имени сервера
+        /// </summary>
+        /// <param name="nameServer">Имя сервера</param>
         public static void ChangingNameServer(string nameServer)
         {
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);//Cоздание переменной файла конфигурации
@@ -18,8 +29,13 @@ namespace Sanatorium
             config.ConnectionStrings.ConnectionStrings["Sanatorium.Properties.Settings.SanatoriumConnectionString"].ConnectionString = $"server={nameServer}; integrated security=true; database=Sanatorium";//Изменение строки соединения под текущий сервер
             config.Save();//Сохранекние конфигурации
             ConfigurationManager.RefreshSection("connectionStrings");//Обновление раздела конфигурации для последующего считывания
-        }//Изменение имени сервера
-
+        }
+        /// <summary>
+        /// Заполнение таблицы из базы данных
+        /// </summary>
+        /// <param name="sqlCommand">Sql запрос</param>
+        /// <param name="table">таблица</param>
+        /// <returns>Заполненная таблица</returns>
         public static DataTable GetData(string sqlCommand, DataTable table)
         {
             try
@@ -33,15 +49,8 @@ namespace Sanatorium
             {
                 MessageBox.Show($"Нет связи с сервером!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-
             return table;
         }//Вытягивание данных по запросу в выбранную таблицу
-
-        public static void ClearTextBox(Control.ControlCollection contains)
-        {
-            foreach (Control item in contains) if (item.GetType() == typeof(TextBox)) item.Text = "";
-        }//Очистка всех textbox на форме
 
         public static void DeletingRow(DataGridView dataGrid, string table)
         {

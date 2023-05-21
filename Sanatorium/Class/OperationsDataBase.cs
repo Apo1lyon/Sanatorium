@@ -19,7 +19,7 @@ namespace Sanatorium
         /// Построение диаграммы по таблице
         /// </summary>
         /// <param name="chart">Элемент диаграммы</param>
-        /// <param name="dataGrid">Таблица</param>
+        /// <param name="dataGrid">Экземпляр таблицы</param>
         /// <param name="type">Тип диаграммы</param>
         /// <param name="xValue">Значение X</param>
         /// <param name="yValue">Значение Y</param>
@@ -35,25 +35,25 @@ namespace Sanatorium
                 chart.Series[$"{dataGrid.Rows[rowindex].Cells[0].Value}"].ChartType = type;
             }
         }
-    /// <summary>
-    /// Построение круговой диаграммы
-    /// </summary>
-    /// <param name="chart">Элемент диаграммы</param>
-    /// <param name="dataGrid">Таблица</param>
-    /// <param name="type">Тип диаграммы</param>
-    /// <param name="xValue">Значение X</param>
-    /// <param name="yValue">Значение Y</param>
+        /// <summary>
+        /// Построение круговой диаграммы
+        /// </summary>
+        /// <param name="chart">Элемент диаграммы</param>
+        /// <param name="dataGrid">Экземпляр таблицы</param>
+        /// <param name="type">Тип диаграммы</param>
+        /// <param name="xValue">Значение X</param>
+        /// <param name="yValue">Значение Y</param>
         public void CreateChartSecondary(Chart chart, DataGridView dataGrid, SeriesChartType type, int xValue, int yValue)
         {
             chart.Series.Clear();
             Series s = chart.Series.Add("pie");
             s.ChartType = type;
             for (int rowindex = 0; rowindex < dataGrid.Rows.Count - 1; rowindex++) s.Points.AddXY(dataGrid.Rows[rowindex].Cells[xValue].Value, dataGrid.Rows[rowindex].Cells[yValue].Value);
-        }//Создание круговой диаграммы на основе таблицы
+        }
         /// <summary>
-        /// Наибольшее значение в таблице
+        /// Возвращает наибольшее значение в столбце
         /// </summary>
-        /// <param name="dataGrid">Таблица</param>
+        /// <param name="dataGrid">Экземпляр таблицы</param>
         /// <param name="columnIndex">Индекс столбца</param>
         /// <returns>Наибольшее значение</returns>
         public string ReturnDistributed(DataGridView dataGrid, int columnIndex)
@@ -64,8 +64,13 @@ namespace Sanatorium
                     return (string)dataGrid.Rows[rowIndex].Cells[0].Value;
             }
             return "";
-        } //Возвращение наибольшего значения в таблице
-       
+        }
+       /// <summary>
+       /// Возвращает наименьшее значение в столбце
+       /// </summary>
+       /// <param name="dataGrid">Экземпляр таблицы</param>
+       /// <param name="cellIndex">Индекс столбца</param>
+       /// <returns>Наименьшее значение</returns>
         public string ReturnNonDistributed(DataGridView dataGrid, int cellIndex)
         {
             if(dataGrid.Rows.Count - 1 != 0)
@@ -78,6 +83,14 @@ namespace Sanatorium
             }
             return "";
 
-        } //Возвращение наименьшего значения в таблице
+        }
+        /// <summary>
+        /// Очистить все textbox
+        /// </summary>
+        /// <param name="contains"></param>
+        public static void ClearTextBox(Control.ControlCollection contains)
+        {
+            foreach (Control item in contains) if (item.GetType() == typeof(TextBox)) item.Text = "";
+        }//Очистка всех textbox на форме
     }  
 }

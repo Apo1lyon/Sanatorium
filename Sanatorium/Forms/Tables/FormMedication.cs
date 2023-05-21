@@ -55,7 +55,7 @@ namespace Sanatorium.Forms
         private void UpdateTable()
         {
             FillDate();
-            SqlConnection.ClearTextBox(panelSetValue.Controls);
+            OperationsDataBase.ClearTextBox(panelSetValue.Controls);
             textBox1.Text = SqlConnection.NextID(dgvDataBase);
         }
         
