@@ -7,12 +7,22 @@ using System.Threading.Tasks;
 
 namespace Sanatorium
 {
+    /// <summary>
+    /// Класс для офрмления формы
+    /// </summary>
     public static class ThemeColor
     {
-
+        /// <summary>
+        /// Первый ARGB цвет
+        /// </summary>
         public static Color PrimaryColor { get; set; }
+        /// <summary>
+        /// Второй ARGB цвет
+        /// </summary>
         public static Color SecondaryColor { get; set; }
-
+        /// <summary>
+        /// Список цветов
+        /// </summary>
         public static List<string> ColorList = new List<string>() //Список цветов
         {
             "#591E4A",
@@ -32,7 +42,12 @@ namespace Sanatorium
             "#1B4E40",
             "#1E3B33",
             "#093327"};
-
+        /// <summary>
+        /// Создает подходящий по цветопередаче цвет
+        /// </summary>
+        /// <param name="color">Начальный цвет</param>
+        /// <param name="correctionFactor">Фактор цвета</param>
+        /// <returns>Возвращает структуру из четырёх компонентов</returns>
         public static Color ChangeColorBrightness(Color color, double correctionFactor) 
         {
             double red = color.R;

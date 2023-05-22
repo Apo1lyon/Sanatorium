@@ -85,7 +85,7 @@ namespace Sanatorium
 
         }
         /// <summary>
-        /// Очистить все textbox
+        /// Очистить содержимое всех textbox
         /// </summary>
         /// <param name="contains"></param>
         public static void ClearTextBox(Control.ControlCollection contains)
