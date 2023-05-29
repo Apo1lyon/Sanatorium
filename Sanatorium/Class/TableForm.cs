@@ -10,17 +10,18 @@ using System.Windows.Forms;
 
 namespace Sanatorium.Class
 {
-    internal class TableForm : Form
+    public partial class TableForm : Form
     {
         //Свойства
         private BindingSource BindingSource { get; set; }
         private DataGridView dgvDataBase { get; set; }
-        protected TextBox[] textBox { get; set; }
-        protected string table { get; set; }
+        private TextBox TextBoxId { get; set; }
+        public string TablePrimary { get; set; }
         private Panel Panel { get; set; }
 
-        protected void Form_Load(object sender, EventArgs e)
+        public void Form_Load(object sender, EventArgs e)
         {
+            LoadProperty();
             LoadTheme();
             UpdateTable();
         }
@@ -32,7 +33,8 @@ namespace Sanatorium.Class
             {
                 foreach (Control item in panel.Controls)
                 {
-                    if (item is TextBox) textBox.Append(item);
+                    if (item is TextBox)
+                        if (item.Name == "textBox1") TextBoxId = item as TextBox;
                     if (item is DataGridView)
                         if (item.Name == "dgvDataBase") dgvDataBase = (DataGridView)item;
                 }
@@ -54,18 +56,18 @@ namespace Sanatorium.Class
         private void FillDate()
         {
             BindingSource bindingSourcePrimary = new BindingSource();
-            bindingSourcePrimary.DataSource = SqlConnection.GetData($"SELECT * FROM {table}", new DataTable($"{table}"));
+            bindingSourcePrimary.DataSource = SqlConnection.GetData($"SELECT * FROM {TablePrimary}", new DataTable($"{TablePrimary}"));
             dgvDataBase.DataSource = bindingSourcePrimary;
         }
 
-        private void UpdateTable()
+        public void UpdateTable()
         {
             FillDate();
-            SqlConnection.ClearTextBox(Controls);
-            textBox[0].Text = SqlConnection.NextID(dgvDataBase);
+            OperationsDataBase.ClearTextBox(Controls);
+            TextBoxId.Text = SqlConnection.NextID(dgvDataBase);
         }
 
-        protected void OpenChildForm(Form childForm, object btnSender)
+        public void OpenChildForm(Form childForm, object btnSender)
         {
             Dispose();
             Close();
@@ -78,18 +80,7 @@ namespace Sanatorium.Class
             childForm.Show();
         }//Открытие дочерней формы
 
-        protected string CreateAddQuery(params string[] strings)
-        {
-            string query = $"insert into {table} (";
-            foreach (string s in strings) 
-            {  
-                query += s;
-                if (s != strings[strings.Length - 1]) query += ",";
-                else query += ") values (";
-            }
-            return query;
-        }
-        protected void AddValue(string addQuery)
+        public void AddValue(string addQuery)
         {
             try
             {
@@ -97,7 +88,7 @@ namespace Sanatorium.Class
                 SqlCommand sqlCommand = new SqlCommand(addQuery, SqlConnection.connection);
                 sqlCommand.ExecuteNonQuery();
                 BindingSource = new BindingSource();
-                BindingSource.DataSource = SqlConnection.GetData($"Select * From {table}", new DataTable($"{table}"));
+                BindingSource.DataSource = SqlConnection.GetData($"Select * From {TablePrimary}", new DataTable($"{TablePrimary}"));
                 UpdateTable();
                 SqlConnection.connection.Close();
             }
