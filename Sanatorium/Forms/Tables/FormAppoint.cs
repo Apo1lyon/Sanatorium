@@ -15,7 +15,6 @@ namespace Sanatorium.Forms
     {
         //Поля
         SqlCommand command;
-        BindingSource bindingSourcePrimary;
 
         string tablePrimary = "Appoint";
         string tableSecondary = "Medication";
@@ -85,9 +84,9 @@ namespace Sanatorium.Forms
 
                 command = new SqlCommand(addQuery, SqlConnection.connection);
                 command.ExecuteNonQuery();
-                
-                bindingSourcePrimary = new BindingSource();
-                bindingSourcePrimary.DataSource = SqlConnection.GetData($"Select * From {tablePrimary}", new DataTable($"{tablePrimary}"));
+
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = SqlConnection.GetData($"Select * From {tablePrimary}", new DataTable($"{tablePrimary}"));
 
                 UpdateTable();
 
