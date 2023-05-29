@@ -82,8 +82,8 @@ namespace Sanatorium
                 }
             }
             return "";
-
         }
+
         /// <summary>
         /// Очистить содержимое всех textbox
         /// </summary>

@@ -18,6 +18,7 @@ namespace Sanatorium.Class
         //Свойства
         private DataGridView dgvDataBase { get; set; }
         private TextBox TextBoxId { get; set; }
+        
         /// <summary>
         /// Название главной таблицы
         /// </summary>
@@ -51,7 +52,7 @@ namespace Sanatorium.Class
                         if (item.Name == "dgvDataBase") dgvDataBase = (DataGridView)item;
                 }
             }
-        }
+        } //Загружает свойства
         
         private void LoadTheme()
         {
