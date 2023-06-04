@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Xml;
+using Sanatorium.Properties;
 
 namespace Sanatorium
 {
@@ -25,9 +26,10 @@ namespace Sanatorium
         public static void ChangingNameServer(string nameServer)
         {
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);//Cоздание переменной файла конфигурации
-
+            
             config.ConnectionStrings.ConnectionStrings["Sanatorium.Properties.Settings.SanatoriumConnectionString"].ConnectionString = $"server={nameServer}; integrated security=true; database=Sanatorium";//Изменение строки соединения под текущий сервер
             config.Save();//Сохранекние конфигурации
+            Settings.Default.SanatoriumConnectionString = nameServer;
             ConfigurationManager.RefreshSection("connectionStrings");//Обновление раздела конфигурации для последующего считывания
         }
         /// <summary>

@@ -324,6 +324,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SanatoriumDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="Forms\List\FormListSetting.resx">
       <DependentUpon>FormListSetting.cs</DependentUpon>
