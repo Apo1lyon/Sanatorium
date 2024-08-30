@@ -27,7 +27,7 @@
 
 Для работы программы необходимо установить следующее ПО:
 1. [Microsoft SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads);
-2. Microsoft SQL Management Studio 18;
+2. [Microsoft SQL Management Studio 18](https://learn.microsoft.com/ru-ru/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16&redirectedfrom=MSDN#download-ssms);
 
 Пошаговая установка
 
